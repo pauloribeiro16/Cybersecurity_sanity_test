@@ -1,0 +1,165 @@
+Cybersecurity Sanity Test Log
+Run Mode: gemma3n_e2b
+Initialized: 2025-07-14T15:06:52.979874
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:07:09.525936
+Model: gemma3n:e2b
+Category: Basic Definitions
+Response Time: 16.53 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is a security requirement?
+
+LLM RESPONSE:
+A security requirement is a specific, measurable, achievable, relevant, and time-bound (SMART) statement that outlines what security controls *must* be implemented to protect information and assets. It defines the desired security outcome. 
+
+Essentially, it's a clear specification of a security need.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:07:26.763662
+Model: gemma3n:e2b
+Category: Frameworks
+Response Time: 17.23 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What are the five core functions of the NIST Cybersecurity Framework (CSF)?
+
+LLM RESPONSE:
+The five core functions of the NIST Cybersecurity Framework are:
+
+1. **Identify:** Understanding and protecting critical assets.
+2. **Protect:** Implementing safeguards to prevent unauthorized access, use, disclosure, disruption, modification, or destruction of assets.
+3. **Detect:**  Monitoring for cybersecurity events and incidents.
+4. **Respond:**  Containing and mitigating cybersecurity incidents.
+5. **Recover:** Restoring systems and data after a cybersecurity incident.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:07:37.552624
+Model: gemma3n:e2b
+Category: Security Controls
+Response Time: 10.78 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Which NIST 800-53 control family is primarily responsible for audit and accountability?
+
+LLM RESPONSE:
+The **Audit and Accountability** control family (CA.01-CA.09) is primarily responsible for audit and accountability within the NIST 800-53 framework.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:08:05.858931
+Model: gemma3n:e2b
+Category: Vulnerabilities
+Response Time: 28.31 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is CWE-79 and what type of vulnerability does it represent?
+
+LLM RESPONSE:
+**CWE-79: Improper Handling of External Data**
+
+This vulnerability represents a **data-related vulnerability**. It occurs when an application doesn't properly validate or sanitize data received from an external source (e.g., user input, network data, files). 
+
+**In essence, it's a vulnerability where the application doesn't adequately protect itself from malicious or unexpected data.** This can lead to various issues like:
+
+*   **Injection attacks:**  Malicious code can be injected into the data.
+*   **Denial of Service (DoS):**  The application can be overwhelmed by excessive or malformed data.
+*   **Information disclosure:** Sensitive data can be exposed.
+*   **Data corruption:**  The application's state can be altered.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:08:16.718367
+Model: gemma3n:e2b
+Category: Threat Modeling
+Response Time: 10.85 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does STRIDE stand for in threat modeling?
+
+LLM RESPONSE:
+STRIDE stands for **Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.** It's a mnemonic used to categorize potential threats during threat modeling.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:08:36.905902
+Model: gemma3n:e2b
+Category: Regulations/Directives
+Response Time: 20.18 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is the main difference between NIS 2 Directive and GDPR?
+
+LLM RESPONSE:
+The main difference is that **NIS Directive focuses on cybersecurity of critical infrastructure, while GDPR focuses on the protection of personal data.** 
+
+*   **NIS Directive:**  Aims to improve cybersecurity across Europe's critical infrastructure (energy, transport, digital, etc.) by requiring operators to implement cybersecurity measures.
+*   **GDPR:**  A data protection regulation governing the processing of personal data of individuals within the EU. It sets strict rules about data collection, storage, and use.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:08:50.081448
+Model: gemma3n:e2b
+Category: Basic Principles
+Response Time: 13.17 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does the CIA triad stand for in information security?
+
+LLM RESPONSE:
+The CIA triad stands for **Confidentiality, Integrity, and Availability**. 
+
+*   **Confidentiality:** Protecting information from unauthorized disclosure.
+*   **Integrity:** Ensuring information is accurate and hasn't been altered.
+*   **Availability:** Guaranteeing authorized users can access information when needed.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gemma3n:e2b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 117.06 seconds
+  - Average Response Time: 16.72 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

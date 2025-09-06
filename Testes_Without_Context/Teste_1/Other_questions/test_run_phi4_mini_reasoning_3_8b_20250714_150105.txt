@@ -1,0 +1,37 @@
+Cybersecurity Sanity Test Log
+Run Mode: phi4_mini_reasoning_3_8b
+Initialized: 2025-07-14T15:01:05.703487
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T15:01:42.914961
+Model: phi4-mini-reasoning:3.8b
+Category: Basic Principles - Application
+Response Time: 37.20 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+<answer>
+The use of data checksums for verifying file integrity in a cloud storage service upholds the Integrity principle of the CIA triad. Checksums ensure that data has not been accidentally or maliciously altered, maintaining the correctness and consistency of the information.</answer>
+
+#### Explanation:
+Checksums like SHA-256 generate a unique hash value for binary data. When a file is uploaded or downloaded, recalculating the checksum and comparing it to the original confirms that the data remains unchanged, thereby upholding Data Integrity as part of the CIA triad (Confidentiality, Integrity, Availability).
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: phi4-mini-reasoning:3.8b
+  - Total Tests: 1
+  - Total Time Spent in LLM Calls: 37.20 seconds
+  - Average Response Time: 37.20 seconds
+
+Total Number of Test Cases Configured: 1
+
+End of Log.

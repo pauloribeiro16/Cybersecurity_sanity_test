@@ -1,0 +1,170 @@
+Cybersecurity Sanity Test Log
+Run Mode: granite3_3_8b
+Initialized: 2025-07-15T23:29:16.008545
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:29:44.394648
+Model: granite3.3:8b
+Category: Basic Definitions
+Response Time: 28.37 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is a security requirement?
+
+LLM RESPONSE:
+A security requirement is a specific need or condition that must be met to protect information systems, networks, and data from unauthorized access, use, disclosure, disruption, modification, or destruction. It often involves implementing safeguards such as firewalls, encryption, user authentication, and other technical, administrative, and physical measures to mitigate potential risks and threats in a system.
+
+EXPECTED SHORT ANSWER:
+A security requirement is a statement of needed security functionality or a constraint that ensures the security of a system or application.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:30:10.509189
+Model: granite3.3:8b
+Category: Frameworks
+Response Time: 26.11 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What are the five core functions of the NIST Cybersecurity Framework (CSF)?
+
+LLM RESPONSE:
+1. Identify: Understand your organization's cybersecurity risk to systems, assets, data, and capabilities.
+2. Protect: Implement appropriate safeguards to ensure delivery of critical infrastructure services.
+3. Detect: Develop and implement activities to identify the occurrence of a cybersecurity event.
+4. Respond: Establish a plan to address and manage the consequences of a cybersecurity event.
+5. Recover: Create a plan to restore any capabilities or services that were impaired due to a cybersecurity event.
+
+EXPECTED SHORT ANSWER:
+The five core functions of the NIST CSF are Identify, Protect, Detect, Respond, and Recover.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:30:28.845459
+Model: granite3.3:8b
+Category: Security Controls
+Response Time: 18.33 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Which NIST 800-53 control family is primarily responsible for audit and accountability?
+
+LLM RESPONSE:
+The Audit and Accountability control family falls under the NIST 800-53 Revision 4, specifically in the "AU" series of controls (AU-1 to AU-27). These controls provide a framework for ensuring that activities and changes on information systems are tracked, monitored, and recorded for accountability purposes.
+
+EXPECTED SHORT ANSWER:
+The 'AU' (Audit and Accountability) control family is responsible for audit logging and related controls.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:30:49.921146
+Model: granite3.3:8b
+Category: Vulnerabilities
+Response Time: 21.07 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is CWE-79 and what type of vulnerability does it represent?
+
+LLM RESPONSE:
+CWE-79, also known as "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')", represents a type of security vulnerability commonly referred to as Cross-Site Scripting (XSS). It occurs when a web application fails to properly validate or sanitize user inputs before including them in its responses, allowing an attacker to inject malicious scripts into web pages viewed by other users.
+
+EXPECTED SHORT ANSWER:
+CWE-79 is 'Improper Neutralization of Input During Web Page Generation', commonly known as Cross-Site Scripting (XSS). It's an injection vulnerability.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:31:07.584490
+Model: granite3.3:8b
+Category: Threat Modeling
+Response Time: 17.66 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does STRIDE stand for in threat modeling?
+
+LLM RESPONSE:
+In threat modeling, STRIDE is an acronym that stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. It's a model used to identify potential threats in a system. Each letter represents a type of threat that can be encountered during the development phase.
+
+EXPECTED SHORT ANSWER:
+STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:31:45.856537
+Model: granite3.3:8b
+Category: Regulations/Directives
+Response Time: 38.27 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is the main difference between NIS 2 Directive and GDPR?
+
+LLM RESPONSE:
+The main differences between the Network and Information Security (NIS 2) Directive and the General Data Protection Regulation (GDPR) are their focus and scope:
+
+1. Focus: While GDPR focuses on data protection and privacy rights for individuals within the EU, NIS 2 is about cybersecurity measures to ensure a high common level of security across the EU in critical sectors like energy, transportation, healthcare, and finance.
+
+2. Scope: GDPR applies to all organizations processing personal data of EU residents, irrespective of where the organization is located. NIS 2, however, targets specific sectors regardless of their location within or outside the EU, aiming at enhancing their cybersecurity practices to prevent and manage risks to critical infrastructure security.
+
+EXPECTED SHORT ANSWER:
+GDPR protects personal data across all sectors, while the NIS 2 Directive focuses on the operational cybersecurity and resilience of critical infrastructure and essential services.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-15T23:31:54.882660
+Model: granite3.3:8b
+Category: Basic Principles
+Response Time: 9.02 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does the CIA triad stand for in information security?
+
+LLM RESPONSE:
+The CIA triad stands for Confidentiality, Integrity, and Availability - three core principles of information security.
+
+EXPECTED SHORT ANSWER:
+The CIA triad stands for Confidentiality, Integrity, and Availability.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: granite3.3:8b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 158.83 seconds
+  - Average Response Time: 22.69 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

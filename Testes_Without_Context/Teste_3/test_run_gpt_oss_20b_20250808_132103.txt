@@ -1,0 +1,198 @@
+Cybersecurity Sanity Test Log
+Run Mode: gpt_oss_20b
+Initialized: 2025-08-08T13:21:03.253398
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:26:15.619844
+Model: gpt-oss:20b
+Category: Basic Definitions
+Response Time: 312.35 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is a security requirement?
+
+LLM RESPONSE:
+A **security requirement** is a formal statement that specifies a necessary condition, capability, or constraint a system must meet to protect its data and resources. It defines *what* security must be achieved (e.g., confidentiality, integrity, availability, authentication, non‑repudiation, auditability) and *how* it is measured or verified.
+
+Key points:
+
+| Aspect | Explanation |
+|--------|-------------|
+| **Purpose** | Guides design, implementation, and testing to ensure the system meets protection goals and regulatory obligations. |
+| **Scope** | Covers all security aspects, including data, processes, and people. |
+| **Nature** | Often expressed in a testable form: “User X must be able to authenticate with two‑factor authentication before accessing sensitive data.” |
+| **Difference from functional requirements** | Functional requirements describe *what* the system does; security requirements describe *how* it does it safely. |
+| **Examples** | • All stored passwords must be salted and hashed with a strong algorithm.<br>• The system shall log all administrative actions and retain logs for 90 days.<br>• The application must enforce role‑based access control with least privilege. |
+
+Security requirements are usually captured in a requirements document, tracked through the development lifecycle, and validated by security testing or audits.
+
+EXPECTED SHORT ANSWER:
+A security requirement is a statement of needed security functionality or a constraint that ensures the security of a system or application.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:28:26.183791
+Model: gpt-oss:20b
+Category: Frameworks
+Response Time: 130.55 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What are the five core functions of the NIST Cybersecurity Framework (CSF)?
+
+LLM RESPONSE:
+The NIST Cybersecurity Framework is built around five core functions:
+
+1. **Identify** – Understand the organizational context, risk environment, and cybersecurity assets.  
+2. **Protect** – Implement safeguards to limit or contain the impact of potential cybersecurity events.  
+3. **Detect** – Develop and deploy activities that enable timely discovery of cybersecurity events.  
+4. **Respond** – Take action to contain, investigate, and mitigate detected incidents.  
+5. **Recover** – Restore normal operations and improve resilience following an incident.
+
+EXPECTED SHORT ANSWER:
+The five core functions of the NIST CSF are Identify, Protect, Detect, Respond, and Recover.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:29:39.521615
+Model: gpt-oss:20b
+Category: Security Controls
+Response Time: 73.34 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+Which NIST 800-53 control family is primarily responsible for audit and accountability?
+
+LLM RESPONSE:
+The NIST 800‑53 control family responsible for audit and accountability is the **AU (Audit and Accountability)** family.
+
+EXPECTED SHORT ANSWER:
+The 'AU' (Audit and Accountability) control family is responsible for audit logging and related controls.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:32:03.823536
+Model: gpt-oss:20b
+Category: Vulnerabilities
+Response Time: 144.30 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is CWE-79 and what type of vulnerability does it represent?
+
+LLM RESPONSE:
+**CWE‑79** is the identifier for the *Cross‑Site Scripting (XSS)* weakness in the Common Weakness Enumeration (CWE) list.  
+
+It represents a **client‑side injection vulnerability** where an attacker can inject malicious scripts into web pages viewed by other users, potentially leading to data theft, session hijacking, defacement, or other malicious actions.
+
+EXPECTED SHORT ANSWER:
+CWE-79 is 'Improper Neutralization of Input During Web Page Generation', commonly known as Cross-Site Scripting (XSS). It's an injection vulnerability.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:34:00.915100
+Model: gpt-oss:20b
+Category: Threat Modeling
+Response Time: 117.09 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does STRIDE stand for in threat modeling?
+
+LLM RESPONSE:
+**STRIDE** is a Microsoft framework for threat modeling. It stands for:
+
+- **S**poofing  
+- **T**ampering  
+- **R**epudiation  
+- **I**nformation disclosure  
+- **D**enial of service  
+- **E**levation of privilege  
+
+Each letter represents a category of potential security threats to consider when analyzing a system.
+
+EXPECTED SHORT ANSWER:
+STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:37:25.547602
+Model: gpt-oss:20b
+Category: Regulations/Directives
+Response Time: 204.63 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What is the main difference between NIS 2 Directive and GDPR?
+
+LLM RESPONSE:
+**NIS 2** is a security‑focused directive that requires operators of essential services and digital services to implement technical, organizational and incident‑response measures to keep their networks and information systems secure.  
+**GDPR** is a data‑protection regulation that governs how personal data must be collected, processed, stored and transferred, and gives individuals rights over that data.
+
+**In short:** NIS 2 protects the integrity and availability of critical digital infrastructure, whereas GDPR protects the privacy and rights of individuals’ personal data.
+
+EXPECTED SHORT ANSWER:
+GDPR protects personal data across all sectors, while the NIS 2 Directive focuses on the operational cybersecurity and resilience of critical infrastructure and essential services.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-08-08T13:38:46.496625
+Model: gpt-oss:20b
+Category: Basic Principles
+Response Time: 80.95 seconds
+
+SYSTEM PROMPT:
+You are a helpful assistant specialized in cybersecurity topics. Answer the user's question directly and concisely.
+
+USER PROMPT:
+What does the CIA triad stand for in information security?
+
+LLM RESPONSE:
+The CIA triad is the core model for information‑security objectives:
+
+- **C**onfidentiality – keeping data private and accessible only to authorized users.  
+- **I**ntegrity – ensuring data is accurate, complete, and has not been altered without authorization.  
+- **A**vailability – ensuring data and systems are available and operational when needed.
+
+EXPECTED SHORT ANSWER:
+The CIA triad stands for Confidentiality, Integrity, and Availability.
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gpt-oss:20b
+  - Total Tests: 7
+  - Total Time Spent in LLM Calls: 1063.20 seconds
+  - Average Response Time: 151.89 seconds
+
+Total Number of Test Cases Configured: 7
+
+End of Log.

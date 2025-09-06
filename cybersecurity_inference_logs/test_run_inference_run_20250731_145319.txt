@@ -1,0 +1,408 @@
+Cybersecurity Inference Test Log
+Run Mode: inference_run
+Initialized: 2025-07-31T14:53:19.043368
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T14:54:48.845865
+Model: gemma3:4b
+Category: Inference - Deductive Reasoning
+Response Time: 89.80 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+An analyst observes: 1) A key web server's CPU is at 100%. 2) Logs show massive login requests from thousands of IPs to the admin page. 3) No logins succeed. What is the most likely cyberattack type, and which two elements of the CIA triad are primarily targeted?
+
+LLM RESPONSE:
+Okay, let's break down this situation step-by-step to determine the most likely cyberattack and the targeted CIA triad elements.
+
+**1. Reasoning Process:**
+
+* **High CPU Utilization (100%):** This immediately points to a resource-intensive attack. An attacker isn't just trying to steal data; they're actively consuming server resources, often to mask their activities or cause a denial-of-service.
+* **Massive Login Requests to Admin Page:** This is a classic brute-force or credential stuffing attack targeting administrative access. The sheer volume of requests strongly suggests an automated attack, not a single determined individual.
+* **No Logins Succeed:** This is *crucial*.  It confirms the attack isn't a successful compromise. The attacker is attempting to gain access but is failing. This limits the attack's immediate impact but doesn't diminish the threat.
+* **Combining the Evidence:**  The combination of high CPU usage, large numbers of login attempts, and failed logins strongly suggests a **brute-force attack** (or potentially credential stuffing, but brute-force is the more likely initial stage).  Attackers are systematically trying username/password combinations.
+
+**2. Most Likely Cyberattack Type:**
+
+Based on the evidence, the most likely cyberattack type is a **Brute-Force Attack** targeting the web server's administrative interface.
+
+
+**3. CIA Triad Elements Primarily Targeted:**
+
+The CIA triad focuses on Confidentiality, Integrity, and Availability. In this scenario, the primary elements targeted are:
+
+*   **Confidentiality:** The attacker’s goal is to *gain access* to the administrative interface. Successful access would directly violate confidentiality by allowing the attacker to modify system settings, access sensitive data, or install malware.
+*   **Availability:**  While the attack isn't *directly* causing a denial of service (because logins fail), the massive number of requests are still consuming server resources. This places a significant strain on the server, potentially impacting legitimate user access and degrading service availability, even if the attack doesn't fully succeed.
+
+
+**Clear and Direct Answer:**
+
+The most likely cyberattack type is a **Brute-Force Attack** targeting the web server's admin page. The two primary elements of the CIA triad targeted are **Confidentiality** (through unauthorized access) and **Availability** (due to resource consumption).
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T14:56:41.383243
+Model: gemma3:4b
+Category: Inference - Deductive Reasoning
+Response Time: 112.53 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+The CFO receives a convincing email from the 'CEO' asking for an urgent wire transfer. The CFO complies. Later, it's discovered the CEO never sent it. In the STRIDE model, what is the primary threat category demonstrated? Which NIST CSF function covers the actions needed *after* the money is sent?
+
+LLM RESPONSE:
+Okay, let's break this down step-by-step, applying my cybersecurity analyst expertise.
+
+**1. Understanding the Scenario & Threat Identification (STRIDE)**
+
+* **The Situation:** A CFO, believing a message was from the CEO, executed a wire transfer. The CEO never authorized it. This indicates a significant breach of trust and potentially a sophisticated attack.
+* **STRIDE Model:** The STRIDE model is a threat classification methodology. Let's map the situation to the STRIDE categories:
+    * **S - Spoofing:** This is the *primary* threat demonstrated. The attacker successfully impersonated the CEO through a forged email (spoofing the sender’s identity) and potentially even spoofed the CEO’s tone and language to appear legitimate. The core of the attack is a deception tactic.
+    * **R - Repudiation:** While present, this isn't the *primary* driver. The CFO could potentially deny authorizing the transfer, but the root cause is the initial deception.
+    * **T - Tampering:**  Not directly evident here. The transfer occurred, but the CEO didn’t initiate it.
+    * **I - Information Disclosure:**  Potentially relevant, depending on what information was in the email that led to the transfer. However, the core issue is the impersonation.
+    * **D - Denial of Service:** Not applicable in this scenario.
+    * **E - Elevation of Privilege:**  Not directly related.
+
+
+**2. NIST CSF Coverage - Actions After the Money is Sent**
+
+Once the CFO has, in good faith, transferred the funds, the NIST Cybersecurity Framework (CSF) focuses on responding and recovering.  Here’s which CSF functions are most relevant *after* the transfer:
+
+* **Identify (ID):**  This is crucial. The organization needs to immediately acknowledge the incident, formally investigate, and determine the extent of the damage.  This includes notifying relevant parties (legal, internal audit, etc.).
+* **Protect (PR):**  This function addresses how to prevent similar incidents. Specifically, this would involve enhancing controls to detect and prevent phishing attacks, improving email authentication (SPF, DKIM, DMARC), and reinforcing employee training on recognizing suspicious emails.  A key aspect is improving the MFA implementation to prevent attackers from gaining access using compromised credentials.
+* **Detect (DE):**  The organization needs to monitor for fraudulent activity, investigate transactions, and utilize threat intelligence feeds.
+* **Respond (RS):** This function covers the immediate steps to contain the damage. This includes:
+    *  Contacting the financial institution to attempt to reverse the transfer (though success isn't guaranteed).
+    *  Alerting law enforcement.
+    *  Preserving evidence (email, transaction records).
+* **Recover (RC):**  This encompasses restoring systems and data, conducting a thorough forensic investigation, and refining security policies based on lessons learned.
+
+**Clear and Direct Answer:**
+
+*   **Primary STRIDE Threat Category:** Spoofing
+*   **NIST CSF Function Covering Actions After Money is Sent:** Primarily Respond (RS), with significant overlap and ongoing involvement from Detect (DE), Protect (PR), and Recover (RC) functions.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T14:58:04.887228
+Model: gemma3:4b
+Category: Inference - Deductive Reasoning
+Response Time: 83.49 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+One week after a developer leaves the company, their account is used to access and exfiltrate a sensitive code repository. Which two security control domains most likely failed? What fundamental security principle was violated regarding user account management?
+
+LLM RESPONSE:
+Okay, let's break down this scenario and determine the likely security control failures and the violated principle.
+
+**Step-by-Step Reasoning Process:**
+
+1. **Understand the Situation:** The core issue is unauthorized access to a sensitive code repository *immediately* following a developer’s departure. This strongly suggests a planned or opportunistic event, not a random accident. The timing is key.
+
+2. **Identify Potential Attack Vectors:** When a developer leaves, there are several potential vulnerabilities to exploit. These include:
+    * **Account Access:** The compromised developer account itself is the primary target.
+    * **Access Rights:** The developer likely retained access rights that were no longer necessary but still allowed access to sensitive data.
+    * **Lack of Monitoring:** The organization wasn’t effectively monitoring for unusual activity associated with the departing employee’s account.
+    * **Data Loss Prevention (DLP) Absence:** There may not have been systems in place to immediately detect and block the exfiltration of code.
+
+3. **Identify Relevant Security Control Domains:**  Security control domains are broad categories of security practices. Given the scenario, the two most likely control domains to have failed are:
+
+   * **Identity and Access Management (IAM):** This domain encompasses all processes and technologies related to user authentication, authorization, and account management. It’s *the* most directly relevant control domain in this case. The failure here manifests as a lack of proper account termination procedures and access revocation.
+   * **Monitoring and Logging:** This domain involves collecting, analyzing, and responding to security events. The lack of adequate monitoring likely meant that the exfiltration went undetected for a significant period.
+
+4. **Fundamental Security Principle Violated:** The fundamental security principle violated is **Least Privilege**. Least privilege dictates that users should only be granted the minimum level of access necessary to perform their job duties. In this case, the departing developer’s account likely retained elevated access rights that were exploited by the attacker.
+
+
+
+
+**Clear and Direct Answer:**
+
+The two security control domains most likely failed are:
+
+1.  **Identity and Access Management (IAM)**
+2.  **Monitoring and Logging**
+
+The fundamental security principle violated was **Least Privilege**.  The developer’s account likely continued to have elevated access rights after their departure, enabling the exfiltration. 
+
+Do you want me to elaborate on any specific aspect of this analysis, such as:
+
+*   Specific IAM best practices that could have prevented this?
+*   How monitoring and logging could have detected the incident?
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:00:12.675040
+Model: gemma3:4b
+Category: Inference - Comparative Analysis
+Response Time: 127.78 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A team is deciding between a Web Application Firewall (WAF) and Runtime Application Self-Protection (RASP) to protect a custom application. Compare the two based on their deployment location and detection method. Which is better at stopping zero-day attacks and why?
+
+LLM RESPONSE:
+Okay, let's break down this question systematically.  A cybersecurity analyst's approach to questions like this involves several key steps:
+
+1. **Understand the Core Problem:** The user wants a comparative analysis of WAFs and RASP, specifically focusing on deployment location and detection methods, and crucially, their effectiveness against zero-day attacks. This isn't just about choosing a technology; it’s about understanding *how* each technology works and what its strengths and weaknesses are in the context of protecting a custom application.
+
+2. **Define the Technologies:**
+   * **WAF (Web Application Firewall):**  A WAF sits *in front* of the web application. It examines HTTP/HTTPS traffic *before* it reaches the application server. It operates primarily at Layer 7 (Application Layer) of the OSI model, analyzing the *content* of the requests and responses. Think of it as a filter for web traffic.
+   * **RASP (Runtime Application Self-Protection):** RASP agents are deployed *within* the application server's runtime environment. They observe the application's behavior *as it’s running* and can directly intercept and modify requests and responses in real-time. They aren’t just filtering traffic; they're inspecting the execution.
+
+3. **Analyze Deployment Location & Detection Method:**
+   * **WAF Deployment & Detection:**
+      * **Location:**  Network Edge (e.g., Cloud Provider WAF, CDN, or a dedicated appliance).
+      * **Detection Method:** Signature-based (recognizing known attack patterns), anomaly-based (detecting deviations from normal behavior), and sometimes behavioral analysis. It relies on *looking for* known threats.
+   * **RASP Deployment & Detection:**
+      * **Location:** Inside the application server's runtime environment (e.g., Java Virtual Machine, .NET CLR).
+      * **Detection Method:**  Real-time monitoring of the application's internal state, code execution, and memory. It’s fundamentally observing the *process* of the application running.
+
+4. **Compare for Zero-Day Attacks:** This is the critical element of the question.
+
+5. **Reasoning on Zero-Day Effectiveness:** This is where the core difference lies.
+
+**Now, let's provide the clear and direct answer:**
+
+**RASP is significantly better at stopping zero-day attacks than a WAF.**
+
+Here’s *why*:
+
+* **WAFs rely on signatures:** WAFs work by matching traffic against a database of known attack signatures.  Zero-day attacks, by definition, are *unknown* attacks.  If the attack isn’t in the WAF’s signature database, it will pass through.
+* **RASP Observes Behavior:** RASP operates *inside* the application. It’s monitoring the *actual execution* of the code.  Even if the attack isn’t recognized as a signature, RASP can detect malicious behavior based on what the application is *doing* – such as an attempt to access a restricted resource, or unusual data manipulation.  It’s detecting the *intent* of the attack, not just the pattern of the traffic.
+
+**In essence:**  A WAF is like a burglar alarm that reacts to a specific trigger (a known intruder). RASP is like a security guard who knows *how* a burglar should behave and can stop them regardless of how they try to break in.
+
+**Important Note:** WAFs still play a vital role in security, particularly for mitigating known vulnerabilities and providing a first line of defense. However, for truly robust protection against zero-day exploits, RASP is the superior technology.  A layered security approach, combining WAFs and RASP, is generally recommended.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:02:20.217483
+Model: gemma3:4b
+Category: Inference - Comparative Analysis
+Response Time: 127.54 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A critical vulnerability is found in a production system. The team can either take the system offline for an emergency patch, risking business downtime, or apply a virtual patch via their IPS. Explain the trade-off between these two actions in terms of risk reduction and operational impact.
+
+LLM RESPONSE:
+Okay, let’s break down this scenario as a cybersecurity analyst would. Here's my step-by-step reasoning process:
+
+1. **Identify the Core Problem:** A critical vulnerability exists in a production system. This means the system is currently exposed to a significant security risk.  “Critical” implies the vulnerability could lead to a serious compromise – data breach, service disruption, reputational damage, etc.
+
+2. **Understand the Options:** The team has two primary responses:
+   * **Emergency Patch (Offline):** Taking the system offline completely to deploy the fix.
+   * **Virtual Patch (IPS):** Using an Intrusion Prevention System (IPS) to mitigate the vulnerability *without* taking the system offline.
+
+3. **Analyze Risk Reduction – Emergency Patch:**
+   * **Positive:** A complete patch eliminates the vulnerability. It’s the most definitive way to reduce risk. It removes the root cause of the potential problem.
+   * **Negative:**  Taking the system offline *always* introduces downtime.  The extent of the impact depends on the system’s criticality, the volume of business reliant on it, and the speed of the deployment.  This downtime creates a direct operational impact and potential revenue loss, customer dissatisfaction, and service level agreement (SLA) breaches.
+
+4. **Analyze Risk Reduction – Virtual Patch (IPS):**
+   * **Positive:** An IPS can block exploitation attempts targeting the vulnerability *without* shutting down the system. This minimizes operational impact.  It acts as a reactive shield.
+   * **Negative:** A virtual patch is *not* a permanent solution. It’s a mitigation – it only works as long as the vulnerability is actively being exploited. If attackers find a new attack vector or bypass the IPS rule, the system remains vulnerable.  It provides temporary protection, not a long-term fix. It also can consume IPS resources, potentially impacting other security measures.
+
+5. **Compare & Contrast the Trade-offs:**  We’re dealing with a classic risk vs. impact trade-off. The emergency patch offers the highest level of risk reduction (complete elimination), but at the cost of significant operational impact. The virtual patch reduces risk immediately, but offers only temporary protection and relies on the IPS being effective against evolving attacks.
+
+6. **Considerations for Decision-Making:** Factors beyond just the technical trade-off are crucial. These include:
+    * **Exploit Availability:** Is the vulnerability actively being exploited? (If not, the IPS might be sufficient until a full patch can be deployed).
+    * **Patch Deployment Time:** How long will it take to deploy the full patch?
+    * **Business Impact of Downtime:**  What is the *realistic* impact of system downtime? (Can it be tolerated, or does it require a rapid recovery plan?)
+    * **IPS Effectiveness:**  How confident are we that the IPS can effectively block attacks targeting this specific vulnerability?
+
+**Clear and Direct Answer:**
+
+The core trade-off is between immediate risk reduction (through a full emergency patch) and minimizing operational impact (via a virtual patch).  A full patch provides definitive vulnerability remediation, but risks significant downtime. A virtual patch, deployed via an IPS, offers temporary protection without system downtime, but is a reactive measure and its effectiveness relies on continuous monitoring and updates. The best approach depends critically on the *urgency* of the threat (is the vulnerability being actively exploited?), the *impact* of downtime, and the confidence in the IPS’s ability to block relevant attacks.  Generally, if the vulnerability is actively exploited, or downtime is extremely detrimental, deploying the full patch *despite* the downtime risk is the preferred option.  Otherwise, the IPS provides a reasonable, albeit temporary, solution.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:04:17.488758
+Model: gemma3:4b
+Category: Inference - Comparative Analysis
+Response Time: 117.26 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A FinTech startup processes credit card data and also wants to demonstrate strong overall security practices to investors. Should they prioritize achieving PCI DSS compliance or ISO 27001 certification first? Justify your choice.
+
+LLM RESPONSE:
+Okay, let's break this down methodically. As a cybersecurity analyst, my priority is to advise this FinTech startup on the most impactful first step toward bolstering their security posture and impressing investors. Here’s my step-by-step reasoning:
+
+1. **Understand the User's Goals:** The startup wants *both* PCI DSS compliance *and* to demonstrate strong overall security. This means we need to assess which will be more valuable in achieving those goals and which will likely garner greater investor confidence.
+
+2. **Analyze PCI DSS vs. ISO 27001:**
+   * **PCI DSS (Payment Card Industry Data Security Standard):** This is a *mandatory* standard specifically for organizations that *handle* credit card data. It focuses on controls directly related to protecting sensitive payment information.  It's largely compliance-driven, meaning the goal is to meet specific technical and procedural requirements. Failure to meet PCI DSS can lead to crippling fines, lawsuits, and irreparable damage to the company’s reputation.
+   * **ISO 27001:** This is an *internationally recognized standard* for Information Security Management Systems (ISMS). It's a broader framework that covers *all* information security aspects – not just payment card data. It emphasizes a risk-based approach to security, including policies, procedures, and controls for all assets, not just those handling card data.
+
+3. **Prioritization Rationale:** Given the startup's stated goals, **ISO 27001 certification should be prioritized first.** Here's why:
+
+   * **Broader Impact & Investor Appeal:** Investors are increasingly interested in a holistic approach to security. Achieving ISO 27001 demonstrates a commitment to robust information security practices across the *entire* organization – from data storage to employee training to incident response.  This signals a mature security program.
+   * **PCI DSS Implementation is *More Difficult*:** Implementing PCI DSS can be a complex, time-consuming, and costly process. It requires specific assessments, controls, and ongoing monitoring. Starting with ISO 27001 provides a foundational framework that makes the PCI DSS implementation significantly smoother and less disruptive.
+   * **Foundation for PCI DSS:**  Meeting many of the ISO 27001 controls will *directly* map to PCI DSS requirements.  For instance, a strong ISO 27001 access control policy will almost certainly align with PCI DSS access controls.
+   * **Demonstrating Good Security Hygiene:** Regardless of payment card data, demonstrating an ISMS in place (ISO 27001) shows due diligence and a proactive security posture, which is what investors value.
+
+
+4. **Phased Approach:**  The startup could, *after* obtaining ISO 27001, then focus specifically on the PCI DSS requirements as needed, building upon their existing security foundation.
+
+**Clear & Direct Answer:**
+
+The FinTech startup should prioritize achieving **ISO 27001 certification** first. This demonstrates a broader commitment to information security, which is more likely to impress investors. While PCI DSS compliance is critical, starting with ISO 27001 will provide a more robust foundation and streamline the PCI DSS implementation process.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:05:59.389509
+Model: gemma3:4b
+Category: Inference - Planning & Sequencing
+Response Time: 101.90 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+Your company discovers it's vulnerable to Log4Shell (CVE-2021-44228) on internet-facing servers. Using the NIST CSF: 1) What is one immediate 'Respond' action? 2) What is one immediate 'Protect' action? 3) What fundamental principle of the CIA triad is most at risk?
+
+LLM RESPONSE:
+Okay, let's break down this Log4Shell vulnerability situation through the lens of the NIST Cybersecurity Framework (CSF). My goal is to provide a practical, prioritized response based on the framework’s structure.
+
+**Step-by-Step Reasoning Process:**
+
+1. **Understanding the Situation:** Log4Shell is a *critical* vulnerability. It allows attackers to execute arbitrary code on vulnerable servers simply by crafting a specific string in a log message. This is a widespread, easily exploited attack. The fact that it's on internet-facing servers dramatically increases the risk.
+
+2. **NIST CSF Breakdown:** The CSF organizes cybersecurity activities into five core Functions: Identify, Protect, Detect, Respond, and Recover.  We need to map our response to these functions to address this immediate crisis.
+
+3. **Prioritization:** Given the severity and reach of Log4Shell, we need rapid, impactful actions.  Immediate actions should focus on containment and preventing further exploitation.
+
+
+**Answers – Based on NIST CSF:**
+
+1. **Immediate ‘Respond’ Action:** **Implement Immediate Blocking of JNDI Lookups in Log4j Logs.** This is the single most critical immediate response. Log4j (the vulnerable library) utilizes JNDI lookups which are the core mechanism exploited by the vulnerability. We must configure our logging systems to block or sanitize any JNDI lookups within Log4j logs. This is a direct and effective way to halt exploitation attempts *immediately*.  This falls squarely under the 'Respond' function's core activity of "Contain”: preventing or limiting the impact of an incident.
+
+2. **Immediate ‘Protect’ Action:** **Implement Network Segmentation and Firewall Rules to Isolate Affected Servers.**  While blocking JNDI lookups stops exploitation attempts, it doesn’t address the underlying vulnerability. We need to limit the blast radius. Segmenting the affected servers from the rest of the network prevents attackers from potentially moving laterally and compromising other systems. Simultaneously, applying firewall rules to deny outbound connections to known malicious IPs associated with Log4Shell attacks is vital. This action aligns with the ‘Protect’ function's core activity of "Implement Countermeasures."
+
+3. **Fundamental CIA Triad Principle at Risk:** **Confidentiality.** Log4Shell allows an attacker to execute arbitrary code. This means they can potentially steal sensitive data, modify data, or completely compromise the system's integrity. The vulnerability fundamentally undermines the confidentiality of the data processed and stored on the affected servers.
+
+
+
+**Important Note:** This provides immediate tactical responses. A full mitigation strategy requires a longer-term approach including patching, vulnerability assessments, and continuous monitoring.
+
+Do you want me to elaborate on any of these points (e.g., specific patching procedures, network segmentation strategies, or the scope of a vulnerability assessment)?
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:07:35.940141
+Model: gemma3:4b
+Category: Inference - Planning & Sequencing
+Response Time: 96.54 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A startup is building its first cloud-native mobile application. Outline the first THREE security activities they should integrate into their software development lifecycle (SDLC) from day one.
+
+LLM RESPONSE:
+Okay, let's break this down. The question asks for the *first three* security activities a startup should integrate into their SDLC for a cloud-native mobile app. As a cybersecurity analyst, my priority is to ensure a solid foundation for security – not to overwhelm the startup with complex solutions right from the start. Given this is a *first* app and a cloud-native architecture, we need to focus on practical, impactful measures that can be reasonably implemented early.
+
+Here’s my step-by-step reasoning:
+
+1. **Secure Coding Practices & Static Analysis:**  *Why?* Mobile apps are frequently targets for vulnerabilities like insecure data storage, improper authentication, and weak input validation.  These vulnerabilities often stem from developer errors. *How?* Implementing basic secure coding guidelines (e.g., OWASP Mobile Security Project) and incorporating a static code analysis tool early in the development process is crucial. This tool automatically scans the code for common vulnerabilities during development, allowing for remediation *before* the app is built. This is low-hanging fruit and provides immediate value.
+2. **Dependency Management & Vulnerability Scanning:** *Why?*  Cloud-native apps heavily rely on third-party libraries and frameworks. If these dependencies have known vulnerabilities, the app is immediately at risk. *How?* Integrating a dependency management tool (like Maven or Gradle) and implementing regular vulnerability scanning of these dependencies is vital. We’re not just looking at the app’s code; we're assessing the risks introduced by external components. This needs to be automated as much as possible.
+3. **Secure Configuration Management & Secrets Management:** *Why?*  Cloud environments (especially mobile backend services) often contain sensitive information (API keys, database credentials, etc.).  Hardcoding or transmitting these secrets insecurely is a major risk. *How?*  Establishing a system for managing these secrets securely – ideally using a secrets management service (like HashiCorp Vault or AWS Secrets Manager) – is absolutely essential.  This starts with implementing policies for how secrets are stored, accessed, and rotated.
+
+
+**Therefore, the first three security activities the startup should integrate into their SDLC from day one are:**
+
+1. **Implement Secure Coding Practices & Static Code Analysis**
+2. **Integrate Dependency Management & Vulnerability Scanning**
+3. **Establish Secure Configuration Management & Secrets Management**
+
+These activities provide a foundational level of security, are relatively straightforward to implement, and build a culture of security awareness from the very beginning.  It’s crucial to remember this is a *starting point*; security is a continuous process, but these three steps are foundational. 
+
+Do you want me to delve deeper into any specific aspect of these activities, such as recommended tools or best practices for each?
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-07-31T15:09:09.232963
+Model: gemma3:4b
+Category: Inference - Planning & Sequencing
+Response Time: 93.29 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A company just recovered from a major data breach. The systems are back online. What are the two most critical activities within the 'Recover' function of the NIST CSF that they must now perform, beyond just restoring data?
+
+LLM RESPONSE:
+Okay, let's break down this situation and identify the two *most* critical activities for a company recovering from a major data breach, focusing on the NIST Cybersecurity Framework’s “Recover” function.
+
+**Step-by-Step Reasoning Process:**
+
+1. **Understand the Context:** The company has just been through a *major* data breach. This means significant damage has been done—likely to reputation, customer trust, and potentially legal liabilities. Simply getting systems "back online" isn't enough. We need to move beyond basic restoration to truly solidify the recovery and prevent future incidents.
+
+2. **NIST CSF – Recover Function Overview:** The “Recover” function of the NIST CSF is all about restoring disrupted operations and ensuring systems can quickly return to normal. It’s a layered approach, but some activities are inherently more vital than others.
+
+3. **Identifying Critical Activities:**  Let's consider the key components within the Recover function:
+   * **Implement Data Backups and System Restore:** (This is a *necessary* step, but not necessarily the *most* critical in the immediate aftermath of a major breach).
+   * **Implement Incident Response Processes:** This is the core of effective recovery.
+   * **Implement Operational Restore:**  This involves bringing systems back online and resuming normal operations.
+   * **Implement System Restore:** (Specifically, restoring system configurations and related components). 
+
+4. **Prioritization – Focusing on Criticality:** After a major breach, the *absolute* priority isn’t simply getting data back – it’s about understanding *how* the breach happened, ensuring it *won’t* happen again, and demonstrating to stakeholders (customers, regulators, investors) that the company is taking decisive action.
+
+**Clear and Direct Answer:**
+
+The two most critical activities the company must perform within the NIST CSF ‘Recover’ function, beyond simply restoring data, are:
+
+1. **Conduct a Root Cause Analysis & Implement Corrective Actions:** This involves a thorough investigation to determine *exactly* how the breach occurred, identifying vulnerabilities, and enacting immediate fixes. This isn't just about patching; it’s about understanding the weaknesses in their security posture.
+
+2. **Implement and Test Detailed Incident Response Procedures:** The company needs to immediately validate and refine their incident response plan based on the lessons learned from the breach. This includes steps like containment, eradication, and recovery procedures – ensuring they’re robust and regularly tested.
+
+
+
+Would you like me to elaborate on any of these activities, perhaps by discussing specific steps involved in a root cause analysis or the elements of a robust incident response plan?
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: gemma3:4b
+  - Total Tests: 9
+  - Total Time Spent in LLM Calls: 950.13 seconds
+  - Average Response Time: 105.57 seconds
+
+Total Number of Test Cases Configured: 9
+
+End of Log.
