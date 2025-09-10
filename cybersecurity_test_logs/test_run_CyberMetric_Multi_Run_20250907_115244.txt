@@ -1,0 +1,2131 @@
+Cybersecurity Sanity Test Log
+Run Mode: CyberMetric_Multi_Run
+Initialized: 2025-09-07T11:52:44.343875
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:45.383267
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 1.04 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary requirement for an Random Bit Generator's (RBG) output to be used for generating cryptographic keys?
+A) The RBG's output should have a length that matches the target data to be protected
+B) The RBG's output should be computationally indistinguishable from random bits and provide sufficient entropy to support the security strength required for the target data
+C) The RBG's output should be as long as possible to ensure maximal randomness
+D) The RBG's output should have precisely the same length as the symmetric key to be generated
+
+--- FULL LLM RESPONSE (for logging) ---
+A)
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:45.577605
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.19 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+In cryptography, what is the purpose of using a key-derivation function (KDF)?
+A) Generate public keys
+B) Authenticate digital signatures
+C) Encrypt data using a password
+D) KDF are algorithms used to transform a secret into crucial parameters like keys and Initialization Vectors (IVs)
+
+--- FULL LLM RESPONSE (for logging) ---
+D
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:46.189195
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary purpose of segmentation in the context of PCI DSS?
+A) To reduce the number of PCI DSS requirements applicable to an entity
+B) To limit the scope of the PCI DSS assessment and minimize the potential for security breaches
+C) To completely remove the applicability of PCI DSS for a merchant's cardholder data environment
+D) To eliminate the need for implementing PCI DSS controls
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Segmentation is a core principle within PCI DSS. It’s designed to isolate parts of a merchant’s cardholder data environment to limit the impact of a potential breach – essentially dividing the system into smaller, less vulnerable areas.  The other options present incorrect understandings of the goal.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:46.743017
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.55 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of using strong cryptography to protect cardholder data during transmission over open, public networks?
+A) To ensure the data is secured from unauthorized access or interception during transmission
+B) To increase the speed of data transmission over open, public networks
+C) To provide access to authorized individuals to monitor the transmission process
+D) To improve the efficiency of network routing protocols
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Strong cryptography is fundamentally designed to protect data by using complex mathematical algorithms to encrypt and decrypt information, making it unreadable to anyone who doesn’t possess the correct key. This is crucial when data is transmitted over networks that are potentially vulnerable to interception and tampering.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:47.282509
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.54 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of periodic reviews of user accounts and access privileges?
+A) To ensure all user accounts have access to the highest privileges
+B) To demonstrate adherence to regulatory requirements
+C) To create a record of all user accounts
+D) To identify and remove any inappropriate access and privileges
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: Periodic reviews of user accounts and access privileges are a cornerstone of cybersecurity. They’re designed to proactively identify weaknesses, ensure compliance, and maintain a robust security posture.  The other options are either too broad or less focused on the core purpose of this practice.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:47.926539
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.64 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is a purpose of having synchronized system clocks?
+A) To compare log files from different systems
+B) To accelerate system performance
+C) To standardize file naming conventions
+D) To reduce power consumption
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Synchronized system clocks (S clocks) are crucial for ensuring that software and hardware across a network can accurately determine the time.  They’re a fundamental component of time synchronization protocols, which are essential for many security-sensitive operations like authentication, authorization, and network security.  The other options are either unrelated or have different purposes.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:48.467922
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.54 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is physical security?
+A) The protection of data from hacker attacks
+B) The prevention of natural disasters caused by environmental factors
+C) The act of securing a building or location to prevent unauthorized access, theft, or damage to physical assets
+D) The enforcement of technical security controls to prevent data breaches
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: Physical security encompasses all measures taken to protect physical assets – buildings, equipment, and personnel – from unauthorized access, theft, damage, or disruption. It’s a broad category of security that includes things like locks, alarms, surveillance, and access control.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:49.129108
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does the abbreviation 'SDK' stand for in the context of software security?
+A) Software Development Kit
+B) System Deflection Key
+C) Software Delegation Kernel
+D) System Development Key
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A) Software Development Kit
+
+**Explanation:** An SDK (Software Development Kit) is a collection of software tools, libraries, and documentation designed to help developers create software applications. In the context of cybersecurity, it’s crucial for secure software development, including security testing, vulnerability analysis, and secure coding practices.  The other options are not related to this core concept.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:49.820662
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.69 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the main purpose of multi-factor authentication in cybersecurity?
+A) To limit user privileges within the network
+B) To ensure compliance with government regulations
+C) To adds an extra layer of security by requiring multiple forms of verification
+D) To monitor network traffic for security threats
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: Multi-factor authentication (MFA) significantly enhances security by requiring users to provide multiple pieces of evidence (e.g., a password AND a code sent to their phone) before granting access, making it much harder for attackers to compromise an account, regardless of stolen credentials.  The other options are related to other security measures but not the core purpose of MFA.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:50.482850
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary objective of a Web Application Firewall (WAF) in cybersecurity?
+A) To encrypt network traffic between web servers
+B) To prevent unauthorized access to network services
+C) To protect web applications from security threats
+D) To manage user authentication and authorization for web services
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: A WAF’s primary objective is to protect web applications from security threats – specifically, common attacks like SQL injection, cross-site scripting (XSS), and others – by analyzing incoming HTTP traffic and blocking malicious requests before they reach the application.  While the other options are related, they aren’t the core function of a WAF.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:51.016108
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.53 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of periodically changing passwords or passphrases?
+A) To provide more time for a malicious individual to crack the password/passphrase
+B) To allow for more rapid detection and response to address potentially compromised credentials
+C) To prevent unauthorized users from gaining access to the user account through use of a shared authentication factor
+D) To offer less time for a malicious individual to crack a password/passphrase and less time to use a compromised password
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+
+Explanation: Periodically changing passwords or passphrases is a cornerstone of cybersecurity. It’s a crucial defense against brute-force attacks and other methods used by attackers to gain access to accounts.  It increases the time between a potential compromise and a successful breach.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:51.552966
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.54 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following defines the entity’s security objectives and principles?
+A) Security policies
+B) Operational procedures
+C) Risk assessment framework
+D) Incident response plan
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: Incident response plans are specifically designed to define the entity’s security objectives and principles – focusing on how to handle security incidents and protect against them. While policies and procedures are important, they primarily outline *how* to achieve security, not the overarching goals.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:52.187466
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.63 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the focus of a security audit or vulnerability assessment?
+A) Locating vulnerabilities
+B) Locating threats
+C) Enacting threats
+D) Exploiting vulnerabilities
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+**Explanation:** A security audit or vulnerability assessment’s primary focus is to systematically examine a system or network to identify weaknesses – vulnerabilities – that could be exploited by attackers. It’s about *finding* the problems, not about causing them. The other options represent activities that are *secondary* to the core objective of identifying and mitigating risks.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:52.793497
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is a mechanism for managing digital certificates through a system of trust?
+A) PKI
+B) PKCS
+C) ISA
+D) SSL
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A) PKI
+
+**Explanation:** PKI (Public Key Infrastructure) is a system used to manage digital certificates through a hierarchical trust structure. It establishes a chain of trust where certificates are issued and verified by trusted authorities, ensuring authenticity and integrity.  The other options relate to different aspects of certificate management, not PKI itself.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:53.407087
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which protocol is used to create a secure environment in a wireless network?
+A) WAP
+B) WPA2
+C) WTLS
+D) WML3
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B) WPA2
+
+**Explanation:** WPA2 (Wi-Fi Protected Access 2) is a widely used security protocol for wireless networks that establishes a secure connection between a device and the access point. It incorporates encryption and authentication to protect against unauthorized access and data interception. The other options are not relevant to secure wireless environments.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:54.118483
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.71 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which design concept limits access to systems from outside users while protecting users and systems inside the LAN?
+A) DMZ
+B) VLAN
+C) I&A
+D) Router
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: A DMZ (Demilitarized Zone) is a critical design concept for isolating systems from external networks, offering both security for internal users and systems while limiting external access. VLANs (Virtual LANs) segment networks, I&A (Interior/External Access) focuses on network segmentation but doesn’t inherently isolate systems. Router is a networking device, not a security design concept.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:54.520465
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.40 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the process of making an operating system secure from attack called?
+A) Hardening
+B) Tuning
+C) Sealing
+D) Locking down
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Hardening refers to the process of strengthening an operating system and its components to make them more resistant to attacks. It’s a proactive approach to security.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:55.283814
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.76 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which mechanism is used by PKI to allow immediate verification of a certificate's validity?
+A) CRL
+B) MD5
+C) SSHA
+D) OCSP
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D) OCSP
+
+**Explanation:** OCSP (Online Certificate Status Protocol) is a mechanism that allows a server to *immediately* request a certificate's validity status from a certificate authority (CA) without the client needing to contact the CA directly. This provides near-instantaneous verification, crucial for real-time security scenarios.  CRL, SHA, and MD5 are older methods used for certificate issuance and validation, but not for immediate verification.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:55.941078
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is a major security problem with FTP?
+A) Password files are stored in an unsecure area on disk
+B) Memory traces can corrupt file access
+C) User IDs and passwords are unencrypted
+D) FTP sites are unregistered
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: FTP, by its nature, transmits data in plain text. This makes it extremely vulnerable to eavesdropping and tampering. Password files are a significant vulnerability as they expose usernames and passwords.  Unencrypted data transmission creates a direct risk of interception.  While user IDs and passwords *can* be vulnerable, the fundamental problem is the data itself being transmitted.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:56.422030
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.48 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following creates a fixed-length output from a variable-length input?
+A) MD5
+B) SHA1
+C) SHA3
+D) All of the above
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: All of the listed algorithms – MD5, SHA1, and SHA3 – are designed to produce fixed-length outputs from variable-length input data. They employ a hashing process that inherently results in a defined size.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:57.036004
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of a service-level agreement (SLA) in the context of business continuity?
+A) To define the obligations of the service provider to the client
+B) To provide high-availability architecture
+C) To outline a disaster recovery plan
+D) To ensure the fault tolerance of systems
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: An SLA in the context of business continuity directly addresses the obligations of a service provider to ensure the continued availability and performance of critical services, a cornerstone of disaster recovery planning.  The other options are related to specific technologies or architectural decisions, but not the primary purpose of an SLA within a broader business continuity strategy.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:57.538041
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.50 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does the Address Resolution Protocol (ARP) do in a network?
+A) Resolves domain names to IP addresses
+B) Allocates IP addresses to network devices
+C) Translates IP addresses to media access control (MAC) addresses
+D) Verifies that a host is reachable
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: ARP (Address Resolution Protocol) is a protocol used to translate IP addresses to MAC addresses within a local network. It’s crucial for establishing a connection between devices on the same network and is fundamental to how data packets are routed.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:58.013257
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.48 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+In the OSI model, which layer consists of the physical media and infrastructure of networks?
+A) Session
+B) Presentation
+C) Data Link
+D) Physical
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: The Data Link layer is specifically responsible for the physical transmission of data across the network. It handles the media (like Ethernet cables, fiber optics), and the protocols for framing and error detection at the network level.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:59.116350
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 1.10 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+In binary representation, what is the result of the bitwise XOR operation between 110101 and 101010
+A) 011111
+B) 100111
+C) 0
+D) 111111
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: The bitwise XOR operation results in a 1 if the bits are different, and a 0 if the bits are the same. In this case:
+
+110101 = 110101 (no changes)
+101010 = 010101 (bitwise difference is 111111111111 - 101010 = 111111111111 - 101010 = 1010011)
+
+Therefore, the result is 110101.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:52:59.798534
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.68 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the proper sequence of the TCP three-way-handshake?
+A) SYN-ACK, ACK, ACK
+B) SYN, SYN-ACK, ACK
+C) SYN-SYN, SYN-ACK, SYN
+D) ACK, SYN-ACK, SYN
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: The TCP three-way handshake is a critical process for establishing a secure and reliable connection between two devices. It begins with a SYN (synchronization) packet from the client, followed by a SYN-ACK (synchronization-acknowledgment) packet from the server, and finally, an ACK (acknowledgment) packet from the client to complete the handshake.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:00.313005
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.51 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which topology has built-in redundancy because of its many client connections?
+A) Token ring
+B) Bus
+C) Hybrid
+D) Mesh
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: A mesh topology, with its many client connections, inherently provides redundancy because each node contains multiple paths to data.  This distribution of connectivity makes it extremely resilient to failures.  The other options are less suited for this level of redundancy.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:00.937856
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.62 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+How can Google hacking be valuable in a cybersecurity investigation?
+A) To create fake Google search results
+B) To extract data from Google's databases
+C) To reveal hidden or sensitive information from Google search results
+D) To manipulate website content in Google's index
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+
+Explanation: Google's search results are incredibly vast and contain a tremendous amount of data. Hacking these results – specifically, uncovering hidden or sensitive information – can provide crucial insights into their business practices, data collection methods, and potentially vulnerabilities. It’s a valuable target for analysis because the data itself is often very revealing.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:01.429001
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.49 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the role of the three-way handshake in establishing a TCP connection?
+A) To request the establishment of a connection
+B) To acknowledge the request for connection
+C) To complete the establishment of a connection
+D) All of the above
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: The three-way handshake is a series of three steps used to establish a TCP connection. It involves three distinct messages: SYN, SYN-ACK, and ACK. Each message confirms the next step in the connection process.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:01.654968
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.23 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which best describes a vulnerability scan?
+A) A way to find open ports
+B) A way to diagram a network
+C) A proxy attack
+D) A way to automate the discovery of vulnerabilities
+
+--- FULL LLM RESPONSE (for logging) ---
+D) A way to automate the discovery of vulnerabilities
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:02.178187
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.52 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is Tor used for?
+A) To make it more difficult to trace a user's Internet activity
+B) To hide the process of scanning
+C) To automate scanning
+D) To hide the banner on a system
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: Tor (The Onion Router) is primarily designed to anonymize internet traffic by routing it through a series of relays, obscuring the user's IP address and location. This makes it significantly harder to trace online activity back to a specific individual.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:02.738151
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.56 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the maximum number of IP addresses in an IPv6 subnet?
+A) 6 bit
+B) 32 bit
+C) 6*16 bit
+D) 8*16 bit
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+Explanation: IPv6 allows for a maximum of 128 addresses per subnet, but this is typically used for a global network.  Therefore, the maximum number of IP addresses in an IPv6 subnet is 64 bits (which corresponds to 256 addresses).
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:03.109084
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.37 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is a characteristic of a worm?
+A) Requires user interaction to spread
+B) Self-replicates and spreads independently
+C) Aargets specific individuals or organizations
+D) A worm is an item that runs silently
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+Explanation: Worms are malicious software designed to self-replicate and spread without direct user intervention. They exploit vulnerabilities to propagate across networks.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:03.720063
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What common tool can be used for launching an ARP poisoning attack?
+A) Cain & Abel
+B) Nmap
+C) Scooter
+D) Tcpdump
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+
+Explanation: Nmap is a powerful network scanning tool that can be used to perform ARP poisoning attacks. While other tools might be used in conjunction, Nmap is specifically designed to exploit vulnerabilities and launch such attacks. Cain & Abel and Scooter are more focused on monitoring or scanning, while Tcpdump is primarily for network traffic capture.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:04.382914
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What technology is used to verify information as it is entered into a web application, preventing database manipulation and buffer overflows?
+A) Input Validation
+B) Cross-Site Scripting (XSS)
+C) Session Management
+D) Buffer overflow
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Input validation is a fundamental security measure used to verify the data entered into a web application. It prevents malicious input from being processed and helps protect against database manipulation and buffer overflows by ensuring data conforms to expected formats and limits.  XSS, Session Management, and Buffer Overflow are all related to vulnerabilities, but input validation is a primary defense against them.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:05.045592
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which type of firewall analyzes the status of traffic?
+A) Circuit level
+B) Packet filtering
+C) Stateful inspection
+D) NIDS
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+
+Explanation: Stateful inspection examines the *state* of network connections to determine if traffic is legitimate and authorized. Packet filtering focuses solely on the header information of packets, while circuit level analysis is a very old and rarely used approach. NIDS (Network Intrusion Detection System) analyzes traffic for suspicious activity, but doesn’t focus on the state of the connection itself.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:05.711185
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.67 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of the Crossover Error Rate (CER) in evaluating biometric devices
+A) To compare the False Rejection Rate (FRR) of different biometric devices
+B) To compare the accuracy of similar biometric devices from different vendors or different models from the same vendor
+C) To assess the acceptance level of biometric factors
+D) To measure the throughput rate of biometric devices
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: The Crossover Error Rate (CER) is specifically designed to evaluate the error rate of a biometric system – how frequently the system incorrectly identifies a person – across various configurations or settings. It’s a crucial metric for determining the reliability and robustness of biometric devices. The other options are relevant but don’t directly focus on CER’s primary purpose.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:06.156808
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.45 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary purpose of a padded cell system in relation to intrusion detection?
+A) Attract unauthorized users
+B) Simulate a real network for intruders
+C) Isolate detected intruders
+D) Send alerts to administrators
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+
+Explanation: Padded cells are designed to isolate detected intrusions, preventing them from spreading across the network. This is a core component of intrusion detection systems as it focuses on containing the threat.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:06.658308
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.50 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary goal of penetration testing?
+A) To evaluate the robustness of security systems and identify vulnerabilities
+B) To exploit vulnerabilities and cause damage to the system
+C) To eliminate all vulnerabilities in the system
+D) To simulate unauthorized attacks without actually exploiting vulnerabilities
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Penetration testing’s primary goal is to assess the security posture of a system by simulating real-world attacks to uncover weaknesses before malicious actors do. Options B, C, and D represent the *opposite* of this goal.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:07.221597
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.56 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary purpose of RADIUS and TACACS in a network environment?
+A) To centralize the authentication of remote dial-up connections
+B) To establish secure connections for voice and video conferencing
+C) To provide security for WAN communication technologies
+D) To support remote journaling and electronic vaulting
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: RADIUS and TACACS are critical components for managing authentication and authorization across a network, particularly in environments that utilize Wide Area Networks (WANs) and remote access. They handle secure connections and key management, ensuring users and devices are properly identified and authorized to access network resources.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:07.826906
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which symmetric encryption scheme is recommended for use in SRTP?
+A) AES in ECB mode
+B) DES in CBC mode
+C) RC4
+D) AES in GCM mode
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: SRTP (Secure Router Transmission Protocol) mandates the use of AES (Advanced Encryption Standard) in GCM (Galois/Counter Mode) for symmetric encryption.  AES in GCM is specifically designed for this purpose, offering strong security and efficient performance.  The other options are not suitable for this application.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:08.986891
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 1.16 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the essential requirement for the security of the Discrete Logarithm Integrated Encryption Scheme (DLIES) to be maintained?
+A) The order q of the base point P should be at least q >= 1024
+B) Randomly choose two primes p and q such that p*q > 2048 bits
+C) The length of the prime number p should be at least 3000 bits
+D) All of the above
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+**Explanation:** The Discrete Logarithm Integrated Encryption Scheme (DLIES) relies heavily on the security of the underlying prime numbers used in its calculations.  Therefore, all the options are crucial. Option A (q >= 1024) addresses the fundamental requirement of a base point, which is a prime number. Option B (p*q > 2048) sets a minimum value for the product of the two prime numbers, a critical element in the scheme’s security. Option C (p >= 3000) is related to the size of the prime number, important for its contribution to the encryption process.  Option D encompasses all these aspects, making it the correct response.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:09.502866
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.52 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which document provides the recommendation for elliptic curve cryptography?
+A) NIST SP 800-56C
+B) NIST SP 800-63-3
+C) NIST SP 800-57 Part 1
+D) NIST SP 800-186-4
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: NIST SP 800-186-4 is specifically focused on the recommendation and guidance for elliptic curve cryptography, including its implementation and security considerations. The other options detail different aspects of cybersecurity standards, not solely elliptic curve cryptography.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:10.060349
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.56 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is an essential requirement for the internal state of deterministic random number generators?
+A) Protection against readout and manipulation
+B) Constant reseeding requirement
+C) Dependence on reliable physical resources
+D) Regular update of entropy sources
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: Deterministic random number generators (DRNGs) require a stable and predictable internal state. Regular update of entropy sources is crucial for maintaining the randomness of the generated numbers. The other options are important considerations but not *essential* for the fundamental integrity of the generator itself.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:10.580632
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.52 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which federal government agency has responsibility for ensuring the security of government computer systems that are not used to process sensitive and/or classified information?
+A) National Security Agency
+B) Federal Bureau of Investigation
+C) National Institute of Standards and Technology
+D) Secret Service
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+**Explanation:** The National Security Agency (NSA) is specifically responsible for safeguarding national security information, including computer systems that handle sensitive and/or classified data. While the FBI and NIST play crucial roles, the NSA has the primary focus on this area.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:11.096379
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.52 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of implementing monitoring systems?
+A) Monitoring the configuration and configuration change of devices
+B) Ensuring availability and functionality of systems
+C) Recording access to information by means of system and security logging
+D) Protection from compromising radiation
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: Monitoring systems are designed to observe and analyze activity within a system or network to detect anomalies, potential threats, and ensure overall security and stability.  The other options touch on related aspects but aren't the primary *purpose* of monitoring.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:11.293310
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.20 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which principle of cybersecurity focuses on ensuring that data is accurate and trustworthy?
+A) Resilience
+B) Availability
+C) Authenticity
+D) Integrity
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C) Authenticity
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:11.740650
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.45 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary goal of the Transport Layer Security (TLS) protocol?
+A) Privacy and authentication between two communicating applications
+B) Privacy and data integrity between two communicating applications
+C) Authentication and data integrity between two communicating applications
+D) Privacy, authentication, and data integrity between two communicating applications
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: TLS’s primary goal is to provide secure communication over a network, ensuring confidentiality, integrity, and authenticity – all key aspects of cybersecurity. The options clearly highlight these core objectives.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:12.334524
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.59 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+If you were to see the subnet mask 255.255.248.0, what CIDR notation (prefix) would you use to indicate the same thing?
+A) /23
+B) /22
+C) /21
+D) /20
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+Explanation: /23 is the CIDR notation for a network with 23 bits of subnet mask.  The subnet mask 255.255.248.0 represents a single IP address within that network. Therefore, /23 is the correct CIDR notation.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:12.992227
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.66 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is NOT one of the five disaster recovery plan testing types?
+A) Simulation
+B) Checklist
+C) Availability
+D) Full Interruption
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation:  The five disaster recovery plan testing types are generally considered to be: 1) Simulation, 2) Checklist, 3) Availability, 4) Restoration, and 5) Full Interruption.  "Full Interruption" refers to a complete system outage, while the other options represent different types of testing focused on validating recovery procedures.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:13.829160
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.84 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What would be the result of sending the string AAAAAAAAAAAAAAAAA into a variable that has been allocated space for 8 bytes?
+A) Heap spraying
+B) SQL injection
+C) Buffer overflow
+D) Slowloris attack
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: Heap spraying occurs when a program attempts to write data beyond the allocated memory space of a program’s heap. This can lead to crashes, corruption, or denial of service. Buffer overflows happen when a program writes data past the boundaries of a buffer, allowing malicious code to execute. Slowloris attack is a web attack that exploits slow connections to stay online indefinitely.  The string AAAAAAAAAAAAAAAAA is likely to overflow the allocated 8-byte space, triggering a heap spraying effect.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:14.404962
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.58 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is NOT a form of computer/network surveillance?
+A) Keyboard monitoring
+B) Use of network sniffers
+C) Use of Closed-Circuit Television (CCTV)
+D) Review of audit logs
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+
+Explanation: Network sniffers are specifically designed to intercept and capture network traffic. Keyboard monitoring focuses on observing user input, CCTV is visual surveillance, and audit logs record system activity – they are all forms of surveillance, but network sniffers are a particular *type* of surveillance focused on network data.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:14.832660
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.43 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+How would you calculate risk?
+A) Probability / loss
+B) Probability * mitigation factor
+C) (Loss + mitigation factor) * (loss/probability)
+D) Probability * loss
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: Risk assessment involves evaluating the potential for harm or loss associated with a security event. Option D directly reflects this – it’s the most comprehensive and accurate method for quantifying risk.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:15.239044
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.41 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the common share name used for interprocess communication?
+A) C$
+B) IPC$
+C) ADMIN$
+D) INTERCOM$
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: “INTERCOM” is the standard term used for the protocol used for interprocess communication, particularly in Windows systems.  It’s a recognized naming convention.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:15.821198
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.58 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which port is commonly used by SMB when operating over TCP without NetBIOS?
+A) 137
+B) 139
+C) 135
+D) 445
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: SMB (Server Message Block) traditionally used TCP without NetBIOS for secure transport. 445 is the standard port for SMB over TCP. 135 and 137 are often used for older protocols, while 139 is primarily used for NetBIOS.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:16.352613
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.53 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is an example of a strong password?
+A) Password123456
+B) ME_Fgh4_al445!A
+C) Qwerty!
+D) 123456
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: A strong password should be:
+*   At least 12 characters long
+*   A mix of uppercase and lowercase letters, numbers, and symbols
+*   Not easily guessable (avoiding common words, names, dates, etc.)
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:16.855972
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.50 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which access control model would be found in a firewall?
+A) Mandatory access control
+B) Discretionary access control
+C) Role-based access control
+D) Rule-based access control
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: Rule-based access control is a fundamental component of firewalls, allowing administrators to define rules that dictate which traffic is allowed or denied based on established rules.  While other models exist, rule-based control is its core function.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:17.559433
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.70 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the preferred encryption option for sending large amounts of data?
+A) Symmetric encryption
+B) Asymmetric encryption
+C) Public Key Cryptography
+D) Diffie-Hellman scheme
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: Symmetric encryption uses the same key for both encryption and decryption, making it efficient for large data transfers. Asymmetric encryption relies on a pair of keys – one public and one private – and is generally used for key exchange and digital signatures. Public key cryptography relies on mathematical algorithms for encryption and verification. Diffie-Hellman is a key exchange protocol, not a method of encryption itself.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:18.245050
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.69 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following is an example of a hashing algorithm?
+A) AES
+B) RSA
+C) MD5
+D) 3DES
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+Explanation: 3DES is a widely used symmetric hashing algorithm known for its strong security properties. AES (Advanced Encryption Standard) is also a hashing algorithm, but it’s a more complex encryption algorithm. RSA (Rivest-Shamir-Adleman) is used for key exchange and digital signatures, while MD5 is considered weak and has been deprecated due to security vulnerabilities.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:18.758915
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.51 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which RAID level is not fault tolerant?
+A) RAID 1
+B) RAID 0
+C) RAID 5
+D) RAID 6
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B
+
+Explanation: RAID 0 (striping) provides performance by increasing speed, while RAID 5 and RAID 6 are both fault-tolerant. RAID 1 and RAID 6 are designed to protect against data loss in the event of a drive failure.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:18.932594
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.17 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+How many keys exist in a public/private key pair?
+A) 0
+B) 2
+C) 1
+D) 4
+
+--- FULL LLM RESPONSE (for logging) ---
+A
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:19.453719
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.52 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary goal of an Information Security Governance strategy?
+A) To minimize the impact of security incidents on the organization
+B) To obtain senior management commitment and support
+C) To enforce compliance with information security policies
+D) To prioritize options to mitigate risks
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: Information security governance strategies aim to prioritize risks and establish a framework for managing those risks effectively. While the other options are important aspects, the core focus is on *how* risks are addressed – maximizing the likelihood of a successful and effective response.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:19.659920
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.21 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the process of hiding text within an image called?
+A) Encryption
+B) Steganography
+C) Spyware
+D) Hiding
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B) Steganography
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:20.277035
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.62 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What attack involves inserting an unauthorized person in the communication path between two users to intercept and modify packets?
+A) Known Plaintext Attack
+B) Chosen Cipher-Text Attack
+C) MITM Attack
+D) Brute-Force Attack
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: A man-in-the-middle (MITM) attack is a classic example of an attack where an attacker intercepts communication between two parties without their knowledge, allowing them to eavesdrop, modify, or even inject malicious data.  The options described – inserting an unauthorized person – directly align with this definition.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:20.851763
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.57 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Who is responsible for implementing the planning, budgeting, and performance of the organization's information security components?
+A) Administrator
+B) CISO
+C) MGR
+D) CEO
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: B) CISO
+
+**Explanation:** The Chief Information Security Officer (CISO) is specifically responsible for the overall strategic planning, budgeting, and ongoing performance management of an organization's information security program.  They oversee all aspects of security, making them the primary point of responsibility for these critical functions.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:21.532195
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.68 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+The primary responsibility of the information security steering committee is:
+A) Information security policy development
+B) Direction setting and performance monitoring
+C) Information security control implementation
+D) Provision of information security training for employees
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+
+**Explanation:** The primary responsibility of an Information Security Steering Committee is to provide strategic guidance and oversight for the organization’s information security posture. This involves defining the overall strategy, establishing key principles, and ensuring that security controls are effectively implemented across the organization. Options B, C, and D are all components of this role, but A encapsulates the overarching responsibility of strategic leadership.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:22.025444
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.49 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+According to NIST guidelines, what is a recommended practice for creating a strong password?
+A) Implementing complex composition rules requiring a mix of character types
+B) Setting mandatory periodic password changes for all users
+C) Encouraging the use of longer, more memorable passphrases
+D) Requiring the use of password hints for easier recall
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: NIST guidelines emphasize complex composition rules – requiring a mix of character types – as a fundamental component of creating strong passwords. While the other options are good security practices, they are supporting elements rather than the primary recommended practice.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:22.704891
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.68 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of continuously improving cybersecurity guidelines and their application notes?
+A) To categorize security measures into groups
+B) To react to new technologies, use cases, and risks
+C) To prevent all identified threats
+D) To eliminate all cybersecurity risks
+
+--- FULL LLM RESPONSE (for logging) ---
+A) To react to new technologies, use cases, and risks
+
+**Explanation:** Continuously improving cybersecurity guidelines and application notes is fundamentally about staying ahead of evolving threats. They’re not about creating a perfect, static set of rules, but about adapting to the changing landscape of cyberattacks and vulnerabilities.  The focus is on proactively identifying and addressing risks based on current situations.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:23.073667
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.37 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does DDoS stand for?
+A) Double Denial of Service
+B) Distributed Denial of Service
+C) Dual Denial of Services
+D) Denial of Distributed Services
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: DDoS stands for Double Denial of Service. It’s a technique used to overwhelm a target system with traffic, making it unavailable.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:23.612728
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.54 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which is not a common wireless network authentication mechanism?
+A) WEP
+B) WPA
+C) 802.1X
+D) RC4
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D) RC4
+
+Explanation: RC4 is a weak encryption algorithm and is not commonly used in modern wireless security protocols like WPA and WPA2. WEP, WPA, and 802.1X are all prevalent and widely implemented authentication methods.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:23.781960
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.17 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which technique aims to identify changes in normal routines by examining patterns of a user's activity?
+A) Vulnerability Assessment
+B) Behavior-based IDS
+C) Data Mining
+D) User Profile Analysis
+
+--- FULL LLM RESPONSE (for logging) ---
+D
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:24.250595
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.47 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary purpose of conducting a risk analysis in cybersecurity?
+A) To assess the risk level for the organization
+B) To formulate the most important IT security procedures for the organization
+C) To create a risk assessment statement
+D) To determine the level of exposure to identified threats and identify possible safeguards or controls
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: Risk analysis is fundamentally about identifying, analyzing, and evaluating potential threats and vulnerabilities to determine the likelihood and impact of potential damage. The primary goal is to establish appropriate safeguards and controls to mitigate those risks.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:24.848032
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.60 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary advantage of using UDP over TCP?
+A) Reliability
+B) Error recovery
+C) Speed of data transfer
+D) Data integrity
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: UDP (User Datagram Protocol) prioritizes speed and is more tolerant of packet loss, making it ideal for applications like online gaming and video streaming where occasional dropped packets are acceptable rather than complete data loss. TCP (Transmission Control Protocol) focuses on reliable delivery and error detection, which can be slower.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:25.324909
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.48 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What does the CIA triad in cryptography emphasize?
+A) Confidentiality, Integrity, Authenticity
+B) Confidentiality, Integrity, Availability
+C) Confidentiality, Authenticity, Nonrepudiation
+D) Confidentiality, Availability, Nonrepudiation
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: The CIA triad – Confidentiality, Integrity, and Authenticity – is a foundational principle in cryptography that guides the design and implementation of secure systems. It emphasizes the importance of protecting sensitive information through these core tenets.
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:25.885332
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.56 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which nmap command is used to perform a TCP SYN scan, also known as a half-open scan, to determine which ports are open on a target system?
+A) nmap -sP
+B) nmap -sT
+C) nmap -SYN
+D) nmap -sS
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+Explanation: `nmap -SYN` is the command specifically designed for a TCP SYN scan, which is a half-open scan – it establishes the connection but doesn’t complete the handshake. Options A, B, and D are incorrect as they describe different scan types.
+
+--- EXPECTED ANSWER --- 
+D
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:26.492450
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.61 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the primary purpose of business continuity plans?
+A) To recover from natural disasters
+B) To conduct regular audits of the organization's security systems
+C) To minimize the effects of a disruptive event on a company
+D) To increase the cost associated with a disruptive event
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: C
+
+Explanation: Business Continuity Plans (BCPs) are designed to ensure that an organization can continue operating, providing essential services, and minimizing disruption in the event of a crisis – whether a natural disaster, cyberattack, or other unforeseen circumstance.  While recovery is a part of the plan, the primary goal is sustained operation.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:27.788865
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 1.30 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which DoS attack sends large amounts of ICMP Echo traffic to a broadcast IP address with a spoofed source address of a victim?
+A) Smurf attack
+B) SYN flood attack
+C) Ping of Death
+D) Botnet attack
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A) Smurf attack
+
+**Explanation:** The Smurf attack is a classic DoS attack that utilizes a spoofed source IP address to flood a broadcast IP address with a large volume of ICMP Echo requests. This is the defining characteristic of the attack.
+
+Here's why the other options are incorrect:
+
+*   **B) SYN flood attack:** This attack sends numerous SYN packets, but it doesn’t rely on a spoofed source IP address for the echo traffic.
+*   **C) Ping of Death:** This attack uses a rapidly increasing ping response to overwhelm a system, but doesn’t inherently involve a spoofed source IP.
+*   **D) Botnet attack:** While botnets can be used for DoS attacks, the core of a Smurf attack is the spoofed source address.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:28.244176
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.46 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which of the following tools is commonly used for network packet analysis and troubleshooting?
+A) Wireshark
+B) Metasploit
+C) Nmap
+D) Hydra
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: Wireshark is specifically designed for capturing and analyzing network traffic – a core function for network troubleshooting and packet dissection. The other options focus on penetration testing or exploit development, not primarily packet analysis.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:28.436949
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.19 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+In the context of encrypting data for secure communication, which encryption algorithm is typically preferred for its speed and efficiency?
+A) RSA-2048
+B) AES-256
+C) Both of them
+D) None of them
+
+--- FULL LLM RESPONSE (for logging) ---
+D) Both of them
+
+--- EXPECTED ANSWER --- 
+B
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:29.152226
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.72 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+What is the purpose of NOP sleds in buffer overflow exploits?
+A) To encrypt the payload
+B) To alter the content of the NOP register
+C) To insert no-operation instructions for padding
+D) To alter the content of the EIP register
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: D
+
+Explanation: NOP sleds are a specific type of buffer overflow exploit where the NOP (No Operation) instruction is followed by a sequence of instructions designed to overwrite the EIP (Instruction Pointer) register. This overwrites the EIP to perform a specific action, effectively allowing an attacker to execute arbitrary code.  Options A, B, and C are not the core mechanism of this exploit.
+
+--- EXPECTED ANSWER --- 
+C
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T11:53:29.951042
+Model: gemma3:1b
+Category: CyberMetric-80
+Response Time: 0.80 seconds
+
+SYSTEM PROMPT:
+You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, or D) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary.
+
+USER PROMPT:
+Which security feature can help prevent buffer overflow attacks by marking certain memory regions as non-executable?
+A) Data Execution Prevention (DEP)
+B) Buffer Overflow Prevention (BOP)
+C) Intrusion Detection System (IDS)
+D) Address Space Layout Randomization (ASLR)
+
+--- FULL LLM RESPONSE (for logging) ---
+Answer: A
+Explanation: DEP (Data Execution Prevention) is a core security feature designed specifically to prevent buffer overflows by marking certain memory regions as non-executable. BOP (Buffer Overflow Prevention) is a related technique, but DEP is the primary defense. IDS (Intrusion Detection System) focuses on detecting malicious activity, while ASLR (Address Space Layout Randomization) randomizes the memory addresses, making exploitation more difficult, but doesn’t directly prevent the overflow itself.
+
+--- EXPECTED ANSWER --- 
+A
+
+--- End of Test Case ---
+==================================================
+

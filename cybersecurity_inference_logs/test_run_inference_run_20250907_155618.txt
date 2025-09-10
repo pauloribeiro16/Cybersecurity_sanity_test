@@ -1,0 +1,410 @@
+Cybersecurity Inference Test Log
+Run Mode: inference_run
+Initialized: 2025-09-07T15:56:18.466568
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T15:57:20.531764
+Model: phi4:14b
+Category: Inference - Deductive Reasoning
+Response Time: 62.06 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+An analyst observes: 1) A key web server's CPU is at 100%. 2) Logs show massive login requests from thousands of IPs to the admin page. 3) No logins succeed. What is the most likely cyberattack type, and which two elements of the CIA triad are primarily targeted?
+
+LLM RESPONSE:
+To determine the most likely type of cyberattack and the elements of the CIA (Confidentiality, Integrity, Availability) triad that are primarily targeted, we should analyze each observation provided by the analyst step-by-step:
+
+1. **Key Web Server's CPU is at 100%**: This indicates a high load on the server resources. It suggests that something is consuming all available processing power.
+
+2. **Logs show massive login requests from thousands of IPs to the admin page**: This implies an unusually large number of simultaneous connection attempts, specifically targeting a sensitive part of the web application (the admin page).
+
+3. **No logins succeed**: Despite the high volume of requests, none are successful in authenticating. This suggests that the primary objective is not gaining unauthorized access but rather overwhelming the system.
+
+Now, let's analyze these observations to deduce the attack type and affected CIA elements:
+
+- The simultaneous flood of login attempts from numerous IP addresses points towards a **Denial-of-Service (DoS) or Distributed Denial-of-Service (DDoS) attack**. Specifically, since requests are coming from thousands of IPs, it is more indicative of a DDoS attack.
+
+- In this scenario, the goal appears to be overwhelming the server's CPU resources and potentially causing service disruption by preventing legitimate traffic from being processed effectively.
+
+Next, let's identify which elements of the CIA triad are primarily targeted:
+
+1. **Availability**: The primary goal of a DoS/DDoS attack is to disrupt the availability of services. By consuming all available CPU resources, legitimate users cannot access the server or its services as intended.
+
+2. **Confidentiality**: While not directly impacted in this scenario (since no logins are successful), targeting the admin page suggests an interest in potentially accessing sensitive information or controls if the attack were to succeed or persist.
+
+3. **Integrity**: There is no indication that data integrity is being targeted, as there's no mention of altered data or unauthorized changes.
+
+In conclusion, the most likely type of cyberattack observed here is a **Distributed Denial-of-Service (DDoS) attack**. The two elements of the CIA triad primarily targeted are **Availability**, due to service disruption, and potentially **Confidentiality**, as the admin page is specifically being targeted, though without success in this instance.
+
+**Final Answer**: The most likely cyberattack type is a Distributed Denial-of-Service (DDoS) attack. The two elements of the CIA triad primarily targeted are Availability and Confidentiality.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T15:58:12.328890
+Model: phi4:14b
+Category: Inference - Deductive Reasoning
+Response Time: 51.80 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+The CFO receives a convincing email from the 'CEO' asking for an urgent wire transfer. The CFO complies. Later, it's discovered the CEO never sent it. In the STRIDE model, what is the primary threat category demonstrated? Which NIST CSF function covers the actions needed *after* the money is sent?
+
+LLM RESPONSE:
+To tackle this scenario, let's break down the question and analyze it step-by-step:
+
+### STRIDE Model Analysis
+
+1. **Understanding STRIDE**: STRIDE is a model used to categorize security threats based on six categories:
+   - **Spoofing Identity**: Pretending to be someone else.
+   - **Tampering with Data**: Modifying data in an unauthorized way.
+   - **Repudiation**: The inability to reliably deny an action.
+   - **Information Disclosure**: Unauthorized access to information.
+   - **Denial of Service (DoS)**: Disruption of service availability.
+   - **Elevation of Privilege**: Increasing one's authority.
+
+2. **Identifying the Threat in this Scenario**:
+   - The CFO received an email that appeared to be from the CEO but was actually sent by someone pretending to be the CEO, which is a classic example of "Spoofing Identity."
+   - This attack involves impersonation and deception.
+
+### NIST CSF Analysis
+
+1. **Understanding NIST CSF**: The National Institute of Standards and Technology (NIST) Cybersecurity Framework consists of five core functions:
+   - **Identify**: Develop an organizational understanding to manage cybersecurity risk.
+   - **Protect**: Implement safeguards to ensure delivery of critical services.
+   - **Detect**: Define the appropriate activities to identify the occurrence of a cybersecurity event.
+   - **Respond**: Take action regarding a detected cybersecurity incident.
+   - **Recover**: Maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident.
+
+2. **Identifying the Appropriate Function**:
+   - The question asks about actions needed *after* the money is sent, indicating a response to an already occurred event.
+   - In this case, "Respond" would be the appropriate function, as it involves taking action in response to the discovered incident of unauthorized transfer.
+
+### Conclusion
+
+- **Primary Threat Category in STRIDE**: Spoofing Identity
+- **NIST CSF Function for Post-Incident Actions**: Respond
+
+This breakdown ensures that we correctly identify both the threat model category and the appropriate response framework function.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T15:58:51.435519
+Model: phi4:14b
+Category: Inference - Deductive Reasoning
+Response Time: 39.11 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+One week after a developer leaves the company, their account is used to access and exfiltrate a sensitive code repository. Which two security control domains most likely failed? What fundamental security principle was violated regarding user account management?
+
+LLM RESPONSE:
+To address this question effectively, let's break it down step by step:
+
+1. **Understanding the Scenario**: A former employee's account is used to access and exfiltrate sensitive information from a code repository one week after they have left the company. This suggests that there were lapses in security controls related to user account management and post-employment procedures.
+
+2. **Identifying Security Control Domains**:
+   - **Access Control**: This domain involves ensuring that only authorized users can access specific resources. In this scenario, the ability of a former employee to still access sensitive data indicates a failure in properly revoking or deactivating their account.
+   - **Monitoring and Response**: This domain includes detecting unauthorized activities and responding appropriately. The fact that the exfiltration went unnoticed for a week suggests deficiencies in monitoring systems or response protocols.
+
+3. **Fundamental Security Principle Violated**:
+   - The principle of "Least Privilege" requires that users are given only those access rights necessary to perform their job functions. Moreover, it implies timely revocation of these privileges when they are no longer needed, such as upon an employee's departure.
+   - Additionally, the principle of "Account Termination Procedures" is violated, which mandates immediate deactivation or disabling of user accounts upon termination to prevent unauthorized access.
+
+4. **Conclusion**:
+   - The two security control domains most likely failed are Access Control and Monitoring and Response.
+   - The fundamental security principle violated regarding user account management is the timely revocation of privileges as part of Least Privilege and Account Termination Procedures.
+
+By addressing these areas, companies can better prevent unauthorized access by former employees.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T15:59:55.186861
+Model: phi4:14b
+Category: Inference - Comparative Analysis
+Response Time: 63.75 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A team is deciding between a Web Application Firewall (WAF) and Runtime Application Self-Protection (RASP) to protect a custom application. Compare the two based on their deployment location and detection method. Which is better at stopping zero-day attacks and why?
+
+LLM RESPONSE:
+To compare Web Application Firewalls (WAFs) and Runtime Application Self-Protection (RASP), we need to examine several key aspects: deployment location, detection methods, and their effectiveness in stopping zero-day attacks.
+
+### Deployment Location
+
+1. **Web Application Firewall (WAF):**
+   - A WAF is typically deployed as a separate component at the network boundary, either in front of or behind the application server.
+   - It acts as a proxy that filters HTTP/HTTPS traffic between users and web applications based on predefined security rules.
+
+2. **Runtime Application Self-Protection (RASP):**
+   - RASP is embedded within the application itself, often at runtime inside the application code or its runtime environment.
+   - This allows it to monitor application behavior from the inside as it executes.
+
+### Detection Method
+
+1. **Web Application Firewall (WAF):**
+   - WAFs use signature-based detection methods to identify known attack patterns and anomalies in HTTP requests.
+   - They rely on a database of predefined rules or signatures that match known vulnerabilities or attack vectors.
+
+2. **Runtime Application Self-Protection (RASP):**
+   - RASP uses behavior-based detection, monitoring the application's actions at runtime.
+   - It can detect suspicious activities by analyzing code execution and data flow within the application context.
+   - RASP can potentially identify unusual patterns that do not match known signatures but indicate malicious behavior.
+
+### Effectiveness Against Zero-Day Attacks
+
+1. **Web Application Firewall (WAF):**
+   - WAFs are less effective against zero-day attacks because they primarily rely on known signatures and rules. 
+   - Since zero-day vulnerabilities exploit previously unknown security flaws, the WAF might not have the necessary signatures to detect such threats.
+
+2. **Runtime Application Self-Protection (RASP):**
+   - RASP is more capable of stopping zero-day attacks due to its behavior-based approach.
+   - By analyzing application behavior and context in real-time, RASP can potentially identify anomalies that deviate from normal operations, even if they are not previously known vulnerabilities.
+
+### Conclusion
+
+**Which is Better at Stopping Zero-Day Attacks?**
+
+RASP is generally better equipped for stopping zero-day attacks compared to WAFs. This advantage stems from its ability to analyze the application’s behavior in real-time and detect anomalies that could indicate a novel attack, even if they do not match any known signature or pattern.
+
+In summary:
+
+- **WAF** is deployed at the network boundary with signature-based detection.
+- **RASP** is embedded within the application using behavior-based detection.
+- For zero-day attacks, **RASP** offers better protection due to its runtime analysis capabilities.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T16:01:05.493697
+Model: phi4:14b
+Category: Inference - Comparative Analysis
+Response Time: 70.31 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A critical vulnerability is found in a production system. The team can either take the system offline for an emergency patch, risking business downtime, or apply a virtual patch via their IPS. Explain the trade-off between these two actions in terms of risk reduction and operational impact.
+
+LLM RESPONSE:
+To address this question, we need to analyze both options—taking the system offline for an emergency patch versus applying a virtual patch via an Intrusion Prevention System (IPS)—in terms of their effectiveness at mitigating risks and their operational impacts.
+
+### Step-by-Step Breakdown:
+
+1. **Understanding the Situation:**
+   - A critical vulnerability has been identified in a production system.
+   - The team must decide between two immediate actions: taking the system offline or applying a virtual patch through an IPS.
+
+2. **Option 1: Taking the System Offline for an Emergency Patch**
+   - **Risk Reduction:** 
+     - This method involves stopping all operations of the affected system to apply a permanent software update.
+     - It provides comprehensive risk reduction because the vulnerability is directly addressed and patched, eliminating the threat.
+   - **Operational Impact:**
+     - Complete downtime can result in significant business disruption, potential revenue loss, and customer dissatisfaction.
+     - It may affect all services dependent on that system.
+
+3. **Option 2: Applying a Virtual Patch via IPS**
+   - **Risk Reduction:**
+     - A virtual patch acts as an interim security measure by using the IPS to block or mitigate exploit attempts targeting the vulnerability until a permanent fix is applied.
+     - While it significantly reduces risk, it does not eliminate the underlying vulnerability and may not cover all potential attack vectors.
+   - **Operational Impact:**
+     - The system remains operational with minimal disruption.
+     - This option allows business continuity while providing time to plan for and implement a more comprehensive solution.
+
+### Trade-Off Analysis:
+
+- **Risk Reduction:**
+  - **Offline Patch:** Provides complete mitigation of the vulnerability but requires downtime, potentially increasing risk during this period if other systems are not adequately protected or monitored.
+  - **Virtual Patch:** Offers immediate protection against known attack methods without fixing the root cause. The ongoing risk remains if new exploit vectors emerge.
+
+- **Operational Impact:**
+  - **Offline Patch:** High impact due to potential downtime, affecting business operations and possibly customer relations.
+  - **Virtual Patch:** Low operational impact with maintained service availability, allowing for normal business functions while a permanent solution is prepared.
+
+### Conclusion:
+
+The decision between these two options involves balancing the need for immediate risk reduction against the necessity of maintaining business operations. If the vulnerability poses an imminent threat that cannot be effectively mitigated by a virtual patch alone, and if the cost of downtime is manageable, taking the system offline may be warranted. However, if the threat level allows for temporary mitigation without severe consequences, applying a virtual patch via IPS can be a prudent choice to maintain service continuity while planning for a permanent fix.
+
+**Direct Answer:**
+Taking the system offline ensures complete risk reduction by directly addressing the vulnerability but comes with significant operational impact due to downtime. Applying a virtual patch maintains business operations with minimal disruption but does not eliminate the underlying vulnerability, posing a continued albeit reduced risk until a permanent solution is implemented.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T16:01:58.214745
+Model: phi4:14b
+Category: Inference - Comparative Analysis
+Response Time: 52.72 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A FinTech startup processes credit card data and also wants to demonstrate strong overall security practices to investors. Should they prioritize achieving PCI DSS compliance or ISO 27001 certification first? Justify your choice.
+
+LLM RESPONSE:
+To determine whether the FinTech startup should prioritize achieving PCI DSS (Payment Card Industry Data Security Standard) compliance or ISO 27001 certification, let's break down the purpose and scope of each standard:
+
+1. **PCI DSS Compliance**:
+   - **Purpose**: Specifically designed to protect cardholder data for entities that handle credit card transactions.
+   - **Scope**: Focuses on securing payment card information by establishing security controls over how this data is processed, stored, and transmitted.
+   - **Relevance to FinTech Startup**: Since the startup processes credit card data, PCI DSS compliance is essential. Non-compliance could result in significant fines and damage to reputation if a data breach occurs.
+
+2. **ISO 27001 Certification**:
+   - **Purpose**: Provides a framework for establishing, implementing, maintaining, and continually improving an information security management system (ISMS).
+   - **Scope**: Broader than PCI DSS, covering all aspects of information security within an organization, including but not limited to financial data.
+   - **Relevance to FinTech Startup**: Demonstrates a commitment to comprehensive information security practices, which is valuable for building trust with investors and customers.
+
+**Reasoning Process**:
+- Since the startup processes credit card data, achieving PCI DSS compliance should be the immediate priority. This ensures that they meet legal and industry requirements specifically related to payment card information.
+- While ISO 27001 certification is beneficial for overall security practices and can enhance investor confidence, it is not as urgent as PCI DSS in this context because it addresses a broader range of security issues beyond just credit card data.
+
+**Conclusion**:
+The FinTech startup should prioritize achieving PCI DSS compliance first. This directly addresses the critical need to protect payment card data, which is central to their operations and regulatory obligations. Once PCI DSS compliance is achieved, pursuing ISO 27001 certification can further enhance their security posture and demonstrate comprehensive information security practices to investors.
+
+**Answer**: The startup should prioritize achieving PCI DSS compliance first because it specifically addresses the protection of credit card data, which is essential for legal and industry requirements. After securing PCI DSS compliance, they can work towards ISO 27001 certification to strengthen overall security practices.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T16:02:41.839187
+Model: phi4:14b
+Category: Inference - Planning & Sequencing
+Response Time: 43.62 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+Your company discovers it's vulnerable to Log4Shell (CVE-2021-44228) on internet-facing servers. Using the NIST CSF: 1) What is one immediate 'Respond' action? 2) What is one immediate 'Protect' action? 3) What fundamental principle of the CIA triad is most at risk?
+
+LLM RESPONSE:
+To address this situation effectively, let's break down each part of your question using the NIST Cybersecurity Framework (CSF), which consists of five core functions: Identify, Protect, Detect, Respond, and Recover. We'll also consider the fundamental principles of the CIA triad—Confidentiality, Integrity, and Availability.
+
+1. **Immediate 'Respond' Action:**
+   - The "Respond" function in NIST CSF involves taking actions to address a detected cybersecurity incident.
+   - For Log4Shell (CVE-2021-44228), an immediate response action is to apply the latest security patches or updates provided by the software vendor that mitigate this vulnerability. This action directly addresses the identified threat and reduces its impact on your systems.
+
+2. **Immediate 'Protect' Action:**
+   - The "Protect" function focuses on implementing safeguards to ensure delivery of critical infrastructure services.
+   - An immediate protective measure is to implement network segmentation or firewall rules to limit traffic to affected servers, thereby reducing the attack surface. This can help contain potential exploitation attempts while more comprehensive fixes are applied.
+
+3. **Fundamental Principle of the CIA Triad Most at Risk:**
+   - The CIA triad consists of Confidentiality (ensuring that information is not accessed by unauthorized individuals), Integrity (ensuring that information is not altered in an unauthorized manner), and Availability (ensuring that authorized users have access to information when needed).
+   - In the context of Log4Shell, the principle most at risk is **Confidentiality**. This vulnerability allows remote code execution, which can lead to unauthorized access to sensitive data stored on affected servers.
+
+By following these steps, you can effectively address the immediate threat posed by Log4Shell using the NIST CSF and understand how it impacts your organization's security posture according to the CIA triad principles.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T16:03:44.446281
+Model: phi4:14b
+Category: Inference - Planning & Sequencing
+Response Time: 62.61 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A startup is building its first cloud-native mobile application. Outline the first THREE security activities they should integrate into their software development lifecycle (SDLC) from day one.
+
+LLM RESPONSE:
+When considering the integration of security practices into the Software Development Lifecycle (SDLC) for a cloud-native mobile application, it's important to address potential threats early and continuously throughout the development process. Here’s a step-by-step breakdown of the first three critical security activities that should be integrated:
+
+1. **Threat Modeling:**
+   - **Reasoning:** Threat modeling is an essential activity at the beginning of the SDLC because it helps identify, prioritize, and mitigate potential threats to the application. By understanding what could go wrong from a security perspective, developers can design more secure systems.
+   - **Implementation:** Start by identifying assets that need protection (e.g., user data), defining possible threat agents (e.g., attackers, insiders), and determining vulnerabilities within the architecture. Use methodologies like STRIDE to categorize potential threats into Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.
+   - **Outcome:** This activity will guide subsequent design and development efforts to incorporate mitigations against identified risks.
+
+2. **Secure Coding Practices:**
+   - **Reasoning:** Secure coding is crucial from the very start as it prevents introducing vulnerabilities into the codebase. Mobile applications are often targeted for exploits due to their widespread use and access to sensitive data.
+   - **Implementation:** Adopt secure coding standards specific to mobile development, such as OWASP’s Mobile Security Project guidelines. Educate developers on common security issues like SQL injection, cross-site scripting (XSS), insecure data storage, and improper session handling.
+   - **Outcome:** This ensures that the code is developed with security in mind from day one, reducing the risk of vulnerabilities being introduced.
+
+3. **Automated Static Application Security Testing (SAST):**
+   - **Reasoning:** Integrating SAST into the CI/CD pipeline allows for early detection and remediation of vulnerabilities during the development phase, before they become more costly to fix.
+   - **Implementation:** Use tools that scan source code for security issues without executing it. Integrate these tools into version control systems or build servers so that each commit triggers a security scan.
+   - **Outcome:** Continuous feedback on potential security issues ensures developers can address them promptly, maintaining a high standard of code quality and security.
+
+By incorporating these three activities—threat modeling, secure coding practices, and automated SAST—from the beginning of the SDLC, the startup will lay a strong foundation for building a secure cloud-native mobile application. These practices help in proactively managing risks and integrating security into every phase of development, which is crucial for maintaining robust security postures in fast-paced environments like startups.
+
+--- End of Test Case ---
+==================================================
+
+--- Test Case Start ---
+Timestamp: 2025-09-07T16:04:46.900114
+Model: phi4:14b
+Category: Inference - Planning & Sequencing
+Response Time: 62.45 seconds
+
+SYSTEM PROMPT:
+You are an expert cybersecurity analyst. First, think step-by-step to break down the user's question. Explain your reasoning process. Finally, provide a clear and direct answer.
+
+USER PROMPT:
+A company just recovered from a major data breach. The systems are back online. What are the two most critical activities within the 'Recover' function of the NIST CSF that they must now perform, beyond just restoring data?
+
+LLM RESPONSE:
+To address this question effectively, let's break down the steps involved in understanding and identifying the two most critical activities within the 'Recover' function of the NIST Cybersecurity Framework (CSF) following a major data breach. 
+
+1. **Understand the Context**: 
+   - The NIST CSF is a framework that provides guidelines for managing cybersecurity risk, including how to prepare for, respond to, and recover from cyber incidents.
+   - Following a data breach, recovery involves restoring normal operations while ensuring that vulnerabilities are addressed to prevent future breaches.
+
+2. **Identify Key Components of the 'Recover' Function**:
+   - The NIST CSF's Recover function is composed of several activities aimed at maintaining resilience, minimizing impacts from cybersecurity events, and recovering capabilities.
+   - Core activities within this function include Recovery Planning, Improvements, Communications, and Lessons Learned.
+
+3. **Assess Post-Breach Needs Beyond Data Restoration**:
+   - After a breach, simply restoring data may not be enough. The organization must ensure that the systems are secure from future threats and improve their resilience.
+   
+4. **Prioritize Critical Activities**:
+   - **Recovery Planning (RC.RP)**: This activity involves developing and implementing recovery plans to restore capabilities or services disrupted due to a cybersecurity event.
+     - Post-breach, it’s critical to reassess and update these plans based on lessons learned from the incident to ensure they are robust against future threats.
+
+   - **Improvements (RC.IM)**: Focuses on identifying opportunities for improvement following an event. This includes updating security measures, enhancing processes, technologies, or procedures based on what was learned during the breach.
+     - Beyond restoring operations, this ensures that weaknesses exposed by the incident are addressed and systems are fortified against similar future threats.
+
+5. **Conclude with the Two Critical Activities**:
+   - Based on the analysis above, the two most critical activities in the Recover function, beyond just restoring data, are:
+     1. **Recovery Planning (RC.RP)**: Ensuring that recovery strategies are up-to-date and can effectively address future incidents.
+     2. **Improvements (RC.IM)**: Taking actionable steps to enhance security posture based on insights gained from the breach.
+
+These activities ensure not only a return to normal operations but also an increased resilience against subsequent cyber threats, aligning with best practices under the NIST CSF framework.
+
+**Answer**: The two most critical activities within the 'Recover' function of the NIST CSF that the company must perform are Recovery Planning (RC.RP) and Improvements (RC.IM).
+
+--- End of Test Case ---
+==================================================
+
+--- Run Summary ---
+
+Model: phi4:14b
+  - Total Tests: 9
+  - Total Time Spent in LLM Calls: 508.43 seconds
+  - Average Response Time: 56.49 seconds
+
+Total Number of Test Cases Configured: 9
+
+End of Log.

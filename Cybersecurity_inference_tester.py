@@ -25,7 +25,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Modelos de topo selecionados para o teste aprofundado
 MODELS_TO_TEST = [
-    "gpt-oss:20b"
+    "phi4:14b"
 ]
 
 # Prompt "Chain-of-Thought" para forçar o raciocínio explícito
