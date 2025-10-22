@@ -1,0 +1,732 @@
+{
+    "summary": {
+        "correct": 75,
+        "incorrect": 5,
+        "total": 80,
+        "accuracy": "93.75%"
+    },
+    "details": {
+        "phi4:14b": {
+            "Question_1": {
+                "question": "What is the primary requirement for an Random Bit Generator's (RBG) output to be used for generating cryptographic keys?",
+                "full_llm_response": "A critical requirement for a Random Bit Generator (RBG) used in generating cryptographic keys is that its output must provide sufficient entropy and be computationally indistinguishable from truly random bits. This ensures that the keys are unpredictable, which is essential for maintaining security.\n\n- Option A suggests matching the length of the target data but does not address randomness or unpredictability.\n- Option B correctly emphasizes both computational indistinguishability from random bits and providing sufficient entropy.\n- Option C suggests maximizing length without addressing quality or unpredictability.\n- Option D focuses on matching lengths rather than ensuring proper randomness.\n- Option E is incorrect because one of the options (B) is valid.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.21"
+            },
+            "Question_2": {
+                "question": "In cryptography, what is the purpose of using a key-derivation function (KDF)?",
+                "full_llm_response": "Key-derivation functions (KDFs) are cryptographic algorithms designed to derive one or more secret keys from a given input, such as a password or master key. They are typically used in scenarios where you need to produce cryptographic parameters like encryption keys and initialization vectors (IVs) securely from some shared secret material.\n\nLet's analyze the options:\n\nA) Generate public keys - This is not the purpose of KDFs; generating public keys involves asymmetric cryptography, often using algorithms like RSA or ECC.\n\nB) Authenticate digital signatures - Digital signature authentication is about verifying the authenticity and integrity of a message using a cryptographic signature, which is unrelated to the role of KDFs.\n\nC) Encrypt data using a password - While passwords might be input into a KDF, the purpose of a KDF is not direct encryption but rather deriving keys that could then be used for encryption. \n\nD) KDF are algorithms used to transform a secret into crucial parameters like keys and Initialization Vectors (IVs) - This correctly describes the primary role of key-derivation functions.\n\nE) None of the above - Since option D is correct, this cannot be the right choice.\n\nThe best answer is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "26.78"
+            },
+            "Question_3": {
+                "question": "What is the primary purpose of segmentation in the context of PCI DSS?",
+                "full_llm_response": "Segmentation in the context of PCI DSS primarily aims to limit the exposure of cardholder data environments (CDE) by dividing them into smaller, more manageable segments. This helps in reducing the scope of PCI DSS assessments and minimizing potential security breaches because fewer systems handle sensitive cardholder data.\n\nOption A suggests segmentation reduces the number of applicable requirements but doesn't address the primary goal related to security breach minimization.\n\nOption B correctly identifies that the purpose is to limit the scope of the PCI DSS assessment and minimize the potential for security breaches. \n\nOption C implies that segmentation removes PCI DSS applicability altogether, which is not accurate. Segmentation reduces the scope but does not eliminate the need for PCI DSS compliance in the segments containing cardholder data.\n\nOption D suggests eliminating the need for implementing controls, which is incorrect as segmentation still requires appropriate controls within each segment to protect cardholder data.\n\nBased on this analysis:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "20.84"
+            },
+            "Question_4": {
+                "question": "What is the purpose of using strong cryptography to protect cardholder data during transmission over open, public networks?",
+                "full_llm_response": "The purpose of using strong cryptography in this context is primarily to secure cardholder data from unauthorized access or interception during its transmission over open, public networks. Cryptography helps ensure that even if data is intercepted, it cannot be read or tampered with without the appropriate decryption key.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "6.65"
+            },
+            "Question_5": {
+                "question": "What is the purpose of periodic reviews of user accounts and access privileges?",
+                "full_llm_response": "Periodic reviews of user accounts and access privileges are conducted to ensure that users have only the access necessary for their roles. This process helps in identifying any instances where users might have more privileges than required, which could be due to role changes, terminations, or other organizational adjustments. By removing inappropriate access, organizations can reduce the risk of unauthorized access to sensitive information and systems.\n\nReviewing user accounts also helps ensure that the organization complies with regulatory requirements that often mandate regular reviews of access controls as part of a broader security governance framework.\n\n- Option A is incorrect because granting the highest privileges to all users would be counterproductive and a significant security risk.\n- Option B, while partially correct in that periodic reviews can demonstrate adherence to certain regulations, it doesn't capture the primary purpose.\n- Option C is not the main objective; creating a record is just one part of maintaining accounts but not the review's primary goal.\n- Option D accurately captures the essential purpose: identifying and removing inappropriate access.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "22.18"
+            },
+            "Question_6": {
+                "question": "Which of the following is a purpose of having synchronized system clocks?",
+                "full_llm_response": "Synchronized system clocks are crucial for maintaining consistent time records across multiple systems. This consistency is especially important when analyzing and correlating events in log files from different sources, such as servers, firewalls, or other networked devices. Having synchronized clocks ensures that timestamps reflect an accurate sequence of events, aiding in troubleshooting, forensic analysis, and security monitoring.\n\n- **A) To compare log files from different systems:** Correct. Synchronized clocks allow administrators to accurately correlate events logged by different systems based on time, which is vital for identifying sequences of actions or pinpointing the source of issues such as attacks or failures.\n  \n- B) To accelerate system performance: Incorrect. System clock synchronization does not affect the speed at which a system operates.\n\n- C) To standardize file naming conventions: Incorrect. File naming conventions are determined by administrative policies and software, independent of time synchronization.\n\n- D) To reduce power consumption: Incorrect. Synchronization of clocks does not have an impact on how much power systems consume.\n\nThus, the correct answer is:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "23.24"
+            },
+            "Question_7": {
+                "question": "What is physical security?",
+                "full_llm_response": "Physical security involves measures designed to protect physical properties and tangible assets from potential threats such as unauthorized access, theft, vandalism, or natural disasters. It typically includes securing buildings, controlling access to facilities, and protecting equipment and resources located within a specific area.\n\nOption A pertains to cybersecurity and is not related to physical security. Option B refers to disaster prevention strategies specifically for environmental factors rather than broader physical security. Option D involves technical controls that are part of cybersecurity measures, which again do not encompass the full scope of physical security.\n\nTherefore, option C accurately describes physical security as it focuses on securing a building or location to prevent unauthorized access and protect assets physically present within those premises.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.32"
+            },
+            "Question_8": {
+                "question": "What does the abbreviation 'SDK' stand for in the context of software security?",
+                "full_llm_response": "In the context of software, particularly concerning development and security practices, SDK stands for \"Software Development Kit.\" An SDK typically includes tools and libraries that developers use to build applications. While not specifically tailored only for security, they can include components crucial for implementing secure coding practices.\n\nAnswer: A) Software Development Kit",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "6.91"
+            },
+            "Question_9": {
+                "question": "What is the main purpose of multi-factor authentication in cybersecurity?",
+                "full_llm_response": "Multi-factor authentication (MFA) is primarily designed to enhance security by requiring more than one method of verification before granting access. This process typically involves combining two or more independent credentials, such as something you know (a password), something you have (a mobile device or token), and/or something you are (biometric verification). The main goal of MFA is to ensure that even if one factor (e.g., a password) is compromised, unauthorized users cannot easily gain access because they would need the additional factors.\n\nGiven this explanation, the correct answer is:\n\nAnswer: C) To add an extra layer of security by requiring multiple forms of verification.",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "14.43"
+            },
+            "Question_10": {
+                "question": "What is the primary objective of a Web Application Firewall (WAF) in cybersecurity?",
+                "full_llm_response": "The primary objective of a Web Application Firewall (WAF) is to monitor, filter, or block HTTP traffic to and from a web application. It is specifically designed to protect web applications by filtering out malicious requests such as SQL injection attacks, cross-site scripting (XSS), and other threats targeting vulnerabilities in the web application layer.\n\n- Option A refers to encrypting network traffic, which is typically handled by technologies like VPNs or TLS/SSL.\n- Option B describes a broader security measure that is not specific to web applications alone.\n- Option D involves managing user authentication and authorization, which is generally handled by identity management solutions rather than WAFs.\n\nTherefore, the correct answer is:\n\nAnswer: C) To protect web applications from security threats",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.53"
+            },
+            "Question_11": {
+                "question": "What is the purpose of periodically changing passwords or passphrases?",
+                "full_llm_response": "Periodically changing passwords or passphrases is a common security practice. The primary purpose is to limit the potential damage if a password has been compromised, as it reduces both the time available for an attacker to exploit the stolen credentials and the duration during which those compromised credentials are valid.\n\n- Option A suggests giving more time for cracking, which contradicts the purpose.\n- Option B focuses on detection and response but doesn't directly address why changing passwords is effective.\n- Option C refers to shared authentication factors, which isn't the primary reason for password changes.\n- Option D correctly captures the intent by reducing both the exploitation window and the valid period of compromised credentials.\n\nTherefore, the correct answer is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.74"
+            },
+            "Question_12": {
+                "question": "Which of the following defines the entity\u2019s security objectives and principles?",
+                "full_llm_response": "Security policies are designed to outline an organization's overall approach to securing its assets, including defining security objectives and principles. They provide guidance on how security is implemented and managed within the entity.\n\n- Security policies (A): These documents establish the framework for maintaining information security by setting out the goals, responsibilities, scope, and key elements of the security program.\n- Operational procedures (B): While these are detailed instructions on how to perform specific tasks, they do not define overarching objectives or principles.\n- Risk assessment framework (C): This is a process used to identify, evaluate, and prioritize risks, but it does not set objectives or principles.\n- Incident response plan (D): This outlines the steps an organization will take in response to security incidents, but it doesn't define broader security objectives or principles.\n\nGiven these explanations:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "18.31"
+            },
+            "Question_13": {
+                "question": "What is the focus of a security audit or vulnerability assessment?",
+                "full_llm_response": "The primary goal of a security audit or vulnerability assessment is to identify and document potential weaknesses in an information system that could be exploited by attackers. This process does not involve actively enacting threats or exploiting vulnerabilities, but rather locating them so they can be addressed proactively.\n\nTherefore, the correct answer is:\n\nAnswer: A) Locating vulnerabilities",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "7.56"
+            },
+            "Question_14": {
+                "question": "Which of the following is a mechanism for managing digital certificates through a system of trust?",
+                "full_llm_response": "Public Key Infrastructure (PKI) is a framework used to manage digital certificates and public-key encryption. It establishes a system of trust by using Certificate Authorities (CAs) to issue and verify digital certificates, thereby enabling secure communications over networks.\n\n- PKCS (Public Key Cryptography Standards) are standards for implementing public key cryptography but do not specifically provide the mechanism for managing certificates.\n- ISA (Internet Security Association) is not directly related to certificate management or trust systems.\n- SSL (Secure Sockets Layer) uses digital certificates for establishing secure connections, but it does not manage them.\n\nGiven this understanding:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "13.70"
+            },
+            "Question_15": {
+                "question": "Which protocol is used to create a secure environment in a wireless network?",
+                "full_llm_response": "WEP, WPA, and WPA2 are all protocols related to securing wireless networks. However, WPA2 is considered one of the most secure methods currently available for encrypting data on a Wi-Fi network, using AES encryption.\n\n- A) WAP (Wireless Application Protocol) is used primarily for mobile devices to access internet services.\n- B) WPA2 (Wi-Fi Protected Access 2) provides strong security measures with robust encryption for securing wireless networks.\n- C) WTLS (Wireless Transport Layer Security) is a protocol designed for mobile communications, not specifically for Wi-Fi network security.\n- D) WML3 (Wireless Markup Language version 3) is used for creating pages and applications for mobile devices, not related to network security.\n\nTherefore, the correct answer is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "18.28"
+            },
+            "Question_16": {
+                "question": "Which design concept limits access to systems from outside users while protecting users and systems inside the LAN?",
+                "full_llm_response": "The question asks for a design concept that primarily focuses on limiting access from outside users while ensuring protection for internal users and systems within a Local Area Network (LAN). \n\n- **DMZ (Demilitarized Zone)**: This is a network area that adds an additional layer of security to an organization's local area network. A DMZ exposes external-facing services to the internet while keeping the rest of the network protected.\n\n- **VLAN (Virtual LAN)**: VLANs are used for segmenting networks and do not directly deal with protecting internal systems from outside users; they mainly manage broadcast domains and enhance security within a network.\n\n- **I&A (Identification and Authentication)**: These are critical components of cybersecurity, focusing on verifying the identity of users or entities before granting access to resources. However, this is more about managing who can access rather than isolating external threats specifically.\n\n- **Router**: A router is used to connect different networks and route data between them but does not inherently limit outside access in a protective manner; it routes traffic based on network addresses.\n\nGiven these options, the concept that best fits the description of limiting external access while protecting internal systems is the DMZ. It acts as a buffer zone, preventing direct exposure of the main LAN to external threats.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "28.37"
+            },
+            "Question_17": {
+                "question": "What is the process of making an operating system secure from attack called?",
+                "full_llm_response": "The correct term for the process of making an operating system secure from attack involves implementing measures to reduce vulnerabilities and strengthen security controls. This often includes configuring the OS in a way that minimizes potential exposure to threats.\n\nA) Hardening: This is the correct term used in cybersecurity. It refers specifically to the process of securing an operating system by reducing its surface area of vulnerability. This can involve disabling unnecessary services, applying patches, and implementing security policies.\n\nB) Tuning: While tuning can relate to optimizing performance or configuration for specific tasks, it does not specifically refer to enhancing security measures against attacks.\n\nC) Sealing: This is not a standard term used in the context of securing operating systems from attack.\n\nD) Locking down: Although this could be considered part of hardening (such as restricting access), it is not the specific technical term for the overall process.\n\nE) None of the above: Since option A correctly describes the process, this option is incorrect.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "21.80"
+            },
+            "Question_18": {
+                "question": "Which mechanism is used by PKI to allow immediate verification of a certificate's validity?",
+                "full_llm_response": "In Public Key Infrastructure (PKI), the Certificate Revocation List (CRL) and Online Certificate Status Protocol (OCSP) are both mechanisms used for checking the revocation status of digital certificates. However, CRLs require downloading a list that might not be up-to-date at all times, whereas OCSP allows immediate verification by querying an online service to get the current status of a certificate.\n\nMD5 is a hashing algorithm and SSHA (Secure Hash Algorithm) is related to hashing mechanisms used in cryptography but neither are directly involved in the real-time checking of certificate validity. Therefore, for immediate verification, OCSP is the mechanism designed for this purpose.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "14.91"
+            },
+            "Question_19": {
+                "question": "Which of the following is a major security problem with FTP?",
+                "full_llm_response": "FTP, or File Transfer Protocol, is a protocol used for transferring files between computers on a network. One of its major security problems arises from how it handles authentication information.\n\n- Option A suggests that password files being stored in an unsecure area on disk is the problem. While this can be a security risk, it's not specific to FTP itself.\n- Option B mentions memory traces corrupting file access. This doesn't accurately describe a known FTP security issue.\n- Option C states that user IDs and passwords are unencrypted during transmission. This is indeed one of the most critical security issues with traditional FTP, as it transmits authentication credentials in plaintext, making them susceptible to interception by unauthorized parties.\n- Option D claims FTP sites are unregistered. While registration might help in identifying legitimate sites, this isn't a direct security flaw inherent to the protocol itself.\n\nGiven these considerations, the major security problem with FTP is that user IDs and passwords are transmitted without encryption, which makes it vulnerable to eavesdropping attacks.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "22.68"
+            },
+            "Question_20": {
+                "question": "Which of the following creates a fixed-length output from a variable-length input?",
+                "full_llm_response": "Cryptographic hash functions are designed to take an input (or 'message') and produce a fixed-size string of bytes. The output, typically referred to as the \"digest,\" is unique to each unique input. Common examples of such algorithms include MD5, SHA-1, and SHA-3.\n\n- **MD5** produces a 128-bit hash value.\n- **SHA-1** generates a 160-bit hash value.\n- **SHA-3** (part of the Secure Hash Algorithm family) can produce output lengths of 224, 256, 384, or 512 bits, depending on the variant.\n\nAll these hashing algorithms transform variable-length input data into a fixed-length output. Therefore, all listed options indeed perform this task.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.00"
+            },
+            "Question_21": {
+                "question": "What is the purpose of a service-level agreement (SLA) in the context of business continuity?",
+                "full_llm_response": "A Service-Level Agreement (SLA) is a formal contract between a service provider and their customer that outlines the expected level of service, including availability, performance metrics, responsibilities, and consequences for not meeting these standards. In the context of business continuity, an SLA primarily serves to define the obligations of the service provider to ensure consistent service delivery even during disruptions.\n\nExplanation:\n- A) Correct: An SLA specifies the commitments made by the service provider regarding uptime, response times, support levels, etc., which are crucial for maintaining operations and ensuring business continuity.\n- B) Incorrect: While an SLA may include terms related to availability that could pertain to high-availability architecture, it does not itself provide or define such architecture.\n- C) Incorrect: An SLA does not outline a disaster recovery plan. Disaster recovery plans detail how a company will recover IT operations after a disruption and are separate from the service commitments outlined in an SLA.\n- D) Incorrect: Ensuring fault tolerance is a technical aspect that might be related to service delivery, but an SLA itself doesn't ensure system fault tolerance; rather, it specifies the service expectations related to those systems.\n- E) Incorrect: Since A accurately describes one of the primary purposes of an SLA in business continuity, this option is not correct.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "29.36"
+            },
+            "Question_22": {
+                "question": "What does the Address Resolution Protocol (ARP) do in a network?",
+                "full_llm_response": "The Address Resolution Protocol (ARP) is used in networks to map or translate IP addresses to MAC (Media Access Control) addresses. This process is essential for communication within local area networks (LANs), as devices need to know the physical hardware address to send data to another device on the same network.\n\n- Option A refers to DNS, which resolves domain names to IP addresses.\n- Option B describes DHCP, which allocates IP addresses to network devices.\n- Option D is related to functions like ping, which verifies host reachability.\n- Option E suggests that none of these descriptions fit ARP, which is incorrect as option C accurately defines its function.\n\nTherefore, the correct answer is:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.38"
+            },
+            "Question_23": {
+                "question": "In the OSI model, which layer consists of the physical media and infrastructure of networks?",
+                "full_llm_response": "The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and implement network protocols in seven layers. Each layer has specific functions related to network communication.\n\n- The **Session Layer** (Layer 5) manages sessions between applications.\n- The **Presentation Layer** (Layer 6) deals with data translation, encryption, and compression.\n- The **Data Link Layer** (Layer 2) is responsible for node-to-node data transfer and error detection/correction in the physical layer.\n- The **Physical Layer** (Layer 1) involves the physical media and infrastructure, such as cables, switches, and other hardware components that physically connect devices in a network.\n\nGiven this information, the correct answer to which OSI model layer consists of the physical media and infrastructure is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.88"
+            },
+            "Question_24": {
+                "question": "In binary representation, what is the result of the bitwise XOR operation between 110101 and 101010",
+                "full_llm_response": "The bitwise XOR (exclusive OR) operation outputs 1 only when the two bits being compared are different. Let's perform the XOR operation on each bit pair from `110101` and `101010`.\n\n```\n   110101\nXOR 101010\n---------\n   011111\n```\n\n- The first bit: 1 XOR 1 = 0\n- The second bit: 1 XOR 0 = 1\n- The third bit: 0 XOR 1 = 1\n- The fourth bit: 1 XOR 0 = 1\n- The fifth bit: 0 XOR 1 = 1\n- The sixth bit: 1 XOR 0 = 1\n\nThe result is `011111`.\n\nAnswer: A) 011111",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.64"
+            },
+            "Question_25": {
+                "question": "What is the proper sequence of the TCP three-way-handshake?",
+                "full_llm_response": "The TCP three-way handshake is a process used to establish a reliable connection between a client and server in a network. The correct sequence involves:\n\n1. **SYN**: The client sends a synchronization (SYN) packet to the server to initiate communication.\n2. **SYN-ACK**: The server responds with a synchronization acknowledgment (SYN-ACK) packet, acknowledging the receipt of the SYN packet and indicating its own readiness to establish a connection.\n3. **ACK**: Finally, the client sends an acknowledgment (ACK) back to the server, confirming that it received the SYN-ACK from the server.\n\nThis sequence ensures that both parties are synchronized and ready for data transmission. Based on this explanation, the correct option is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.58"
+            },
+            "Question_26": {
+                "question": "Which topology has built-in redundancy because of its many client connections?",
+                "full_llm_response": "Network topologies with built-in redundancy are designed to ensure that there is an alternative path for data transmission in case a primary connection fails. This increases the reliability and fault tolerance of the network.\n\n- **A) Token ring**: In this topology, all devices are connected in a circular fashion, where a token circulates around the network granting permission to transmit. It does not inherently provide redundancy as each device depends on its neighbor for connectivity.\n  \n- **B) Bus**: This topology uses a single central cable (bus) that all devices connect to. If the main cable fails, the entire network is disrupted because there are no alternative paths.\n\n- **C) Hybrid**: A hybrid topology combines elements of different topologies but does not inherently guarantee redundancy simply by its structure alone. Its redundancy depends on how it's implemented.\n\n- **D) Mesh**: In a mesh topology, every device is connected to every other device, providing multiple paths for data to travel. If one connection fails, the network can reroute through another path, making it highly redundant and fault-tolerant.\n\nGiven these characteristics, the correct answer is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "25.04"
+            },
+            "Question_27": {
+                "question": "How can Google hacking be valuable in a cybersecurity investigation?",
+                "full_llm_response": "Google hacking involves using advanced search techniques to uncover publicly accessible information that might be sensitive or otherwise difficult to find. It can be valuable in a cybersecurity investigation by revealing exposed data, misconfigured systems, and other security vulnerabilities.\n\nOption A (To create fake Google search results) is not related to the concept of Google hacking in a legitimate context. Similarly, option B (To extract data from Google's databases) and option D (To manipulate website content in Google's index) involve unethical or illegal activities that are not aligned with responsible use of Google hacking for security investigations.\n\nOption C (To reveal hidden or sensitive information from Google search results) accurately describes the legitimate purpose of Google hacking, which is to identify publicly exposed information that may be vulnerable to exploitation. This can help cybersecurity professionals understand and mitigate potential threats.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "18.09"
+            },
+            "Question_28": {
+                "question": "What is the role of the three-way handshake in establishing a TCP connection?",
+                "full_llm_response": "The three-way handshake is a fundamental process used to establish a TCP connection. It involves three steps:\n\n1. **SYN (Synchronize):** The client sends a SYN packet to the server to request a connection.\n2. **SYN-ACK (Synchronize-Acknowledge):** The server responds with a SYN-ACK packet to acknowledge the request and indicate its readiness to establish a connection.\n3. **ACK (Acknowledge):** The client sends an ACK packet back to the server, acknowledging the receipt of the SYN-ACK packet.\n\nEach step in this process corresponds to one of the options provided:\n\nA) To request the establishment of a connection - This is covered by the SYN packet sent by the client.\nB) To acknowledge the request for connection - This is covered by the SYN-ACK packet sent by the server.\nC) To complete the establishment of a connection - This is completed when the ACK packet is sent back by the client.\n\nTherefore, the three-way handshake encompasses all these roles in establishing a TCP connection.\n\nAnswer: D) All of the above",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "23.89"
+            },
+            "Question_29": {
+                "question": "Which best describes a vulnerability scan?",
+                "full_llm_response": "A vulnerability scan is primarily used for identifying, detecting, and categorizing potential security threats in a computer system or network. It systematically checks systems, networks, or applications for known weaknesses that could be exploited by malicious actors. This process often involves automated tools to efficiently discover vulnerabilities across a large infrastructure.\n\n- Option A refers to finding open ports, which is part of what might be done during a vulnerability scan but doesn't encompass the full scope.\n- Option B describes diagramming a network, which is unrelated to vulnerability scanning as it pertains more to visual mapping than security assessment.\n- Option C suggests a proxy attack, which involves using an intermediary device to launch attacks and isn't related to the scanning process itself.\n- Option D correctly identifies that vulnerability scans automate the discovery of vulnerabilities by checking systems against known weaknesses.\n\nTherefore, the best description of a vulnerability scan is option D. \n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "19.74"
+            },
+            "Question_30": {
+                "question": "What is Tor used for?",
+                "full_llm_response": "Tor, also known as The Onion Router, is designed to provide anonymity for its users by routing their internet traffic through a worldwide volunteer network of servers. This process makes it more difficult to trace a user's internet activity back to them because each data packet is encrypted and sent through multiple nodes before reaching its destination.\n\nThe correct answer is:\n\nAnswer: A) To make it more difficult to trace a user's Internet activity",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "9.29"
+            },
+            "Question_31": {
+                "question": "What is the maximum number of IP addresses in an IPv6 subnet?",
+                "full_llm_response": "IPv6 uses 128-bit addressing. The size of a subnet in IPv6 is determined by the number of bits used for the network prefix, with the remaining bits available for host addresses within that subnet.\n\nThe maximum size of an IPv6 subnet occurs when only one bit is used for the network prefix (i.e., /127), leaving 127 bits for host addresses. This allows \\(2^{128-127} = 2^1 = 2\\) IP addresses, but since two addresses are reserved for network and broadcast identifiers in traditional addressing schemes, the practical usable range would typically be smaller.\n\nHowever, if we consider the theoretical maximum number of addresses available without reserving any (which is more aligned with how IPv6 operates), it would be \\(2^{128} = 340,282,366,920,938,463,463,374,607,431,768,211,456\\) addresses.\n\nNone of the given options directly represent this number. Therefore:\n\nAnswer: E) None of the above",
+                "extracted_answer": "E",
+                "expected_answer": "D",
+                "is_correct": false,
+                "evaluation": "INCORRECT",
+                "response_time": "22.68"
+            },
+            "Question_32": {
+                "question": "Which of the following is a characteristic of a worm?",
+                "full_llm_response": "Worms are a type of malware known for their ability to self-replicate and spread across networks without needing user interaction. They typically exploit vulnerabilities in software or operating systems to propagate, unlike viruses which often require some form of human action (e.g., opening an infected email attachment) to spread.\n\n- Option A is incorrect because worms do not require user interaction to spread; they can move autonomously.\n- Option B is correct as it describes the key characteristic of a worm: self-replication and independent spreading capability.\n- Option C suggests that worms target specific individuals or organizations, which is more characteristic of targeted malware like certain types of viruses or trojans, rather than worms in general.\n- Option D seems to be an incorrect statement about worms as it refers to them as \"an item that runs silently,\" without addressing their spreading behavior.\n\nThus, the correct answer is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "19.94"
+            },
+            "Question_33": {
+                "question": "What common tool can be used for launching an ARP poisoning attack?",
+                "full_llm_response": "ARP (Address Resolution Protocol) poisoning is a type of cyberattack in which a malicious actor sends falsified ARP messages over a local area network. This results in the linking of an attacker's MAC address with the IP address of a legitimate computer or server on the network. The common tool used for launching such attacks is \"Scooter.\"\n\n- Cain & Abel: Primarily a password recovery tool.\n- Nmap: A network scanning tool, not typically used for ARP poisoning.\n- Scooter: Specifically designed for performing ARP spoofing attacks.\n- Tcpdump: A packet analyzer, used to capture and analyze network traffic, not for launching ARP attacks.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "A",
+                "is_correct": false,
+                "evaluation": "INCORRECT",
+                "response_time": "14.80"
+            },
+            "Question_34": {
+                "question": "What technology is used to verify information as it is entered into a web application, preventing database manipulation and buffer overflows?",
+                "full_llm_response": "The question asks about a technology used to verify information as it is entered into a web application, which helps prevent database manipulation and buffer overflows. Let's analyze the options:\n\nA) Input Validation: This involves checking user input to ensure that it meets certain criteria before being processed by the application. Proper input validation can help prevent various security issues like SQL injection (database manipulation) and buffer overflow attacks.\n\nB) Cross-Site Scripting (XSS): XSS is a vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users, but it does not relate to verifying user input for preventing database manipulation or buffer overflows.\n\nC) Session Management: This involves managing user sessions in an application to ensure security and integrity. While important, it doesn't directly involve verifying input data to prevent the mentioned vulnerabilities.\n\nD) Buffer Overflow: This is a type of vulnerability that occurs when more data is written to a buffer than it can hold. It's not a technology used for preventing such issues but rather a problem itself.\n\nE) None of the above: Since option A is correct, this option does not apply.\n\nThe correct answer is:\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "25.62"
+            },
+            "Question_35": {
+                "question": "Which type of firewall analyzes the status of traffic?",
+                "full_llm_response": "A firewall that analyzes the status of traffic goes beyond just examining individual packets; it tracks active connections and determines whether to allow or block specific packets based on the context of the established connection. \n\n- Circuit level firewalls operate at the session layer, ensuring the validity of sessions.\n- Packet filtering firewalls examine packet headers but do not track the state or status of traffic beyond each individual packet.\n- Stateful inspection firewalls (or dynamic packet filtering) keep track of the state of active connections and make decisions based on the context of those connections.\n- NIDS (Network Intrusion Detection Systems) monitor network traffic for suspicious activity and policy violations but do not function as a firewall.\n\nThe correct option that describes a type of firewall analyzing the status of traffic is:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.10"
+            },
+            "Question_36": {
+                "question": "What is the purpose of the Crossover Error Rate (CER) in evaluating biometric devices",
+                "full_llm_response": "The Crossover Error Rate (CER) is a metric used in evaluating biometric systems. It represents the point at which the False Acceptance Rate (FAR) and the False Rejection Rate (FRR) are equal, providing a balanced measure of performance between security and convenience. Essentially, it helps compare the accuracy of similar biometric devices from different vendors or different models from the same vendor by identifying the rate at which both types of errors intersect.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "10.65"
+            },
+            "Question_37": {
+                "question": "What is the primary purpose of a padded cell system in relation to intrusion detection?",
+                "full_llm_response": "A padded cell, also known as a honeynet or deception grid, is designed to simulate and entice attackers into engaging with what appears to be a real network. Its primary function is not merely to isolate detected intruders or send alerts (though these can be secondary functionalities), but rather to attract unauthorized users so that their activities can be monitored and studied in a controlled environment.\n\nThe correct answer here focuses on the main purpose of enticing attackers, which aligns with option A: Attract unauthorized users.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "C",
+                "is_correct": false,
+                "evaluation": "INCORRECT",
+                "response_time": "11.59"
+            },
+            "Question_38": {
+                "question": "What is the primary goal of penetration testing?",
+                "full_llm_response": "Penetration testing, often referred to as pen testing, is a security exercise where authorized simulated cyberattacks are performed on a computer system, network, or application. The primary goal of penetration testing is to evaluate the robustness of security systems and identify vulnerabilities that could be exploited by malicious actors. It helps organizations understand their current level of security and determine how well they can defend against actual attacks.\n\n- Option A: This correctly identifies the main objective as evaluating security measures and identifying vulnerabilities.\n- Option B: Exploiting vulnerabilities with intent to cause damage is unethical and not aligned with penetration testing goals.\n- Option C: It's impractical to eliminate all vulnerabilities, and this isn't the primary goal of pen testing.\n- Option D: While simulating attacks is part of pen testing, it does include identifying potential exploitation paths rather than just avoiding them.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "19.11"
+            },
+            "Question_39": {
+                "question": "What is the primary purpose of RADIUS and TACACS in a network environment?",
+                "full_llm_response": "RADIUS (Remote Authentication Dial-In User Service) and TACACS+ (Terminal Access Controller Access-Control System Plus) are both protocols used primarily for network authentication, authorization, and accounting. They serve a similar purpose but differ slightly in their implementations.\n\n- RADIUS is commonly used to centralize the authentication of remote dial-up connections as well as other services like VPNs. It handles username/password authentication, assigns IP addresses, and logs session data.\n  \n- TACACS+ provides more granular control over authentication and authorization processes, especially for network devices like routers and switches. It separates these functions (authentication, authorization, accounting) into distinct phases.\n\nGiven the options:\n\nA) To centralize the authentication of remote dial-up connections - This option is true for RADIUS.\nB) To establish secure connections for voice and video conferencing - Neither protocol serves this primary purpose.\nC) To provide security for WAN communication technologies - While they may indirectly contribute to network security, their main function is not securing WAN communications specifically.\nD) To support remote journaling and electronic vaulting - This is unrelated to the functions of RADIUS or TACACS+.\n\nTherefore, the correct answer is:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "26.70"
+            },
+            "Question_40": {
+                "question": "Which symmetric encryption scheme is recommended for use in SRTP?",
+                "full_llm_response": "Secure Real-time Transport Protocol (SRTP) is designed to provide confidentiality, message authentication, and replay protection for voice and video over IP networks. When it comes to encryption schemes within SRTP, certain modes and algorithms are recommended due to their security properties.\n\nA) AES in ECB mode: Electronic Codebook (ECB) mode is not recommended because it does not use an initialization vector, leading to patterns being preserved across ciphertexts, which can compromise confidentiality.\n\nB) DES in CBC mode: Data Encryption Standard (DES) is considered insecure due to its small key size. Cipher Block Chaining (CBC) mode also requires careful handling of IVs and padding, making it less suitable for real-time communications like SRTP compared to more modern algorithms.\n\nC) RC4: This stream cipher was commonly used in the past but has known vulnerabilities and biases that make it insecure for modern use cases, including SRTP.\n\nD) AES in GCM mode: Advanced Encryption Standard (AES) is a widely accepted secure symmetric encryption algorithm. Galois/Counter Mode (GCM) provides both confidentiality and integrity protection, which are essential features of SRTP. It offers efficient performance with strong security properties, making it suitable for real-time applications.\n\nE) None of the above: This option would be correct if none of the listed schemes were recommended for SRPT, but AES in GCM mode is indeed a recommended choice.\n\nBased on these considerations, the recommended symmetric encryption scheme for use in SRTP is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "33.32"
+            },
+            "Question_41": {
+                "question": "What is the essential requirement for the security of the Discrete Logarithm Integrated Encryption Scheme (DLIES) to be maintained?",
+                "full_llm_response": "The security of cryptographic schemes based on the Discrete Logarithm Problem (DLP), such as the Discrete Logarithm Integrated Encryption Scheme (DLIES), relies heavily on certain parameters being sufficiently large to resist current computational capabilities and attacks. The primary parameter in focus is usually the prime number \\( p \\) which defines the finite field size, and the order \\( q \\) of a subgroup generated by a base point \\( P \\).\n\nLet's analyze each option:\n\nA) The order \\( q \\) of the base point \\( P \\) should be at least \\( q \\geq 1024 \\). This suggests that the security relies on having \\( q \\), which is typically much smaller than \\( p \\), being at least 1024 bits. While this provides some level of security, it may not be sufficient alone for long-term security given advances in computational power.\n\nB) Randomly choose two primes \\( p \\) and \\( q \\) such that \\( p \\times q > 2048 \\) bits. This condition ensures that the product of these primes is large enough to provide a high level of security, but typically \\( p \\) itself (rather than the product \\( p \\times q \\)) should be considered when determining field size for schemes like DLIES.\n\nC) The length of the prime number \\( p \\) should be at least 3000 bits. This option aligns with current recommendations for ensuring strong security in cryptographic systems based on the discrete logarithm problem, as longer primes provide greater resistance against attacks such as the Number Field Sieve (NFS).\n\nD) All of the above. While options A and B contribute to security considerations, C is the most stringent and aligned recommendation for maintaining robust security.\n\nE) None of the above. This would be incorrect because option C indeed provides an essential requirement for strong security in DLIES.\n\nGiven this analysis, option C best reflects the necessary condition to maintain the security of DLIES effectively against current cryptographic attack methods.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "45.13"
+            },
+            "Question_42": {
+                "question": "Which document provides the recommendation for elliptic curve cryptography?",
+                "full_llm_response": "NIST Special Publications (SPs) provide guidelines and recommendations for various aspects of cybersecurity. In this context:\n\n- **A) NIST SP 800-56C** deals with key establishment schemes using elliptic curve cryptography.\n- **B) NIST SP 800-63-3** focuses on digital identity guidance.\n- **C) NIST SP 800-57 Part 1** offers recommendations for encryption and key management, including elliptic curve cryptography.\n- **D) NIST SP 800-186-4** does not exist as a separate document.\n\nThe correct document providing comprehensive recommendations for elliptic curve cryptography is:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "D",
+                "is_correct": false,
+                "evaluation": "INCORRECT",
+                "response_time": "14.72"
+            },
+            "Question_43": {
+                "question": "What is an essential requirement for the internal state of deterministic random number generators?",
+                "full_llm_response": "Deterministic Random Number Generators (DRNGs) rely on a fixed algorithm to produce random numbers from an initial seed value. The primary concern for DRNGs is ensuring that their internal state remains secure and unpredictable to external observers, as this would compromise their ability to generate truly random numbers.\n\nA) Protection against readout and manipulation: This option highlights the necessity of safeguarding the internal state of a DRNG from unauthorized access or tampering. If an attacker can read or manipulate the internal state, they could predict future outputs or alter them, thereby compromising security. Thus, protecting the internal state is crucial for maintaining the integrity and unpredictability of a DRNG.\n\nB) Constant reseeding requirement: This applies more to Non-Deterministic Random Number Generators (NRNGs), where ongoing entropy input from external sources is necessary to ensure randomness.\n\nC) Dependence on reliable physical resources: While useful for NRNGs, this isn't directly applicable to DRNGs, which don't inherently depend on such resources because their output is based solely on an algorithm and initial seed value.\n\nD) Regular update of entropy sources: Similar to option B, this pertains more to NRNGs that require fresh external randomness inputs to maintain security.\n\nE) None of the above: This would be incorrect as protection against readout and manipulation (option A) is indeed essential for DRNGs.\n\nBased on these considerations, the correct answer is:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "32.37"
+            },
+            "Question_44": {
+                "question": "Which federal government agency has responsibility for ensuring the security of government computer systems that are not used to process sensitive and/or classified information?",
+                "full_llm_response": "The question asks which federal agency is responsible for ensuring the security of government computer systems that are not used to process sensitive or classified information. \n\n- The National Security Agency (NSA) primarily focuses on national security matters related to cryptography and communications intelligence, typically dealing with sensitive and classified information.\n  \n- The Federal Bureau of Investigation (FBI) handles broader law enforcement responsibilities including cybercrime but is more focused on investigation rather than setting standards for system security.\n\n- The National Institute of Standards and Technology (NIST) develops and issues standards, guidelines, and best practices to help federal agencies secure their non-sensitive information systems. NIST's Special Publication 800 series is particularly relevant here, providing frameworks and guidance for securing government IT systems that are not classified.\n\n- The Secret Service primarily deals with financial crimes and protection of national leaders, not typically involved in the broader security standardization efforts for IT systems.\n\nGiven this understanding, the correct answer is:\n\nAnswer: C) National Institute of Standards and Technology",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "21.96"
+            },
+            "Question_45": {
+                "question": "What is the purpose of implementing monitoring systems?",
+                "full_llm_response": "Monitoring systems in cybersecurity are primarily implemented to track various activities within an IT environment. They help ensure that all components of a network operate correctly and securely, providing visibility into potential threats or anomalies. Here's how each option relates:\n\nA) Monitoring the configuration and configuration change of devices - This is more about configuration management, although monitoring systems may assist in this task.\n\nB) Ensuring availability and functionality of systems - While important, this is more directly related to availability management and operational continuity rather than just monitoring.\n\nC) Recording access to information by means of system and security logging - This is a core function of monitoring systems. They track user activity and system events, helping in identifying unauthorized access or potential security breaches.\n\nD) Protection from compromising radiation - Monitoring does not typically address environmental factors like radiation.\n\nE) None of the above - Given that one option aligns well with the purpose of monitoring systems, this is incorrect.\n\nThe best answer here is:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "B",
+                "is_correct": false,
+                "evaluation": "INCORRECT",
+                "response_time": "21.23"
+            },
+            "Question_46": {
+                "question": "Which principle of cybersecurity focuses on ensuring that data is accurate and trustworthy?",
+                "full_llm_response": "The question asks which cybersecurity principle ensures that data is accurate and trustworthy. \n\n- **Resilience** refers to the ability to recover quickly from difficulties or adapt well in the face of adversity.\n- **Availability** pertains to ensuring that systems, services, and data are accessible when needed by authorized users.\n- **Authenticity** involves verifying the identity of a user, system, or entity before granting access.\n- **Integrity**, on the other hand, refers to maintaining the accuracy and consistency of data over its entire lifecycle. It ensures that data has not been altered in an unauthorized manner.\n\nThe principle focused on ensuring data is accurate and trustworthy is **Integrity**.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.45"
+            },
+            "Question_47": {
+                "question": "What is the primary goal of the Transport Layer Security (TLS) protocol?",
+                "full_llm_response": "The primary goal of the Transport Layer Security (TLS) protocol is to provide secure communication over a computer network. TLS aims to ensure three main security goals: \n\n1. **Privacy**: It encrypts the data being transmitted so that it cannot be read by unauthorized parties.\n2. **Authentication**: It verifies the identity of the communicating parties, ensuring that they are who they claim to be.\n3. **Data Integrity**: It ensures that the data has not been altered in transit.\n\nGiven these goals, TLS provides a combination of privacy, authentication, and data integrity between two communicating applications. Therefore, the correct answer is:\n\nAnswer: D) Privacy, authentication, and data integrity between two communicating applications",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.40"
+            },
+            "Question_48": {
+                "question": "If you were to see the subnet mask 255.255.248.0, what CIDR notation (prefix) would you use to indicate the same thing?",
+                "full_llm_response": "The given subnet mask is 255.255.248.0. In binary, this translates to:\n\n- 255 = 11111111 (8 bits)\n- 255 = 11111111 (8 bits)\n- 248 = 11111000 (5 bits)\n- 0 = 00000000 (0 bits)\n\nAdding up these bits gives us a total of 21 bits used for the network portion.\n\nTherefore, the CIDR notation for this subnet mask is /21.\n\nAnswer: C) /21",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "11.90"
+            },
+            "Question_49": {
+                "question": "Which of the following is NOT one of the five disaster recovery plan testing types?",
+                "full_llm_response": "Disaster recovery plans (DRPs) are tested using different methods to ensure they work effectively during an actual incident. The commonly recognized types of DRP tests include:\n\n1. **Simulation Test**: This involves simulating a disaster scenario without disrupting normal operations to test the plan's effectiveness.\n2. **Checklist Test**: A step-by-step review process where team members check and verify that all aspects of the plan are up-to-date and complete.\n3. **Full Interruption (or Parallel) Test**: The most rigorous form, it involves fully switching over to the disaster recovery site for a specified period while simulating an actual interruption.\n\nThe option \"Availability\" does not correspond to one of these recognized testing methods. Instead, availability is often a goal or metric used in DR planning rather than a type of test itself.\n\nAnswer: C) Availability",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "18.70"
+            },
+            "Question_50": {
+                "question": "What would be the result of sending the string AAAAAAAAAAAAAAAAA into a variable that has been allocated space for 8 bytes?",
+                "full_llm_response": "When a string longer than the allocated memory size is sent to a variable, it typically results in an overflow condition where excess data can overwrite adjacent memory. In this scenario, sending 20 'A' characters into a space allocated for only 8 bytes would likely result in a buffer overflow. A buffer overflow occurs when data exceeds a program's allocated storage capacity, potentially leading to undefined behavior including crashes or security vulnerabilities.\n\n- **Heap spraying** involves filling the heap with shellcode in anticipation of a vulnerability being triggered.\n- **SQL injection** involves inserting malicious SQL queries into input fields to manipulate databases.\n- **Slowloris attack** is an application layer DoS (Denial of Service) where connections are held open for as long as possible.\n\nTherefore, based on the description given:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.78"
+            },
+            "Question_51": {
+                "question": "Which of the following is NOT a form of computer/network surveillance?",
+                "full_llm_response": "To determine which option is not a form of computer/network surveillance, we need to understand what each entails:\n\nA) **Keyboard monitoring** - This involves tracking and recording keystrokes on a keyboard. It's a direct method of monitoring user activity on a computer.\n\nB) **Use of network sniffers** - Network sniffers capture data packets traveling across a network. They are used for analyzing network traffic, which is a form of surveillance.\n\nC) **Use of Closed-Circuit Television (CCTV)** - CCTV monitors physical spaces using cameras. While it's a surveillance method, it pertains to physical rather than computer/network activity.\n\nD) **Review of audit logs** - Audit logs record user activities and system events. Reviewing them is part of monitoring and analyzing what happens on systems or networks.\n\nE) **None of the above** - This option suggests all listed methods are forms of surveillance.\n\nCCTV focuses on physical spaces rather than computer/network activity, distinguishing it from the other options which directly relate to digital or network surveillance.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "23.49"
+            },
+            "Question_52": {
+                "question": "How would you calculate risk?",
+                "full_llm_response": "To calculate risk, you typically use the formula:\n\nRisk = Probability x Loss\n\nThis formula considers both the likelihood of a threat occurring and the potential impact or loss if it does occur. The product gives an estimate of the overall risk.\n\nAnswer: D) Probability * loss",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "6.14"
+            },
+            "Question_53": {
+                "question": "What is the common share name used for interprocess communication?",
+                "full_llm_response": "In Windows operating systems, \"IPC$\" (Inter-Process Communication Share) is a special hidden share that allows processes to communicate with each other. It's commonly used for various interprocess communication mechanisms and is a default share present on all Windows machines.\n\nAnswer: B) IPC$",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "6.34"
+            },
+            "Question_54": {
+                "question": "Which port is commonly used by SMB when operating over TCP without NetBIOS?",
+                "full_llm_response": "SMB (Server Message Block) protocol can operate using different ports depending on its configuration. Traditionally, it used port 139 when NetBIOS was employed as part of the communication. However, with the advent of SMB over TCP without relying on NetBIOS, a newer version called SMB Direct or SMB over TCP/IP utilizes port 445.\n\n- Port 137 and 139 are associated with NetBIOS.\n- Port 135 is used for the Endpoint Mapper in RPC (Remote Procedure Call).\n\nSince the question specifies \"when operating over TCP without NetBIOS,\" the correct answer would be the port used by SMB directly over TCP without the need for NetBIOS, which is port 445.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.97"
+            },
+            "Question_55": {
+                "question": "Which of the following is an example of a strong password?",
+                "full_llm_response": "To determine which option represents a strong password, we need to evaluate each choice based on common guidelines for creating secure passwords. A strong password typically includes:\n\n- At least one uppercase letter\n- At least one lowercase letter\n- At least one number\n- At least one special character (e.g., !, @, #, $)\n- Is sufficiently long (usually at least 12 characters is recommended)\n\nLet's evaluate each option:\n\nA) Password123456: This password contains uppercase and lowercase letters, numbers, but lacks special characters. It\u2019s also somewhat predictable.\n\nB) ME_Fgh4_al445!A: This password includes uppercase letters (M, F, A), lowercase letters (e, g, h, a, l), numbers (4, 4, 4, 5), and a special character (!). It is sufficiently long and complex.\n\nC) Qwerty!: This password contains uppercase and lowercase letters and one special character but is too short and predictable.\n\nD) 123456: This is a very weak password with only numbers and is extremely short.\n\nE) None of the above: This option would be correct if none of the passwords were strong, which isn't the case here.\n\nBased on this analysis:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "28.12"
+            },
+            "Question_56": {
+                "question": "Which access control model would be found in a firewall?",
+                "full_llm_response": "Firewalls are network security devices that monitor and filter incoming and outgoing traffic based on predetermined security rules. They operate by analyzing data packets against a set of predefined criteria or rules, which specify whether to allow or block specific types of network traffic.\n\n- **Mandatory Access Control (MAC)**: This model is typically used in environments requiring high security, where access rights are regulated by a central authority and cannot be altered by users. It's common in military and government systems but not typically associated with firewalls.\n  \n- **Discretionary Access Control (DAC)**: In this model, the resource owner has the discretion to grant or deny access to other users. It is more about user permissions than network traffic rules.\n\n- **Role-Based Access Control (RBAC)**: This approach assigns permissions based on roles within an organization. While useful for managing internal resources, it's not directly applicable to how firewalls control network traffic.\n\n- **Rule-Based Access Control**: Firewalls use this model by applying a set of predefined rules or policies to determine whether to allow or block traffic. These rules are based on factors like IP addresses, port numbers, and protocols.\n\nGiven that firewalls operate by enforcing specific rules to manage access to networks:\n\nAnswer: D) Rule-based access control",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "27.91"
+            },
+            "Question_57": {
+                "question": "What is the preferred encryption option for sending large amounts of data?",
+                "full_llm_response": "When considering the encryption options for sending large amounts of data, it's important to evaluate the efficiency and practicality of each method. \n\n- Symmetric encryption (Option A) is generally preferred for encrypting large datasets because it uses a single key for both encryption and decryption. This method is computationally efficient and faster compared to other types, making it suitable for handling large volumes of data.\n  \n- Asymmetric encryption (Option B), also known as public-key cryptography, involves two keys: a public key for encryption and a private key for decryption. It's more secure in terms of key distribution but is significantly slower than symmetric encryption, especially for large datasets.\n\n- Public Key Cryptography (Option C) refers to the same concept as asymmetric encryption, which we've discussed above regarding its inefficiency with large amounts of data due to computational overhead.\n\n- The Diffie-Hellman scheme (Option D) is a key exchange protocol rather than an encryption method. It's used for securely exchanging cryptographic keys over a public channel but isn't directly used for encrypting large datasets.\n\nGiven these considerations, the preferred option for sending large amounts of data efficiently would be symmetric encryption due to its speed and lower computational requirements compared to other methods listed.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "27.49"
+            },
+            "Question_58": {
+                "question": "Which of the following is an example of a hashing algorithm?",
+                "full_llm_response": "Hashing algorithms are used to create fixed-size hash values from input data, which can then be used for integrity checks or password storage among other applications. Let's review the options:\n\nA) AES - Advanced Encryption Standard is a symmetric encryption algorithm, not a hashing algorithm.\n\nB) RSA - Rivest-Shamir-Adleman is an asymmetric encryption algorithm (public-key cryptography), not a hashing algorithm.\n\nC) MD5 - Message Digest Algorithm 5 is indeed a well-known hashing algorithm used to produce a 128-bit hash value from input data. Although it's considered cryptographically broken and unsuitable for further use in security-sensitive applications, it fits the definition of a hashing algorithm.\n\nD) 3DES - Triple Data Encryption Standard is an encryption algorithm that uses symmetric key cryptography, not a hashing algorithm.\n\nE) None of the above - This would be incorrect because option C is indeed a hashing algorithm.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "20.56"
+            },
+            "Question_59": {
+                "question": "Which RAID level is not fault tolerant?",
+                "full_llm_response": "RAID levels are used to manage data storage in a way that balances performance, redundancy, and capacity. Fault tolerance refers to a system's ability to continue operating without interruption when one or more of its components fail.\n\n- **RAID 1** provides fault tolerance by mirroring data across multiple disks.\n- **RAID 0** stripes data across multiple disks for improved performance but does not provide fault tolerance; if one disk fails, all data is lost.\n- **RAID 5** and **RAID 6** both offer fault tolerance through parity. RAID 5 can survive a single disk failure, while RAID 6 can handle two.\n\nGiven this information, the RAID level that is not fault tolerant is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.43"
+            },
+            "Question_60": {
+                "question": "How many keys exist in a public/private key pair?",
+                "full_llm_response": "In asymmetric cryptography, a public/private key pair consists of two distinct but mathematically related keys: one is the private key, which is kept secret, and the other is the public key, which can be shared openly. These keys are used for tasks such as encryption/decryption or signing/verifying digital signatures.\n\n- The private key is used to decrypt messages encrypted with the corresponding public key or to sign data.\n- The public key is used to encrypt messages or verify signatures created by the private key.\n\nTherefore, a public/private key pair consists of exactly two keys: one public and one private. \n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "13.90"
+            },
+            "Question_61": {
+                "question": "What is the primary goal of an Information Security Governance strategy?",
+                "full_llm_response": "An effective Information Security Governance (ISG) strategy aims to ensure that an organization's information security efforts align with its business objectives, thereby achieving strategic goals. While minimizing the impact of security incidents and enforcing compliance are crucial components, they typically fall under the operational execution aspects rather than governance itself. ISG is primarily concerned with ensuring that there is alignment between security initiatives and business goals, supported by a framework that includes senior management commitment.\n\nThe primary goal involves obtaining buy-in from top-level management to ensure resources and strategic direction align with organizational priorities. This support is fundamental for establishing policies, procedures, and risk management processes aligned with the organization's objectives. Senior management plays an essential role in providing oversight, allocating necessary resources, and ensuring that security initiatives are integrated into the broader business strategy.\n\nTherefore, the primary goal of an Information Security Governance strategy is best represented by option B: To obtain senior management commitment and support.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "20.41"
+            },
+            "Question_62": {
+                "question": "What is the process of hiding text within an image called?",
+                "full_llm_response": "The process of concealing information, such as text or data, within another file like an image in a way that makes it undetectable to a casual observer is called steganography. Unlike encryption, which secures the content but still reveals its existence, steganography aims to hide both the existence and the nature of the hidden message.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "8.07"
+            },
+            "Question_63": {
+                "question": "What attack involves inserting an unauthorized person in the communication path between two users to intercept and modify packets?",
+                "full_llm_response": "The attack described involves an unauthorized person intercepting and potentially modifying communications between two parties. This is a classic description of a Man-in-the-Middle (MITM) attack, where the attacker secretly relays and possibly alters the communication between two parties who believe they are directly communicating with each other.\n\n- A Known Plaintext Attack involves exploiting information about both the plaintext and its corresponding ciphertext to gain further understanding of the encryption scheme.\n- B Chosen Cipher-Text Attack is when an attacker can obtain the decryption of arbitrary cipher-texts of their choosing, which is different from intercepting a communication path.\n- D Brute-Force Attack refers to systematically checking all possible keys or passwords until the correct one is found.\n\nGiven these options:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.57"
+            },
+            "Question_64": {
+                "question": "Who is responsible for implementing the planning, budgeting, and performance of the organization's information security components?",
+                "full_llm_response": "The responsibility for implementing the planning, budgeting, and performance of an organization\u2019s information security components typically falls under the role of the Chief Information Security Officer (CISO). The CISO is responsible for overseeing and ensuring the security posture of the organization by developing and implementing policies, managing resources, and aligning the organization's security objectives with its business goals.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "8.33"
+            },
+            "Question_65": {
+                "question": "The primary responsibility of the information security steering committee is:",
+                "full_llm_response": "The information security steering committee typically holds a strategic role within an organization. Its main responsibilities generally include establishing direction, ensuring alignment with organizational goals, and overseeing the effectiveness of the information security program through performance monitoring.\n\n- **Option A** involves policy development, which is often handled by specific individuals or teams responsible for creating policies, although the steering committee may review these.\n- **Option B** focuses on setting strategic directions and monitoring performance, aligning well with the typical duties of such committees.\n- **Option C** refers to implementing controls, a task usually carried out by operational security teams rather than a steering committee.\n- **Option D** involves training, which is more likely managed by human resources or specific training departments.\n\nConsidering these points, option B reflects the primary responsibility most accurately. \n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.61"
+            },
+            "Question_66": {
+                "question": "According to NIST guidelines, what is a recommended practice for creating a strong password?",
+                "full_llm_response": "The National Institute of Standards and Technology (NIST) provides guidelines on creating strong passwords. One of their key recommendations is to encourage users to create long, complex passwords that are easy to remember but hard for others to guess. This often translates into promoting the use of passphrases rather than traditional short passwords with mixed character types. NIST suggests avoiding overly restrictive composition rules and mandatory periodic password changes unless there's a specific need, as these practices can sometimes lead to weaker security habits (e.g., users writing down passwords or making minor predictable changes).\n\n- Option A: Implementing complex composition rules requiring a mix of character types is not recommended by NIST as it may lead to less secure user behavior.\n- Option B: Setting mandatory periodic password changes for all users is discouraged because it often leads to weaker passwords over time and can result in negative security practices.\n- Option C: Encouraging the use of longer, more memorable passphrases aligns well with NIST's recommendations. It focuses on increasing password strength without imposing strict rules that might lead to insecure behaviors.\n- Option D: Requiring the use of password hints for easier recall is not recommended because it can compromise security by providing attackers with additional information.\n\nThus, based on these insights, the correct answer aligns with encouraging stronger and more secure practices without unnecessary constraints or potential security risks:\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "30.21"
+            },
+            "Question_67": {
+                "question": "What is the purpose of continuously improving cybersecurity guidelines and their application notes?",
+                "full_llm_response": "Cybersecurity is an ever-evolving field due to the constant emergence of new technologies, applications, and associated risks. The purpose of continuously improving cybersecurity guidelines and their application notes is to ensure they remain relevant and effective in addressing these changes. This includes adapting to new technologies, understanding emerging use cases, and identifying potential threats that were not previously considered.\n\nA) To categorize security measures into groups - While this could be a component of cybersecurity efforts, it does not capture the primary purpose of continuous improvement.\nB) To react to new technologies, use cases, and risks - This option aligns well with the dynamic nature of cybersecurity, focusing on adaptation and responsiveness to changes in technology and threat landscapes.\nC) To prevent all identified threats - It is practically impossible for guidelines to prevent every single identified threat due to the complexity and evolving nature of cyber threats.\nD) To eliminate all cybersecurity risks - Eliminating all risks is unrealistic; rather, the goal is to mitigate them as much as possible.\n\nTherefore, the correct option is B. The continuous improvement of guidelines aims primarily at reacting to new technologies, use cases, and risks.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "25.18"
+            },
+            "Question_68": {
+                "question": "What does DDoS stand for?",
+                "full_llm_response": "DDoS stands for \"Distributed Denial of Service.\" It refers to a type of cyber attack where multiple compromised computer systems are used to target a single system, causing a denial of service for users of the targeted system. The correct option is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "6.03"
+            },
+            "Question_69": {
+                "question": "Which is not a common wireless network authentication mechanism?",
+                "full_llm_response": "To determine which option is not a common wireless network authentication mechanism, let's briefly review each:\n\n- **WEP (Wired Equivalent Privacy)**: An early security protocol for wireless networks.\n- **WPA (Wi-Fi Protected Access)**: A security protocol and security certification program developed to secure wireless computer networks.\n- **802.1X**: A network access control standard that provides an authentication mechanism for devices wishing to attach to a LAN or WLAN, often used in conjunction with EAP (Extensible Authentication Protocol).\n- **RC4**: A stream cipher algorithm used in various encryption protocols but not specifically an authentication mechanism.\n\nGiven this information, RC4 is primarily an encryption algorithm rather than an authentication mechanism.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "15.97"
+            },
+            "Question_70": {
+                "question": "Which technique aims to identify changes in normal routines by examining patterns of a user's activity?",
+                "full_llm_response": "The question is asking for a technique that identifies changes in normal routines through analyzing patterns of a user's activity. \n\n- A) Vulnerability Assessment typically focuses on identifying, quantifying, and prioritizing vulnerabilities in a system.\n- B) Behavior-based Intrusion Detection Systems (IDS) monitor network or system activities for suspicious behavior by comparing current activity to established baselines of normal behavior. This fits the description as it involves examining patterns and detecting deviations from these patterns.\n- C) Data Mining is primarily concerned with discovering patterns, trends, and relationships in large data sets but does not specifically focus on identifying changes in user routines through pattern analysis in a security context.\n- D) User Profile Analysis could be related to understanding a user's typical behavior, but it is more general and less specific to detecting deviations from normal activity patterns as an IDS would do.\n\nThe most appropriate choice based on the description provided is:\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "20.26"
+            },
+            "Question_71": {
+                "question": "What is the primary purpose of conducting a risk analysis in cybersecurity?",
+                "full_llm_response": "Conducting a risk analysis in cybersecurity involves identifying potential risks, assessing their impact on an organization, determining the likelihood of occurrence, and evaluating existing controls. The primary purpose is to understand the level of exposure to various threats and determine what measures (safeguards or controls) can be implemented to mitigate those risks.\n\n- Option A focuses on assessing risk levels but doesn't capture the complete process.\n- Option B relates more to formulating security procedures, which comes after identifying risks and understanding exposures.\n- Option C is about creating a statement rather than analyzing risks in-depth.\n- Option D accurately describes both determining exposure levels and identifying possible safeguards or controls.\n\nTherefore, the primary purpose aligns best with option D.\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.16"
+            },
+            "Question_72": {
+                "question": "What is the primary advantage of using UDP over TCP?",
+                "full_llm_response": "UDP (User Datagram Protocol) and TCP (Transmission Control Protocol) are both transport layer protocols, but they have different characteristics and use cases. \n\n- **Reliability**: TCP is known for its reliability features such as acknowledgment of received packets, retransmission of lost packets, and in-order delivery, which UDP lacks.\n\n- **Error recovery**: Similar to reliability, TCP has built-in mechanisms for error detection and recovery (e.g., checksums, acknowledgments), while UDP does not provide these.\n\n- **Speed of data transfer**: UDP is generally faster than TCP because it is a connectionless protocol that doesn't perform handshaking or have overhead associated with maintaining connections. It sends packets without waiting for acknowledgment from the recipient, which reduces latency and improves speed, especially in applications where speed is more critical than reliability (such as streaming audio/video).\n\n- **Data integrity**: While both protocols use checksums to verify data integrity of individual packets, TCP ensures end-to-end data integrity with its sequence numbers and retransmissions. UDP alone does not provide mechanisms for ensuring complete data integrity over a connection.\n\nGiven this analysis, the primary advantage of using UDP over TCP is its speed due to reduced overhead and lack of acknowledgment requirements.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "27.20"
+            },
+            "Question_73": {
+                "question": "What does the CIA triad in cryptography emphasize?",
+                "full_llm_response": "The CIA triad is a fundamental model in information security and cybersecurity. It stands for:\n\n- **Confidentiality**: Ensuring that data is not accessed by unauthorized individuals.\n- **Integrity**: Maintaining and assuring the accuracy and completeness of data.\n- **Availability**: Ensuring that authorized users have access to information and associated assets when required.\n\nThe triad focuses on protecting data from unauthorized disclosure, ensuring it remains accurate and unaltered, and making sure that it is accessible to those who need it. \n\nGiven this understanding:\n\nA) Incorrect - Authenticity is not part of the CIA triad.\nB) Correct - This option correctly lists Confidentiality, Integrity, and Availability.\nC) Incorrect - Authenticity and Nonrepudiation are not part of the CIA triad.\nD) Incorrect - Nonrepudiation is not part of the CIA triad.\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "19.85"
+            },
+            "Question_74": {
+                "question": "Which nmap command is used to perform a TCP SYN scan, also known as a half-open scan, to determine which ports are open on a target system?",
+                "full_llm_response": "In Nmap, different options specify various types of scans. The TCP SYN scan is specifically designed to be a half-open scan that does not complete the TCP handshake, making it stealthier.\n\n- Option A: `nmap -sP` performs a ping scan to determine if hosts are up.\n- Option B: `nmap -sT` initiates a full TCP connection (connect scan).\n- Option C: `nmap -SYN` is not a valid Nmap option syntax for specifying scan types.\n- Option D: `nmap -sS` correctly specifies the SYN scan, which sends a SYN packet and waits for a response without completing the handshake.\n\nTherefore, the correct answer is:\n\nAnswer: D",
+                "extracted_answer": "D",
+                "expected_answer": "D",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "16.28"
+            },
+            "Question_75": {
+                "question": "What is the primary purpose of business continuity plans?",
+                "full_llm_response": "Business continuity plans are designed to ensure that an organization can continue its critical functions during and after a disruption. The primary purpose is not just about recovering from natural disasters, but rather maintaining operations in any kind of disruptive event, whether it's natural or man-made.\n\nOption A focuses only on natural disasters, which is too narrow. Option B discusses audits, which are more related to security management than continuity planning. Option D suggests increasing costs, which contradicts the purpose of such plans. Therefore, the most appropriate option is C.\n\nAnswer: C",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "12.02"
+            },
+            "Question_76": {
+                "question": "Which DoS attack sends large amounts of ICMP Echo traffic to a broadcast IP address with a spoofed source address of a victim?",
+                "full_llm_response": "This question refers to a specific type of Denial-of-Service (DoS) attack that involves sending large amounts of ICMP Echo traffic. The key details provided are: \n\n1. It targets a broadcast IP address.\n2. It uses a spoofed source address that matches a victim's address.\n\nThese characteristics describe the Smurf attack, where an attacker sends ICMP Echo Request packets to a network's broadcast address with the source address spoofed as the target (victim). This causes all devices on the broadcast network to respond to the victim's IP address, overwhelming it with traffic.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "13.22"
+            },
+            "Question_77": {
+                "question": "Which of the following tools is commonly used for network packet analysis and troubleshooting?",
+                "full_llm_response": "Wireshark is a widely recognized tool used for capturing and analyzing network packets. It provides detailed insights into network traffic, making it an essential tool for troubleshooting and understanding network issues. \n\nMetasploit is primarily used for penetration testing and security auditing, focusing on identifying vulnerabilities.\n\nNmap is known for network discovery and security auditing by scanning IP addresses to determine open ports and services running on hosts.\n\nHydra is a brute-force attack tool used for password cracking against various protocols.\n\nGiven this context, the correct choice for a tool commonly used in network packet analysis and troubleshooting is:\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "13.06"
+            },
+            "Question_78": {
+                "question": "In the context of encrypting data for secure communication, which encryption algorithm is typically preferred for its speed and efficiency?",
+                "full_llm_response": "When considering algorithms for encrypting data for secure communication, we evaluate both security and performance. \n\nRSA-2048 is an asymmetric encryption algorithm known for its strong security but is relatively slow compared to symmetric algorithms due to the computational complexity involved in key generation and encryption/decryption processes.\n\nAES-256 (Advanced Encryption Standard with a 256-bit key) is a symmetric encryption algorithm that offers a high level of security. It's widely used because it provides excellent security while being significantly faster than asymmetric algorithms like RSA, making it efficient for encrypting large amounts of data.\n\nGiven these points, AES-256 is typically preferred for its speed and efficiency when encrypting data, especially in scenarios where symmetric encryption can be employed (like after establishing a secure channel using an asymmetric algorithm).\n\nAnswer: B",
+                "extracted_answer": "B",
+                "expected_answer": "B",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "17.45"
+            },
+            "Question_79": {
+                "question": "What is the purpose of NOP sleds in buffer overflow exploits?",
+                "full_llm_response": "NOP sleds, or \"No Operation\" sleds, are used in buffer overflow exploits to ensure that the CPU reaches and executes malicious code. They consist of a series of NOP (no-operation) instructions that serve as padding, effectively increasing the chances of directing execution flow into the attacker's payload by leading the instruction pointer smoothly into it. The purpose is not encryption or altering specific registers like EIP directly; instead, they provide a \"sled\" that slides into the exploit code.\n\nTherefore, the correct answer is:\nAnswer: C) To insert no-operation instructions for padding",
+                "extracted_answer": "C",
+                "expected_answer": "C",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "12.89"
+            },
+            "Question_80": {
+                "question": "Which security feature can help prevent buffer overflow attacks by marking certain memory regions as non-executable?",
+                "full_llm_response": "Buffer overflow attacks can be mitigated by preventing certain types of memory regions from being executed. One common security feature that addresses this is Data Execution Prevention (DEP). DEP marks specific areas of a process's address space as non-executable, which prevents an attacker from executing malicious code in these regions.\n\nLet's review the options:\n- A) Data Execution Prevention (DEP): This technology specifically marks memory regions as non-executable to prevent execution of injected code.\n- B) Buffer Overflow Prevention (BOP): This is not a standard term or widely recognized security feature for preventing buffer overflow attacks.\n- C) Intrusion Detection System (IDS): IDS detects and alerts on potential intrusions but does not inherently prevent the execution of code in certain memory regions.\n- D) Address Space Layout Randomization (ASLR): ASLR randomizes memory addresses to make it more difficult for an attacker to predict where their malicious payload will be executed, but it doesn't mark memory as non-executable.\n- E) None of the above: This option is incorrect because DEP does fulfill the requirement specified in the question.\n\nAnswer: A",
+                "extracted_answer": "A",
+                "expected_answer": "A",
+                "is_correct": true,
+                "evaluation": "CORRECT",
+                "response_time": "24.98"
+            }
+        }
+    }
+}

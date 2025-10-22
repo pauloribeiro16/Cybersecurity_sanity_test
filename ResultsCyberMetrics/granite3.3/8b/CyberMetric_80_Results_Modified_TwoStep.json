@@ -1,0 +1,652 @@
+{
+    "summary": {
+        "provisory_option_correct": 49,
+        "provisory_option_incorrect": 31,
+        "total": 80,
+        "option_mapping_accuracy": "61.25%"
+    },
+    "details": {
+        "granite3.3:8b": {
+            "Question_1": {
+                "question_text": "What is the primary requirement for an Random Bit Generator's (RBG) output to be used for generating cryptographic keys?",
+                "expected_option": "B",
+                "step1_free_response": "The primary requirement for a Random Bit Generator's (RBG) output to be used for generating cryptographic keys is that it must produce sequences of bits that are unpredictable and statistically indistinguishable from true randomness. This property, known as cryptographic strength or min-entropy, ensures that an attacker cannot predict the generated keys even with access to past outputs or other information about the system.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_2": {
+                "question_text": "In cryptography, what is the purpose of using a key-derivation function (KDF)?",
+                "expected_option": "D",
+                "step1_free_response": "A Key-Derivation Function (KDF) is used to derive one or more secret keys from a secret value such as a master key or password, typically in a way that requires computational resources and time. Its primary purposes are: ensuring sufficient computational complexity to deter brute force attacks, reducing the likelihood of collision, and transforming the input key into a cryptographically strong key suitable for various cryptographic algorithms.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_3": {
+                "question_text": "What is the primary purpose of segmentation in the context of PCI DSS?",
+                "expected_option": "B",
+                "step1_free_response": "The primary purpose of segmentation in the context of Payment Card Industry Data Security Standard (PCI DSS) is to isolate the cardholder data environment (CDE) from other parts of an organization's network. This helps prevent unauthorized access, reduces the scope of compliance, and limits potential damage from security breaches. It ensures that sensitive cardholder information is protected by applying a defense-in-depth strategy.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_4": {
+                "question_text": "What is the purpose of using strong cryptography to protect cardholder data during transmission over open, public networks?",
+                "expected_option": "A",
+                "step1_free_response": "The purpose of employing strong cryptography for safeguarding cardholder data during its transmission over open, public networks like the internet is to ensure confidentiality and integrity. This process involves encryption techniques that convert readable data into incomprehensible ciphertext, protecting it from unauthorized access or interception. It also ensures data integrity by detecting if any changes are made to the data during transit, thereby maintaining the authenticity of the information.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_5": {
+                "question_text": "What is the purpose of periodic reviews of user accounts and access privileges?",
+                "expected_option": "D",
+                "step1_free_response": "The purpose of periodic reviews of user accounts and access privileges in a cybersecurity context is to ensure that only active, authorized users have appropriate levels of system access, thereby minimizing potential security risks such as unauthorized data access or manipulation. This practice helps maintain compliance with regulatory standards, prevent insider threats, and enforce the principle of least privilege (granting minimal access necessary for users to perform their job functions).",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_6": {
+                "question_text": "Which of the following is a purpose of having synchronized system clocks?",
+                "expected_option": "A",
+                "step1_free_response": "The purpose of having synchronized system clocks in a network is to maintain consistency in time stamping for various events, which is crucial for accurate logging and auditing purposes. It also ensures secure communication via protocols like SSL/TLS that rely on correct timestamps to prevent replay attacks. Furthermore, it facilitates centralized management and troubleshooting across distributed systems.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_7": {
+                "question_text": "What is physical security?",
+                "expected_option": "C",
+                "step1_free_response": "Physical security refers to the measures and practices employed to protect a facility, equipment, people, data, and assets against unauthorized access, use, disclosure, disruption, modification, or destruction. This can include both human and natural hazards. Examples of physical security controls are locks, fences, surveillance cameras, biometric devices, security personnel, and environmental controls like fire suppression systems.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_8": {
+                "question_text": "What does the abbreviation 'SDK' stand for in the context of software security?",
+                "expected_option": "A",
+                "step1_free_response": "In the context of software security, SDK stands for Software Development Kit. It's a set of software development tools that allows for the creation of applications for a particular software package, operating system, hardware platform, computer system, video game console, software framework, etc. This can include documentation, sample code, libraries, compilers, and other resources to aid developers in writing programs for that specific platform. While not exclusively about security, SDKs may contain tools or libraries specifically designed for implementing security measures in the developed software.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_9": {
+                "question_text": "What is the main purpose of multi-factor authentication in cybersecurity?",
+                "expected_option": "C",
+                "step1_free_response": "The main purpose of multi-factor authentication (MFA) in cybersecurity is to provide an additional layer of security beyond just a username and password. It requires users to verify their identity through two or more verification methods, thereby reducing the risk of compromised credentials being used for unauthorized access.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_10": {
+                "question_text": "What is the primary objective of a Web Application Firewall (WAF) in cybersecurity?",
+                "expected_option": "C",
+                "step1_free_response": "The primary objective of a Web Application Firewall (WAF) in cybersecurity is to protect web applications from various attacks such as SQL injection and cross-site scripting (XSS), which are often used by malicious actors to gain unauthorized access or perform unauthorized operations. It acts as a filter between the internet and the web application, inspecting the traffic for each request and blocking any that do not meet the specified security policies.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_11": {
+                "question_text": "What is the purpose of periodically changing passwords or passphrases?",
+                "expected_option": "D",
+                "step1_free_response": "The primary purpose of periodically changing passwords or passphrases is to enhance security by limiting the time window for potential attackers who might have gained unauthorized access to a system, often due to a breach. Even if an attacker manages to obtain a password, it will only grant them access for as long as that password remains valid. Regular changes reduce this risk period significantly.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_12": {
+                "question_text": "Which of the following defines the entity\u2019s security objectives and principles?",
+                "expected_option": "A",
+                "step1_free_response": "The entity's security objectives and principles are typically defined by a cybersecurity policy or framework, often established by an organization's leadership or in compliance with regulatory requirements. This document outlines the entity's stance on information security, detailing what is to be protected, how it should be safeguarded, and the responsibilities of personnel involved in maintaining this protection. In practice, this could be a detailed policy document, a set of principles, or a combination of both. Common frameworks used include ISO/IEC 27001, NIST Cybersecurity Framework, or CIS Critical Security Controls.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_13": {
+                "question_text": "What is the focus of a security audit or vulnerability assessment?",
+                "expected_option": "A",
+                "step1_free_response": "The focus of a security audit or vulnerability assessment is to identify, report, and rectify potential vulnerabilities in a system that could be exploited by cyber threats. It involves an evaluation of an organization's IT posture, reviewing its policies, controls, and procedures to ensure they comply with established standards and are effective at protecting against relevant threats. The assessment also includes scanning networks for weaknesses and then recommending or implementing changes to mitigate identified risks.",
+                "step2_selected_option": "D",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_14": {
+                "question_text": "Which of the following is a mechanism for managing digital certificates through a system of trust?",
+                "expected_option": "A",
+                "step1_free_response": "Public Key Infrastructure (PKI) is the mechanism for managing digital certificates through a system of trust. It uses a combination of hardware, software, people, policies, and procedures to create, manage, distribute, use, store, and revoke digital certificates and manage public-private key pairs. It's fundamental in ensuring secure communications over networks such as the internet.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_15": {
+                "question_text": "Which protocol is used to create a secure environment in a wireless network?",
+                "expected_option": "B",
+                "step1_free_response": "The protocol used to create a secure environment in a wireless network is Wired Equivalent Privacy (WEP), Wi-Fi Protected Access (WPA), and the most secure is Wi-Fi Protected Access II (WPA2) or its successor, Wi-Fi Protected Access III (WPA3).",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_16": {
+                "question_text": "Which design concept limits access to systems from outside users while protecting users and systems inside the LAN?",
+                "expected_option": "A",
+                "step1_free_response": "The design concept that limits access to systems from outside users while safeguarding users and systems within a Local Area Network (LAN) is called \"Network Segmentation\" or \"Demilitarized Zone (DMZ).\" However, it's important to note that DMZ specifically allows public access to services like web servers while keeping them isolated from the internal network. For general internal protection, firewalls are commonly used in conjunction with network segmentation strategies.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_17": {
+                "question_text": "What is the process of making an operating system secure from attack called?",
+                "expected_option": "A",
+                "step1_free_response": "The process of making an operating system secure from attacks is known as \"Hardening\". This involves a series of steps including patching, change management, access control and network security to reduce vulnerabilities and protect against potential threats.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_18": {
+                "question_text": "Which mechanism is used by PKI to allow immediate verification of a certificate's validity?",
+                "expected_option": "D",
+                "step1_free_response": "PKI (Public Key Infrastructure) uses Certificate Revocation Lists (CRLs) and Online Certificate Status Protocol (OCSP) for immediate verification of a certificate's validity. \n\nA CRL is essentially a list of digital certificates that have been revoked before their expiration date, maintained by the Certificate Authority (CA). It allows users to check if a certificate has been compromised or is no longer valid.\n\nOn the other hand, OCSP is an online protocol that allows a client to check the revocation status of a certificate in real time, by connecting directly to the Certificate Revocation Service hosted by the Certificate Authority (CA) that issued the certificate.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_19": {
+                "question_text": "Which of the following is a major security problem with FTP?",
+                "expected_option": "C",
+                "step1_free_response": "FTP (File Transfer Protocol) transmits data, including usernames and passwords, in clear text, making it vulnerable to eavesdropping and man-in-the-middle attacks. It lacks robust security features such as encryption, which can lead to sensitive data exposure. Additionally, many FTP clients and servers allow anonymous access by default, posing a significant security risk if not properly managed.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_20": {
+                "question_text": "Which of the following creates a fixed-length output from a variable-length input?",
+                "expected_option": "D",
+                "step1_free_response": "A hash function creates a fixed-length output (hash value or message digest) from a variable-length input. This is used in cryptography for secure data transmission and verification.",
+                "step2_selected_option": "C",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_21": {
+                "question_text": "What is the purpose of a service-level agreement (SLA) in the context of business continuity?",
+                "expected_option": "A",
+                "step1_free_response": "The purpose of a Service Level Agreement (SLA) in the context of business continuity is to establish a contractual agreement between a service provider and a customer, detailing the level of service expected from the provider. It ensures that both parties have clear expectations regarding the availability, performance, capacity, security, and other quality attributes or service parameters of the service. In terms of business continuity, SLAs outline the measures and responsibilities for maintaining operations during disruptions, including data recovery, uptime guarantees, response times, and compensation for non-compliance.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_22": {
+                "question_text": "What does the Address Resolution Protocol (ARP) do in a network?",
+                "expected_option": "C",
+                "step1_free_response": "The Address Resolution Protocol (ARP) is responsible for translating IP addresses into physical machine addresses (MAC addresses) within a local area network, allowing data packets to be sent to the correct hardware device on a LAN.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_23": {
+                "question_text": "In the OSI model, which layer consists of the physical media and infrastructure of networks?",
+                "expected_option": "D",
+                "step1_free_response": "Layer 1, also known as the Physical Layer, in the OSI model consists of the physical media and infrastructure of networks. This includes the cables, switches, and other hardware components used for network communication.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_24": {
+                "question_text": "In binary representation, what is the result of the bitwise XOR operation between 110101 and 101010",
+                "expected_option": "A",
+                "step1_free_response": "The bitwise XOR (exclusive OR) operation compares each bit of its first operand to the corresponding bit of its second operand. If both bits are equal, the resulting bit is 0. If they're different, the resulting bit is 1. \n\nSo for 110101 and 101010:\n\n```\n  110101 (binary)\n^ 101010 (binary)\n------- 011111 (binary)\n```\n\nThus, the result of XOR operation between 110101 and 101010 in binary is 011111.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_25": {
+                "question_text": "What is the proper sequence of the TCP three-way-handshake?",
+                "expected_option": "B",
+                "step1_free_response": "The correct sequence for a TCP three-way handshake is as follows:\n\n1. The client sends a SYN (synchronize) packet to the server to initiate a connection.\n2. The server responds with a SYN-ACK (synchronize-acknowledgment) packet, which both acknowledges the client's request and sends its own request for a connection.\n3. The client then responds with an ACK (acknowledge) packet, signaling that it has received the server's request and established the connection. \n\nThis sequence establishes a reliable two-way communication channel between the client and server.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_26": {
+                "question_text": "Which topology has built-in redundancy because of its many client connections?",
+                "expected_option": "D",
+                "step1_free_response": "Mesh topology. It provides multiple paths between clients, ensuring data can still travel if one path fails. This makes it highly redundant.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_27": {
+                "question_text": "How can Google hacking be valuable in a cybersecurity investigation?",
+                "expected_option": "C",
+                "step1_free_response": "Google Hacking, when used ethically by cybersecurity professionals, can provide significant insights during investigations. It involves using advanced search operators to find specific types of information on publicly available websites. This can help uncover sensitive data exposed online due to misconfiguration, identify vulnerabilities in a company's digital presence, discover leaked passwords or confidential documents, and track malicious activities. However, it should always be conducted with permission and for legitimate purposes like improving security measures rather than exploiting them.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_28": {
+                "question_text": "What is the role of the three-way handshake in establishing a TCP connection?",
+                "expected_option": "D",
+                "step1_free_response": "The three-way handshake is a process used by the Transmission Control Protocol (TCP) to establish a reliable connection between two devices before data transfer begins. It ensures both parties are ready and capable of communication, preventing data loss or corruption. The steps are: \n\n1. SYN (Synchronize): The client sends a segment with a SYN flag to the server to initiate connection.\n2. SYN-ACK (Synchronize-Acknowledgment): If the server is willing, it responds with a SYN-ACK segment acknowledging the client's request and sending its own synchronization request.\n3. ACK (Acknowledgment): The client sends an ACK segment back to the server, confirming the server's request and completing the three-way handshake, thereby establishing the connection.",
+                "step2_selected_option": "C",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_29": {
+                "question_text": "Which best describes a vulnerability scan?",
+                "expected_option": "D",
+                "step1_free_response": "A vulnerability scan is a process of identifying security weaknesses in a computer system, network, or software by using automated tools to scan for known vulnerabilities. It checks for potential entry points for malicious attacks and identifies if any systems are missing critical patches.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_30": {
+                "question_text": "What is Tor used for?",
+                "expected_option": "A",
+                "step1_free_response": "Tor (The Onion Router) is primarily used for ensuring anonymous communication. Internet traffic is passed through a network of volunteer relays run by individuals around the world; this prevents somebody watching your Internet connection from learning what sites you visit and makes it more difficult to trace Internet activity, including traffic that can reveal sensitive information about a person or organization. Tor also provides a platform for whistleblowers, activists, and journalists who require secure communication to operate in repressive environments. However, due to its anonymity features, it has also been misused for illegal activities like drug trafficking and arms dealing on the Tor-hidden \"dark web\".",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_31": {
+                "question_text": "What is the maximum number of IP addresses in an IPv6 subnet?",
+                "expected_option": "D",
+                "step1_free_response": "The maximum number of IP addresses in an IPv6 subnet is 2^128, which is approximately 3.4 x 10^38 addresses. This is because IPv6 uses 128-bit addresses compared to IPv4's 32-bit, allowing for a significantly larger address space.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_32": {
+                "question_text": "Which of the following is a characteristic of a worm?",
+                "expected_option": "B",
+                "step1_free_response": "A worm, in the context of cybersecurity, is a type of malicious software (malware) that self-replicates and spreads to other computers, often via computer networks, without requiring user interaction. They consume system resources, potentially slowing down or crashing systems, and can also be used for distributed denial-of-service attacks.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_33": {
+                "question_text": "What common tool can be used for launching an ARP poisoning attack?",
+                "expected_option": "A",
+                "step1_free_response": "A commonly used tool for launching an ARP poisoning attack is Ettercap. Other tools include Arpspoof, Arpkif and Cain & Abel.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_34": {
+                "question_text": "What technology is used to verify information as it is entered into a web application, preventing database manipulation and buffer overflows?",
+                "expected_option": "A",
+                "step1_free_response": "Input validation, often done using whitelists, is the technology employed to verify information as it's entered into a web application. This helps prevent database manipulation and buffer overflows by ensuring only correctly formatted data conforms to expected standards before it's processed or stored. It rejects invalid data, thus enhancing security.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_35": {
+                "question_text": "Which type of firewall analyzes the status of traffic?",
+                "expected_option": "C",
+                "step1_free_response": "A stateful inspection firewall. It monitors the state of active connections, tracking the status of packets to make decisions about whether to allow or deny them based on their context. This is in contrast to a stateless firewall which checks each packet individually without understanding the context.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_36": {
+                "question_text": "What is the purpose of the Crossover Error Rate (CER) in evaluating biometric devices",
+                "expected_option": "B",
+                "step1_free_response": "The Crossover Error Rate (CER) in evaluating biometric devices refers to the system threshold where the false acceptance rate (FAR) and the false rejection rate (FRR) are equal. It's used to assess the overall performance of a biometric identification system, striking a balance between security (low FAR) and convenience (low FRR). A lower CER indicates a more accurate biometric device.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_37": {
+                "question_text": "What is the primary purpose of a padded cell system in relation to intrusion detection?",
+                "expected_option": "C",
+                "step1_free_response": "A \"padded cell system\" is not typically associated with intrusion detection in cybersecurity. It's an outdated term from psychiatry referring to a secure room where individuals experiencing mental health crises are safely contained. In the context of cybersecurity, systems for detecting intrusions might involve firewalls, intrusion detection systems (IDS), and security information and event management (SIEM) tools, but not \"padded cells.\"",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_38": {
+                "question_text": "What is the primary goal of penetration testing?",
+                "expected_option": "A",
+                "step1_free_response": "The primary goal of penetration testing is to evaluate an organization's security posture by safely simulating cyber attacks. It helps identify vulnerabilities that could be exploited by malicious actors, enabling the organization to remediate these issues before they can be used for real attacks. This proactive approach enhances the system's overall resilience and reduces risk.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_39": {
+                "question_text": "What is the primary purpose of RADIUS and TACACS in a network environment?",
+                "expected_option": "A",
+                "step1_free_response": "The primary purpose of both RADIUS (Remote Authentication Dial-In User Service) and TACACS (Terminal Access Controller Access-Control System) in a network environment is to provide centralized authentication services for users attempting to access a network service. They authenticate users by a username and password and can also apply accounting rules to control user access and monitor usage patterns. While both perform similar functions, RADIUS is commonly used for remote access connections (like VPN or Wi-Fi) while TACACS is often employed for controlling access to network devices in a more granular manner.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_40": {
+                "question_text": "Which symmetric encryption scheme is recommended for use in SRTP?",
+                "expected_option": "D",
+                "step1_free_response": "The symmetric encryption scheme recommended for use in Secure Real-time Transport Protocol (SRTP) is Advanced Encryption Standard (AES).",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_41": {
+                "question_text": "What is the essential requirement for the security of the Discrete Logarithm Integrated Encryption Scheme (DLIES) to be maintained?",
+                "expected_option": "C",
+                "step1_free_response": "The security of the Discrete Logarithm Integrated Encryption Scheme (DLIES) relies on the difficulty of computing discrete logarithms in a finite field. To maintain its security, it's crucial to ensure that the private key remains secret and is generated from a large prime order. The safety of DLIES diminishes if the parameters are not carefully chosen or if there exists an efficient algorithm for solving the discrete logarithm problem.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_42": {
+                "question_text": "Which document provides the recommendation for elliptic curve cryptography?",
+                "expected_option": "D",
+                "step1_free_response": "The National Institute of Standards and Technology (NIST) Special Publication (SP) 800-57, which is \"Recommendation for Key Management,\" recommends Elliptic Curve Cryptography (ECC) as an alternative to non-ECC methods. In particular, NIST SP 800-131A and NIST SP 800-131B outline specific ECC key sizes for various applications.",
+                "step2_selected_option": "C",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_43": {
+                "question_text": "What is an essential requirement for the internal state of deterministic random number generators?",
+                "expected_option": "A",
+                "step1_free_response": "An essential requirement for the internal state of deterministic random number generators is that it should be seeded with a unique value. This unique seed ensures that the sequence of numbers produced will be different each time the program runs, providing the illusion of randomness despite being deterministic.",
+                "step2_selected_option": "D",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_44": {
+                "question_text": "Which federal government agency has responsibility for ensuring the security of government computer systems that are not used to process sensitive and/or classified information?",
+                "expected_option": "C",
+                "step1_free_response": "The Cybersecurity and Infrastructure Security Agency (CISA) is responsible for ensuring the security of most federal government computer systems, including those not used for sensitive or classified information. However, it's important to note that specific responsibilities can vary based on the agency and system in question. For highly sensitive information, the Department of Homeland Security (DHS) and other specialized agencies may also be involved.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_45": {
+                "question_text": "What is the purpose of implementing monitoring systems?",
+                "expected_option": "B",
+                "step1_free_response": "The purpose of implementing monitoring systems in cybersecurity is to continuously observe and analyze network traffic, system activities, and other relevant data for detecting potential security breaches, policy violations, or unusual behaviors. This allows for timely identification, response, and mitigation of threats to ensure the confidentiality, integrity, and availability of information systems and data.",
+                "step2_selected_option": "D",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_46": {
+                "question_text": "Which principle of cybersecurity focuses on ensuring that data is accurate and trustworthy?",
+                "expected_option": "D",
+                "step1_free_response": "The principle of cybersecurity that focuses on ensuring data accuracy and trustworthiness is called \"Integrity.\" It ensures data is not maliciously or accidentally altered or destroyed.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_47": {
+                "question_text": "What is the primary goal of the Transport Layer Security (TLS) protocol?",
+                "expected_option": "D",
+                "step1_free_response": "The primary goal of the Transport Layer Security (TLS) protocol is to provide a secure, encrypted communication channel over computer networks, ensuring privacy and data integrity between applications and services. It protects against eavesdropping, tampering, and message forgery.",
+                "step2_selected_option": "B",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_48": {
+                "question_text": "If you were to see the subnet mask 255.255.248.0, what CIDR notation (prefix) would you use to indicate the same thing?",
+                "expected_option": "C",
+                "step1_free_response": "The CIDR notation for the subnet mask 255.255.248.0 would be /29. This indicates that there are 29 bits set in the subnet mask, leaving 3 bits for host addresses within the network.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_49": {
+                "question_text": "Which of the following is NOT one of the five disaster recovery plan testing types?",
+                "expected_option": "C",
+                "step1_free_response": "Without specific multiple-choice options provided, I can't definitively state which one is missing from \"the five disaster recovery plan testing types.\" However, common types usually include Tabletop Exercises, Simulation Tests, Full Walkthroughs, Partial Walkthroughs, and Systematic Tests. A potential answer that might be missing could be a type not typically associated with disaster recovery plans, such as \"Risk Assessment\" or \"Security Audit,\" since those are more related to risk management and compliance rather than direct testing of the disaster recovery plan itself.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_50": {
+                "question_text": "What would be the result of sending the string AAAAAAAAAAAAAAAAA into a variable that has been allocated space for 8 bytes?",
+                "expected_option": "C",
+                "step1_free_response": "The string \"AAAAAAAAAAAAAAAA\" (16 characters) will overflow an 8-byte variable, as 8 bytes can only hold up to 8 characters. This could lead to a buffer overflow vulnerability, potentially causing program instability, unexpected behavior or security breaches if exploited by malicious actors.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_51": {
+                "question_text": "Which of the following is NOT a form of computer/network surveillance?",
+                "expected_option": "C",
+                "step1_free_response": "Keylogging software that records every keystroke made on an infected computer, then sends the data to an attacker. This is indeed a form of computer/network surveillance. The other option you provided was not given, but generally, network packet sniffers or firewalls monitoring and recording data packets passing through a network would also be considered forms of surveillance. \n\nWithout the additional options, it's hard to definitively answer which one is NOT a form of computer/network surveillance. However, in general terms, activities like using antivirus software for protection against malware or monitoring system performance are not typically considered forms of surveillance but rather standard cybersecurity practices.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_52": {
+                "question_text": "How would you calculate risk?",
+                "expected_option": "D",
+                "step1_free_response": "Risk can be calculated by identifying potential threats (V), vulnerabilities (U), and the possible impact (I) of an event occurring, then applying a risk formula such as: Risk = U * I. Alternatively, more comprehensive methods like FAIR (Factor Analysis of Information Risk) or NIST's cybersecurity framework can be used for a detailed analysis.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_53": {
+                "question_text": "What is the common share name used for interprocess communication?",
+                "expected_option": "B",
+                "step1_free_response": "The common shared name used for interprocess communication is called a \"pipe\". However, another commonly used mechanism is a \"socket\", which isn't strictly a shared name but more of a endpoint in a communication channel. For shared memory between processes, it's typically referred to as a \"shared segment\" or simply \"shared memory\".",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_54": {
+                "question_text": "Which port is commonly used by SMB when operating over TCP without NetBIOS?",
+                "expected_option": "D",
+                "step1_free_response": "When Simple Message Block (SMB) operates over Transmission Control Protocol (TCP) without NetBIOS, it typically uses port 445. This protocol is often targeted in attacks as it can lead to remote code execution if exploited.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_55": {
+                "question_text": "Which of the following is an example of a strong password?",
+                "expected_option": "B",
+                "step1_free_response": "A strong password typically includes a mix of uppercase and lowercase letters, numbers, and special characters. For instance, \"J1kz&2021#R\" could be considered a strong password due to its complexity. However, remember that the best passwords are unique, lengthy, and not easily guessable.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_56": {
+                "question_text": "Which access control model would be found in a firewall?",
+                "expected_option": "D",
+                "step1_free_response": "A firewall typically implements a mandatory access control (MAC) model, specifically a type known as rule-based access control. This means that it strictly enforces pre-defined rules to allow or deny traffic based on criteria like source IP, destination IP, protocol, and port number. Some advanced firewalls might also employ discretionary access control (DAC) features for additional flexibility. However, the core operation of a firewall is fundamentally based on MAC principles.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_57": {
+                "question_text": "What is the preferred encryption option for sending large amounts of data?",
+                "expected_option": "A",
+                "step1_free_response": "Symmetric encryption, specifically Advanced Encryption Standard (AES) with 256-bit keys, is typically preferred for transmitting large volumes of data due to its speed and efficiency. It uses a single key for both encrypting and decrypting the data, making it faster compared to asymmetric encryption methods like RSA. However, securely exchanging this single key can be challenging in some scenarios.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_58": {
+                "question_text": "Which of the following is an example of a hashing algorithm?",
+                "expected_option": "C",
+                "step1_free_response": "An example of a hashing algorithm is SHA-256 (Secure Hash Algorithm 256-bit). Other examples include MD5 and SHA-1. These algorithms transform data into fixed sizes, producing unique strings of characters which serve as a digital fingerprint for the input data. They are used in various security applications to ensure data integrity.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_59": {
+                "question_text": "Which RAID level is not fault tolerant?",
+                "expected_option": "B",
+                "step1_free_response": "RAID 0 is not fault tolerant because it does not provide any redundancy and data is striped across all disks in the array, meaning that if one disk fails, the entire array is compromised.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_60": {
+                "question_text": "How many keys exist in a public/private key pair?",
+                "expected_option": "B",
+                "step1_free_response": "In a public/private key pair, there are two distinct keys: one is public and can be shared freely, while the other is private and must be kept secret. There aren't any additional or interchangeable keys within this system. It's crucial to keep the private key secure as it's used for decryption and digital signatures. Anyone with access to this key could impersonate the owner of the corresponding public key, thus compromising security.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_61": {
+                "question_text": "What is the primary goal of an Information Security Governance strategy?",
+                "expected_option": "B",
+                "step1_free_response": "The primary goal of an Information Security Governance strategy is to ensure the protection of an organization's information by implementing policies, practices, and procedures that maintain the confidentiality, integrity, and availability of information assets. This involves aligning security measures with business objectives, managing risk, and ensuring compliance with relevant laws, regulations, and contractual obligations.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_62": {
+                "question_text": "What is the process of hiding text within an image called?",
+                "expected_option": "B",
+                "step1_free_response": "The process of hiding text within an image is called Steganography.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_63": {
+                "question_text": "What attack involves inserting an unauthorized person in the communication path between two users to intercept and modify packets?",
+                "expected_option": "C",
+                "step1_free_response": "The attack you're describing is known as a \"Man-in-the-Middle\" (MitM) attack. In this type of cyberattack, a malicious actor secretly relays and possibly modifies communication between two unknowing parties. They intercept the communication to steal data or inject malicious content. Common methods used in MitM attacks include eavesdropping on unencrypted communications, impersonating a trusted entity, or exploiting software vulnerabilities.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_64": {
+                "question_text": "Who is responsible for implementing the planning, budgeting, and performance of the organization's information security components?",
+                "expected_option": "B",
+                "step1_free_response": "The Chief Information Security Officer (CISO) or a similar executive is typically responsible for implementing the planning, budgeting, and performance of an organization's information security components. They oversee and direct the overall information security strategy to protect computer systems and networks from cyber threats.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_65": {
+                "question_text": "The primary responsibility of the information security steering committee is:",
+                "expected_option": "B",
+                "step1_free_response": "The primary responsibility of an Information Security Steering Committee (ISSC) includes overseeing, guiding, and making critical decisions regarding information security strategies, policies, and initiatives within an organization. This involves managing risks, allocating resources for security projects, ensuring compliance with laws and regulations, and aligning security efforts with the overall business objectives. It also entails monitoring the effectiveness of security measures, addressing any security incidents or breaches, and providing leadership and strategic direction in information security matters.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_66": {
+                "question_text": "According to NIST guidelines, what is a recommended practice for creating a strong password?",
+                "expected_option": "C",
+                "step1_free_response": "According to NIST guidelines, a strong password should be unique, complex, and easy for the user to remember but hard for an attacker to guess. It should contain at least 8 characters with a mix of uppercase and lowercase letters, numbers, and symbols. Avoid using real words or common phrases, personal information, or sequences/patterns like \"1234\" or \"abcde\". Regularly updating passwords is also recommended, but not as a substitute for overall good password hygiene.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_67": {
+                "question_text": "What is the purpose of continuously improving cybersecurity guidelines and their application notes?",
+                "expected_option": "B",
+                "step1_free_response": "The purpose of continuously improving cybersecurity guidelines and their application notes is to stay ahead of evolving cyber threats, protect sensitive data effectively, ensure compliance with legal and regulatory requirements, and maintain robust security posture for organizations in the face of new vulnerabilities and attack methods.",
+                "step2_selected_option": "E",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_68": {
+                "question_text": "What does DDoS stand for?",
+                "expected_option": "B",
+                "step1_free_response": "DDoS stands for Distributed Denial of Service. It's a cyberattack where multiple compromised systems, often infected with a Trojan, are used to target a single system causing a denial of service (DoS) to its users.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_69": {
+                "question_text": "Which is not a common wireless network authentication mechanism?",
+                "expected_option": "D",
+                "step1_free_response": "A common wireless network authentication mechanisms include WEP, WPA, WPA2, and WPA3. A non-common or less used method might be EAP (Extensible Authentication Protocol), which is more often used in RADIUS networks rather than standard Wi-Fi. Another example could be LEAP (Lightweight Extensible Authentication Protocol), which has been largely replaced by more secure methods like EAP-TLS and PEAP.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_70": {
+                "question_text": "Which technique aims to identify changes in normal routines by examining patterns of a user's activity?",
+                "expected_option": "B",
+                "step1_free_response": "Behavioral Analytics",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_71": {
+                "question_text": "What is the primary purpose of conducting a risk analysis in cybersecurity?",
+                "expected_option": "D",
+                "step1_free_response": "The primary purpose of conducting a risk analysis in cybersecurity is to identify, assess, and prioritize risks to a computer system, network, or technology. It helps organizations understand potential threats, vulnerabilities, and impacts, enabling them to implement effective controls to mitigate these risks and protect their assets.",
+                "step2_selected_option": "A",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_72": {
+                "question_text": "What is the primary advantage of using UDP over TCP?",
+                "expected_option": "C",
+                "step1_free_response": "The primary advantage of using UDP (User Datagram Protocol) over TCP (Transmission Control Protocol) is its speed due to the lack of overhead. UDP does not provide guarantees for data delivery, ordering or protection against duplicated data. This makes it faster and more suitable for applications where speed is critical and some data loss is tolerable, such as streaming video and voice over IP.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_73": {
+                "question_text": "What does the CIA triad in cryptography emphasize?",
+                "expected_option": "B",
+                "step1_free_response": "The CIA triad in cryptography emphasizes three core principles of information security: Confidentiality (ensuring that information is accessible only to those authorized to have access), Integrity (safeguarding the accuracy and completeness of information and processing methods), and Availability (ensuring that authorized users have access to needed resources when required).",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_74": {
+                "question_text": "Which nmap command is used to perform a TCP SYN scan, also known as a half-open scan, to determine which ports are open on a target system?",
+                "expected_option": "D",
+                "step1_free_response": "The Nmap command for performing a TCP SYN scan, which is also known as a half-open scan, is:\n\n`nmap -sS <target_IP>`\n\nHere, `-sS` specifies the use of TCP SYN scanning. Replace `<target_IP>` with the IP address of the target system you wish to scan.",
+                "step2_selected_option": "D",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_75": {
+                "question_text": "What is the primary purpose of business continuity plans?",
+                "expected_option": "C",
+                "step1_free_response": "The primary purpose of business continuity plans (BCP) is to ensure that critical functions can continue during and after a disruption, thereby minimizing losses and ensuring the organization's survival. It involves anticipating potential threats or disruptions, creating strategies to mitigate those risks, and implementing procedures for recovery should an incident occur.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_76": {
+                "question_text": "Which DoS attack sends large amounts of ICMP Echo traffic to a broadcast IP address with a spoofed source address of a victim?",
+                "expected_option": "A",
+                "step1_free_response": "The described attack is known as a Smurf Attack. It involves sending massive amounts of Internet Control Message Protocol (ICMP) packets, specifically echo requests, to a broadcast address and using a falsified source address that matches the targeted victim's IP address. This floods the victim with response traffic from systems that erroneously forward these ICMP requests.",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_77": {
+                "question_text": "Which of the following tools is commonly used for network packet analysis and troubleshooting?",
+                "expected_option": "A",
+                "step1_free_response": "Wireshark is a commonly used tool for network packet analysis and troubleshooting. It's free, open-source software that captures packets in real time from a live network interface or reads packets from a previously saved capture file. Wireshark provides detailed information about each packet including its source and destination, protocol, and data payload.",
+                "step2_selected_option": "D",
+                "is_option_correct": false,
+                "manual_overall_evaluation": ""
+            },
+            "Question_78": {
+                "question_text": "In the context of encrypting data for secure communication, which encryption algorithm is typically preferred for its speed and efficiency?",
+                "expected_option": "B",
+                "step1_free_response": "AES (Advanced Encryption Standard) is typically preferred for its balance of speed, efficiency, and security. It's a symmetric encryption algorithm that encrypts (and decrypts) data in blocks of 128 bits using cryptographic keys of 128, 192, or 256 bits.",
+                "step2_selected_option": "B",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_79": {
+                "question_text": "What is the purpose of NOP sleds in buffer overflow exploits?",
+                "expected_option": "C",
+                "step1_free_response": "The purpose of NOP (No Operation) sleds in buffer overflow exploits is to increase the chance of successfully executing injected code by creating a larger area where the instruction pointer might land after overflowing the buffer. This can make exploitation more reliable, as even if the exact location of the malicious code isn't hit, there's a higher likelihood that the nearby NOP sled will be executed.",
+                "step2_selected_option": "C",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            },
+            "Question_80": {
+                "question_text": "Which security feature can help prevent buffer overflow attacks by marking certain memory regions as non-executable?",
+                "expected_option": "A",
+                "step1_free_response": "The security feature is called Executable Space Protection, also known as Non-Executable (NX) Bit or NX-bit. It marks areas of a program's memory as non-executable, preventing an attacker from executing malicious code in a buffer overflow attack. This feature is part of Address Space Layout Randomization (ASLR) and Data Execution Prevention (DEP).",
+                "step2_selected_option": "A",
+                "is_option_correct": true,
+                "manual_overall_evaluation": ""
+            }
+        }
+    }
+}
