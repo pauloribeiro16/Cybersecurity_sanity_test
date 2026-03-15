@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Knowledge Tester - Dashboard</title>
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg-gradient: linear-gradient(135deg, #090a12 0%, #121424 100%);
+            --card-bg: rgba(30, 32, 56, 0.4);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 11, 20, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.025em;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* --- Dropzone overlay --- */
+        #drop-zone {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(9, 10, 18, 0.95);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .drop-content {
+            text-align: center;
+            padding: 3rem;
+            border: 2px dashed rgba(96, 165, 250, 0.4);
+            border-radius: 1rem;
+            background: rgba(30, 41, 59, 0.5);
+            max-width: 500px;
+        }
+
+        .drop-icon {
+            font-size: 4rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .hidden { display: none !important; opacity: 0; pointer-events: none; }
+
+        /* --- Sidebar & Layout --- */
+        .app-layout {
+            display: flex;
+            min-height: calc(100vh - 65px); /* Header height approx */
+        }
+
+        .sidebar {
+            width: 270px;
+            background: rgba(10, 11, 20, 0.4);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--card-border);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: sticky;
+            top: 65px;
+            height: calc(100vh - 65px);
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+        }
+
+        .sidebar-item.active {
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .sidebar-item i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .main-workspace {
+            flex: 1;
+            padding: 3rem;
+            max-width: 100% !important; /* Forces full bleed expansion */
+            margin: 0;
+            width: 100%;
+        }
+
+        .page-view {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Container helper overlay */
+        .container {
+            padding: 0;
+            max-width: 100% !important;
+        }
+
+        /* KPIs Row */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .kpi-title {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* Charts Row */
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Stacked Charts for full bleed views */
+        .charts-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .chart-card {
+            min-height: 650px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .chart-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* --- Leaderboard/Table --- */
+        .table-card {
+            overflow: hidden;
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .search-input {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+            color: #fff;
+            width: 250px;
+            font-size: 0.875rem;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+            border: 1px solid var(--card-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            font-family: inherit;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-green { background: rgba(16, 185, 129, 0.1); color: var(--accent-green); }
+        .badge-blue { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
+        .badge-purple { background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); }
+
+        /* --- Filter Buttons --- */
+        .filter-group {
+            display: flex;
+            gap: 0.4rem;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Drag & Drop Overlay -->
+    <div id="drop-zone" onclick="triggerInput()">
+        <div class="drop-content">
+            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+            <h3>Drag & Drop Results Folder</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Or click to select the `ResultsCyberMetrics` folder</p>
+            <input type="file" id="file-input" style="display: none;" webkitdirectory directory multiple>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <header id="dash-header" class="hidden">
+        <h1><i class="fa-solid fa-shield-halved"></i> CyberMetrics Evaluation Hub</h1>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Files Loaded: <span id="kpi-files-count" style="color: #fff; font-weight: 600;">0</span>
+            <button onclick="resetDashboard()" style="background: none; border: 1px solid var(--card-border); padding: 0.3rem 0.75rem; border-radius: 0.25rem; color: #fff; margin-left: 1rem; cursor: pointer;">Reset</button>
+        </div>
+    </header>
+
+    <div id="dash-content" class="container hidden">
+        
+        <div class="app-layout">
+            <!-- Sidebar Navigation -->
+            <div class="sidebar">
+                <div class="sidebar-item active" onclick="switchView('dashboard', this)">
+                    <i class="fa-solid fa-chart-pie"></i> Overview
+                </div>
+                <div class="sidebar-item" onclick="switchView('standard', this)">
+                    <i class="fa-solid fa-list-check"></i> Standard Mode
+                </div>
+                <div class="sidebar-item" onclick="switchView('twostep', this)">
+                    <i class="fa-solid fa-shuffle"></i> Two-Step Mode
+                </div>
+                <div class="sidebar-item" onclick="switchView('probabilistic', this)">
+                    <i class="fa-solid fa-dice"></i> Probabilistic Mode
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div class="main-workspace">
+
+                <!-- Page 1: Overview Dashboard -->
+                <div id="page-dashboard" class="page-view">
+                    <!-- KPIs Row -->
+                    <div class="kpi-row">
+                        <div class="card">
+                            <div class="kpi-title">Total Result Files</div>
+                            <div class="kpi-value" id="stat-files">0</div>
+                        </div>
+                        <div class="card">
+                            <div class="kpi-title">Max Sample Size</div>
+                            <div class="kpi-value" id="stat-max-model">0</div>
+                        </div>
+                        <div class="card">
+                            <div class="kpi-title">Peak Accuracy</div>
+                            <div class="kpi-value" id="stat-peak-acc" style="color: var(--accent-green);">0%</div>
+                        </div>
+                        <div class="card">
+                            <div class="kpi-title">Slowest Multi-Inference</div>
+                            <div class="kpi-value" id="stat-slowest">0s</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-stack">
+                        <!-- View 1: Scaling -->
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">📌 View 1: Standard Scaling Benchmark</div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="scaleChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- View 2: Prompt Variation -->
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">📌 View 2: 80-Question Variation Grid</div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="variantChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aggregated Summary Tables -->
+                    <div class="charts-row">
+                        <div class="card table-card" style="flex: 1; padding: 1.5rem;">
+                            <div class="table-controls">
+                                <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-blue);">📌 View 1: Standard Scaling Summary</div>
+                            </div>
+                            <div class="table-scroll">
+                                <table id="summary-scaling-table">
+                                    <thead><tr id="scale-headers"><th>Model Name</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="card table-card" style="flex: 1; padding: 1.5rem;">
+                            <div class="table-controls">
+                                <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-purple);">📌 View 2: 80-Question Variation Summary</div>
+                            </div>
+                            <div class="table-scroll">
+                                <table id="summary-variant-table">
+                                    <thead><tr id="variant-headers"><th>Model Name</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /#page-dashboard -->
+
+                <!-- Page 2: Standard Mode -->
+                <div id="page-standard" class="page-view hidden">
+                    <div class="card table-card" style="margin-bottom: 1.5rem;">
+                        <div class="table-controls">
+                            <div style="font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-list-check" style="color: var(--accent-green);"></i> Standard Mode Leaderboard
+                            </div>
+                            <input type="text" class="search-input" onkeyup="searchTable('standard', this.value)" placeholder="Search Model...">
+                        </div>
+                    </div>
+                    <div id="leaderboard-standard"></div>
+                </div>
+
+                <!-- Page 3: Two-Step Mode -->
+                <div id="page-twostep" class="page-view hidden">
+                    <div class="card table-card" style="margin-bottom: 1.5rem;">
+                        <div class="table-controls">
+                            <div style="font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-shuffle" style="color: var(--accent-purple);"></i> Two-Step Mode Leaderboard
+                            </div>
+                            <input type="text" class="search-input" onkeyup="searchTable('twostep', this.value)" placeholder="Search Model...">
+                        </div>
+                    </div>
+                    <div id="leaderboard-twostep"></div>
+                </div>
+
+                <!-- Page 4: Probabilistic Mode -->
+                <div id="page-probabilistic" class="page-view hidden">
+                    <div class="card table-card" style="margin-bottom: 1.5rem;">
+                        <div class="table-controls">
+                            <div style="font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-dice" style="color: var(--accent-blue);"></i> Probabilistic Mode Leaderboard
+                            </div>
+                            <input type="text" class="search-input" onkeyup="searchTable('probabilistic', this.value)" placeholder="Search Model...">
+                        </div>
+                    </div>
+                    <div id="leaderboard-probabilistic"></div>
+                </div>
+
+            </div> <!-- /.main-workspace -->
+        </div> <!-- /.app-layout -->
+
+    </div>
+
+    <!-- Core Loader & Logic Support -->
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const dashHeader = document.getElementById('dash-header');
+        const dashContent = document.getElementById('dash-content');
+        
+        let loadedData = [];
+
+        // Check cache on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cached = localStorage.getItem('dashboardData');
+            if (cached) {
+                try {
+                    loadedData = JSON.parse(cached);
+                    if (loadedData.length > 0) {
+                        dropZone.classList.add('hidden');
+                        dashHeader.classList.remove('hidden');
+                        dashContent.classList.remove('hidden');
+                        document.getElementById('stat-files').textContent = "..."; // Count isn't raw files count exactly unless saved
+                        finalizeDashboard();
+                    }
+                } catch (err) {}
+            }
+        });
+
+        // Drag & Drop handlers
+        window.addEventListener('dragover', (e) => e.preventDefault());
+        window.addEventListener('drop', (e) => e.preventDefault());
+
+        dropZone.addEventListener('dragover', () => dropZone.style.border = '2px solid var(--accent-blue)');
+        dropZone.addEventListener('dragleave', () => dropZone.style.border = 'none');
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const items = e.dataTransfer.items;
+            let files = [];
+            for (let i = 0; i < items.length; i++) {
+                const entry = items[i].webkitGetAsEntry();
+                if (entry) traverseFileTree(entry, files);
+            }
+            // Trigger load buffer after full async traverse
+            setTimeout(() => { processFiles(files); }, 500); 
+        });
+
+        function triggerInput() { fileInput.click(); }
+        fileInput.addEventListener('change', (e) => { processFiles(Array.from(e.target.files)); });
+
+        function traverseFileTree(item, files) {
+            if (item.isFile && item.name.endsWith('.json')) {
+                files.push(item);
+            } else if (item.isDirectory) {
+                let dirReader = item.createReader();
+                dirReader.readEntries(function(entries) {
+                    for (let i = 0; i < entries.length; i++) {
+                        traverseFileTree(entries[i], files);
+                    }
+                });
+            }
+        }
+
+        function processFiles(files) {
+            if (!files.length) {
+                // If native fallback list is triggers from input directory
+                if (fileInput.files.length) files = Array.from(fileInput.files).filter(f => f.name.endsWith('.json'));
+            }
+
+            dropZone.classList.add('hidden');
+            dashHeader.classList.remove('hidden');
+            dashContent.classList.remove('hidden');
+
+            let filesRead = 0;
+            const targetCount = files.length;
+            document.getElementById('stat-files').textContent = targetCount;
+            document.getElementById('kpi-files-count').textContent = targetCount;
+
+            files.forEach(file => {
+                // Determine direct File Object vs Entry
+                if (file.file) {
+                    file.file(f => readFile(f, file.fullPath || file.webkitRelativePath));
+                } else {
+                    readFile(file, file.webkitRelativePath);
+                }
+            });
+
+            function readFile(f, fullPath) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const json = JSON.parse(e.target.result);
+                        parseAndPush(json, fullPath, f.name);
+                    } catch (err) {}
+                    filesRead++;
+                    if (filesRead >= targetCount) finalizeDashboard();
+                };
+                reader.readAsText(f);
+            }
+        }
+
+        function parseAndPush(json, fullPath, filename) {
+            const firstKey = Object.keys(json)[0];
+            let isFormatB = false;
+            if (firstKey && typeof json[firstKey] === 'object' && !json.summary) {
+                const innerValues = Object.values(json[firstKey]);
+                isFormatB = innerValues.some(v => v && typeof v === 'object' && !Array.isArray(v) && (v.evaluation || v.prompt));
+            }
+
+            if (isFormatB) {
+                Object.keys(json).forEach(modelKey => {
+                    const modelData = json[modelKey];
+                    if (typeof modelData !== 'object' || Array.isArray(modelData)) return;
+
+                    const questionKeys = Object.keys(modelData);
+                    // Skip if inner keys are not question objects
+                    const isValid = questionKeys.some(k => modelData[k] && typeof modelData[k] === 'object' && (modelData[k].evaluation || modelData[k].prompt));
+                    if (!isValid) return;
+
+                    const total = questionKeys.length;
+                    if (total === 0) return;
+
+                    let correct = 0;
+                    questionKeys.forEach(qKey => {
+                        const q = modelData[qKey];
+                        if (q && (q.evaluation === "Correct" || q.evaluation === "correct")) correct++;
+                    });
+
+                    const accuracy = (correct / total) * 100;
+                    let modelFamily = modelKey;
+                    let modelParams = "Unknown";
+                    if (modelKey.includes(':')) {
+                        const pts = modelKey.split(':');
+                        modelFamily = pts[0];
+                        modelParams = pts[1];
+                    }
+
+                    let mode = "Standard";
+                    if (fullPath.includes('TwoStep') || fullPath.includes('Two-Step')) mode = "Two-Step";
+                    else if (fullPath.includes('Probabilistic')) mode = "Probabilistic";
+
+                    loadedData.push({
+                        family: modelFamily,
+                        params: modelParams,
+                        dataset: `CM-${total}`,
+                        size: total,
+                        mode: mode,
+                        modified: fullPath.toLowerCase().includes('modified') ? "Yes" : "No",
+                        accuracy: accuracy,
+                        time: 0 
+                    });
+                });
+            } else {
+                let modelFamily = "Unknown";
+                let modelParams = "Unknown";
+                
+                if (fullPath) {
+                    const parts = fullPath.split('/');
+                    if (parts.length >= 4) {
+                        modelFamily = parts[1];
+                        modelParams = parts[2];
+                    }
+                }
+
+                let isModified = filename.includes('_Modified') || filename.includes('_modified') ? "Yes" : "No";
+                let mode = "Standard";
+                if (filename.includes('_TwoStep')) mode = "Two-Step";
+                else if (filename.includes('_Probabilistic')) mode = "Probabilistic";
+
+                let accuracy = 0;
+                let totalQuestions = 0;
+                let correctCount = 0;
+
+                const summary = json.summary;
+                if (summary) {
+                    if (summary.accuracy) {
+                        accuracy = parseFloat(summary.accuracy.toString().replace('%', ''));
+                    } else if (summary.accuracy_top_choice_percent) {
+                        accuracy = parseFloat(summary.accuracy_top_choice_percent.toString());
+                    } else if (summary.option_mapping_accuracy) {
+                        accuracy = parseFloat(summary.option_mapping_accuracy.toString().replace('%', ''));
+                    }
+                } else {
+                    let searchObj = json;
+                    if (json.details) {
+                        const insideDetails = Object.values(json.details)[0];
+                        if (insideDetails && typeof insideDetails === 'object') searchObj = insideDetails;
+                    }
+                    
+                    Object.keys(searchObj).forEach(qKey => {
+                        const q = searchObj[qKey];
+                        if (q && typeof q === 'object' && !Array.isArray(q) && (q.evaluation || q.prompt || q.is_highest_prob_correct !== undefined || q.is_option_correct !== undefined)) {
+                            totalQuestions++;
+                            const ev = q.evaluation || q.manual_overall_evaluation;
+                            if (ev === "Correct" || ev === "correct") {
+                                correctCount++;
+                            } else if (q.is_highest_prob_correct === true || q.is_option_correct === true) {
+                                correctCount++;
+                            }
+                        }
+                    });
+                    if (totalQuestions > 0) accuracy = (correctCount / totalQuestions) * 100;
+                }
+
+                const sizeMatch = filename.match(/CyberMetric_(\d+)/);
+                let numQuestions = sizeMatch ? sizeMatch[1] : "Unknown";
+                let sizeVal = parseInt(numQuestions) || 0;
+                if (sizeVal === 0 && totalQuestions > 0) {
+                    sizeVal = totalQuestions;
+                    numQuestions = totalQuestions.toString();
+                }
+
+                let time = summary && summary.total_time_seconds ? parseFloat(summary.total_time_seconds) : 0;
+
+                loadedData.push({
+                    family: modelFamily,
+                    params: modelParams,
+                    dataset: `CM-${numQuestions}`,
+                    size: sizeVal,
+                    mode: mode,
+                    modified: isModified,
+                    accuracy: accuracy,
+                    time: time
+                });
+            }
+        }
+
+        function finalizeDashboard() {
+            if (!loadedData.length) return;
+
+            // Compute KPIs
+            const accuracies = loadedData.map(d => d.accuracy);
+            const times = loadedData.map(d => d.time);
+            document.getElementById('stat-peak-acc').textContent = Math.max(...accuracies).toFixed(1) + '%';
+            document.getElementById('stat-slowest').textContent = Math.max(...times).toFixed(0) + 's';
+            document.getElementById('stat-max-model').textContent = Math.max(...loadedData.map(d=>d.size));
+
+            renderTable();
+            renderScalingSummary();
+            renderVariantSummary();
+            renderCharts();
+
+            // Cache data in localStorage
+            localStorage.setItem('dashboardData', JSON.stringify(loadedData));
+        }
+
+        function switchView(viewId, btn) {
+            document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.page-view').forEach(content => content.classList.add('hidden'));
+            document.getElementById(`page-${viewId}`).classList.remove('hidden');
+        }
+
+        function renderTable() {
+            const standardBox = document.getElementById('leaderboard-standard');
+            const twostepBox = document.getElementById('leaderboard-twostep');
+            const probBox = document.getElementById('leaderboard-probabilistic');
+
+            if (standardBox) standardBox.innerHTML = '';
+            if (twostepBox) twostepBox.innerHTML = '';
+            if (probBox) probBox.innerHTML = '';
+
+            const groups = {};
+            loadedData.forEach(d => {
+                const key = `${d.size || 0}_${d.mode}`;
+                if (!groups[key]) groups[key] = [];
+                groups[key].push(d);
+            });
+
+            const sortedKeys = Object.keys(groups).sort((a, b) => {
+                const [sizeA] = a.split('_');
+                const [sizeB] = b.split('_');
+                return (parseInt(sizeB) || 0) - (parseInt(sizeA) || 0);
+            });
+
+            sortedKeys.forEach(key => {
+                const [size, mode] = key.split('_');
+                const data = groups[key].sort((a, b) => b.accuracy - a.accuracy);
+
+                const card = document.createElement('div');
+                card.className = 'card table-card';
+                card.style.marginBottom = '1.5rem';
+
+                const sizeLabel = size === '0' || size === 'Unknown' ? 'Unknown Size' : `${size} Questions`;
+                const badgeClass = mode === 'Standard' ? 'badge-green' : mode === 'Two-Step' ? 'badge-purple' : 'badge-blue';
+
+                card.innerHTML = `
+                    <div class="table-controls">
+                        <div style="font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--accent-blue);">🏆 ${sizeLabel}</span>
+                            <span class="badge ${badgeClass}">${mode}</span>
+                        </div>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Model Family</th>
+                                    <th>Params</th>
+                                    <th>Modified</th>
+                                    <th>Accuracy (%)</th>
+                                    <th>Time (s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.map(d => `
+                                    <tr>
+                                        <td class="searchable">${d.family}</td>
+                                        <td>${d.params}</td>
+                                        <td>${d.modified}</td>
+                                        <td style="font-weight: 700; color: #fff;">${d.accuracy.toFixed(1)}%</td>
+                                        <td>${d.time > 0 ? d.time.toFixed(1)+'s' : '-'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+
+                if (mode === 'Standard' && standardBox) standardBox.appendChild(card);
+                else if (mode === 'Two-Step' && twostepBox) twostepBox.appendChild(card);
+                else if (mode === 'Probabilistic' && probBox) probBox.appendChild(card);
+            });
+        }
+
+        function searchTable(mode, query) {
+            const container = document.getElementById(`leaderboard-${mode}`);
+            if (!container) return;
+            const searchTerm = query.toLowerCase();
+            const cards = container.querySelectorAll('.table-card');
+
+            cards.forEach(card => {
+                const rows = card.querySelectorAll('tbody tr');
+                let cardHasMatch = false;
+
+                rows.forEach(row => {
+                    const modelFamily = row.querySelector('.searchable').textContent.toLowerCase();
+                    if (modelFamily.includes(searchTerm)) {
+                        row.style.display = '';
+                        cardHasMatch = true;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                card.style.display = cardHasMatch ? '' : 'none';
+            });
+        }
+
+        function renderScalingSummary() {
+            const table = document.getElementById('summary-scaling-table');
+            const theadTr = document.getElementById('scale-headers');
+            const tbody = table.querySelector('tbody');
+            
+            const data = loadedData.filter(d => d.modified === 'No' && d.mode === 'Standard');
+            if (!data.length) return;
+
+            const datasets = [...new Set(data.map(d => d.dataset))].sort((a,b) => {
+                const sizeA = parseInt(a.replace('CM-', '')) || 0;
+                const sizeB = parseInt(b.replace('CM-', '')) || 0;
+                return sizeA - sizeB;
+            });
+
+            theadTr.innerHTML = '<th>Model Name</th>' + datasets.map(d => `<th>${d.replace('CM-', '')}</th>`).join('');
+
+            const models = [...new Set(data.map(d => `${d.family}:${d.params}`))].sort();
+            
+            tbody.innerHTML = '';
+            models.forEach(m => {
+                const tr = document.createElement('tr');
+                let html = `<td>${m}</td>`;
+                datasets.forEach(dst => {
+                    const match = data.find(d => `${d.family}:${d.params}` === m && d.dataset === dst);
+                    if (match) {
+                        html += `<td style="font-weight:700; color:var(--accent-blue);">${match.accuracy.toFixed(1)}%</td>`;
+                    } else {
+                        html += `<td style="color:#6b7280;">-</td>`;
+                    }
+                });
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderVariantSummary() {
+            const table = document.getElementById('summary-variant-table');
+            const theadTr = document.getElementById('variant-headers');
+            const tbody = table.querySelector('tbody');
+            
+            const data = loadedData.filter(d => d.size === 80);
+            if (!data.length) return;
+
+            const colMap = {};
+            data.forEach(d => {
+                const label = d.mode + (d.modified === 'Yes' ? ' (Mod)' : '');
+                if (!colMap[label]) {
+                    colMap[label] = { mode: d.mode, modified: d.modified, label: label };
+                }
+            });
+            const columns = Object.values(colMap).sort((a,b) => a.label.localeCompare(b.label));
+
+            theadTr.innerHTML = '<th>Model Name</th>' + columns.map(c => `<th>${c.label}</th>`).join('');
+
+            const models = [...new Set(data.map(d => `${d.family}:${d.params}`))].sort();
+
+            tbody.innerHTML = '';
+            models.forEach(m => {
+                const tr = document.createElement('tr');
+                let html = `<td>${m}</td>`;
+                columns.forEach(col => {
+                    const match = data.find(d => `${d.family}:${d.params}` === m && d.mode === col.mode && d.modified === col.modified);
+                    if (match) {
+                        html += `<td style="font-weight:700; color:var(--accent-purple);">${match.accuracy.toFixed(1)}%</td>`;
+                    } else {
+                        html += `<td style="color:#6b7280;">-</td>`;
+                    }
+                });
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
+
+
+
+        let scaleChartInstance, variantChartInstance;
+
+        function renderCharts() {
+            const ctx1 = document.getElementById('scaleChart').getContext('2d');
+            const ctx2 = document.getElementById('variantChart').getContext('2d');
+
+            if (scaleChartInstance) scaleChartInstance.destroy();
+            if (variantChartInstance) variantChartInstance.destroy();
+
+            // --- CHART 1: Scaling View ---
+            // Group by Model Name (family:params), x-axis: Size, y-axis: accuracy
+            const scaleData = loadedData.filter(d => d.modified === 'No' && d.mode === 'Standard');
+            const models = [...new Set(scaleData.map(d => `${d.family}:${d.params}`))];
+            const datasetsScale = models.map(m => {
+                const modelRows = scaleData.filter(d => `${d.family}:${d.params}` === m).sort((a,b)=>a.size - b.size);
+                return {
+                    label: m,
+                    data: modelRows.map(d => ({x: d.size, y: d.accuracy})),
+                    borderColor: getRandomColor(m),
+                    borderWidth: 2,
+                    tension: 0.1
+                };
+            });
+
+            scaleChartInstance = new Chart(ctx1, {
+                type: 'line',
+                data: { datasets: datasetsScale },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { type: 'linear', title: { display: true, text: 'Dataset Size', color: '#9ca3af' }, ticks: { color: '#6b7280' } },
+                        y: { title: { display: true, text: 'Accuracy (%)', color: '#9ca3af' }, ticks: { color: '#6b7280' } }
+                    },
+                    plugins: { legend: { labels: { color: '#f3f4f6', boxWidth: 12 } } }
+                }
+            });
+
+            // --- CHART 2: 80 Variety View ---
+            const varData = loadedData.filter(d => d.size === 80);
+            const varModels = [...new Set(varData.map(d => `${d.family}:${d.params}`))];
+            
+            // Collect categories
+            const labels = ['Std', 'Std+Mod', 'TwoStep', 'TwoStep+Mod', 'Prob', 'Prob+Mod'];
+            function getVal(model, mode, mod) {
+                const match = varData.find(d => `${d.family}:${d.params}` === model && d.mode === mode && d.modified === mod);
+                return match ? match.accuracy : 0;
+            }
+
+            const datasetsVariant = varModels.map(m => {
+                return {
+                    label: m,
+                    data: [
+                        getVal(m, 'Standard', 'No'),
+                        getVal(m, 'Standard', 'Yes'),
+                        getVal(m, 'Two-Step', 'No'),
+                        getVal(m, 'Two-Step', 'Yes'),
+                        getVal(m, 'Probabilistic', 'No'),
+                        getVal(m, 'Probabilistic', 'Yes')
+                    ],
+                    backgroundColor: getRandomColor(),
+                    borderRadius: 4
+                };
+            });
+
+            variantChartInstance = new Chart(ctx2, {
+                type: 'bar',
+                data: { labels: labels, datasets: datasetsVariant },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { title: { display: true, text: 'Accuracy (%)', color: '#9ca3af' }, ticks: { color: '#6b7280' } }
+                    },
+                    plugins: { legend: { labels: { color: '#f3f4f6', boxWidth: 12 } } }
+                }
+            });
+        }
+
+        function getRandomColor(str) {
+            if (!str) return 'hsl(0, 70%, 60%)';
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const h = Math.abs(hash % 360);
+            return `hsl(${h}, 75%, 60%)`;
+        }
+
+        function resetDashboard() {
+            loadedData = [];
+            localStorage.removeItem('dashboardData');
+            dropZone.classList.remove('hidden');
+            dashHeader.classList.add('hidden');
+            dashContent.classList.add('hidden');
+            
+            const container = document.getElementById('leaderboard-container');
+            if (container) container.innerHTML = '<div class="card" style="text-align:center; padding: 2rem; color: #6b7280;">Ready to load results.</div>';
+
+            const summaryScalingTable = document.getElementById('summary-scaling-table');
+            if (summaryScalingTable) {
+                const tbody = summaryScalingTable.querySelector('tbody');
+                if (tbody) tbody.innerHTML = '';
+            }
+
+            const summaryVariantTable = document.getElementById('summary-variant-table');
+            if (summaryVariantTable) {
+                const tbody = summaryVariantTable.querySelector('tbody');
+                if (tbody) tbody.innerHTML = '';
+            }
+
+            if (typeof fileInput !== 'undefined') fileInput.value = '';
+        }
+    </script>
+
+</body>
+</html>

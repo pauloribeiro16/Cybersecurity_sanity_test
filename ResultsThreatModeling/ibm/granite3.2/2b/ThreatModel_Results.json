@@ -1,0 +1,383 @@
+{
+  "model_name": "ibm/granite3.2:2b",
+  "test_date": "2025-10-28T13:36:49.999592",
+  "results": {
+    "TM-001": {
+      "title": "Profile Picture Upload Feature",
+      "domain": "Web Application Security",
+      "architecture_description": "A web application allows authenticated users to upload a profile picture. The file is received by the web server, validated only by its file extension (.jpg, .png), and then stored in a public AWS S3 bucket. The file path is then saved in the user's profile database.",
+      "model_responses": {
+        "Q1_Identify": "1. **Unauthorized Access to User Profile Pictures**: Since the web application stores uploaded files directly into a public AWS S3 bucket without any additional access control, anyone could potentially fetch these pictures due to their open storage policy. This represents a significant risk as this data is likely sensitive (user profile pics), and there's no safeguard in place against unauthorized retrieval from S3.\n\n2. **Insufficient File Validation**: The current security measures involve only checking the file extension (.jpg, .png). This is insufficient for preventing several types of attacks:\n   - **Malicious File Upload**: An attacker could upload a file disguised as a permitted type (e.g., .jpg), which might contain malware or scripts executed when viewed by others. This is called a \"file type injection\" attack, and current validation only checks for the wrong format. \n   - **Overwriting Critical Files**: If the S3 bucket does not have proper permissions, an attacker could overwrite critical system files with malicious files that are inadvertently permitted due to file extension checking alone.\n\n3. **Exposure of Sensitive Data in Database**: The profile database stores the path of files stored in S3 as part of user information. If this data is accessed by unauthorized parties, they could potentially infer sensitive locations on the S3 bucket without needing permission from AWS itself. For example, an attacker might find out about the location of other users' profile pictures or even system files within the same S3 bucket. This violates privacy as it links user identities to storage areas, enabling further exploitation if adversaries discover this sensitive link.",
+        "Q2_Mitigate": "1. **Implement Pre-Upload File Validation**: Before allowing a file upload, conduct more rigorous checks beyond just its extension. This could include basic anti-virus scans or file content analysis to ensure files are not malicious in nature. Additionally, consider using techniques like Content-Type validation and digital signatures to verify the authenticity of uploaded files; these measures can help prevent \"file type injection\" attacks where users upload seemingly innocent files that could contain hidden code.\n\n2. **Enforce Access Control in S3 Bucket**: Implement strict access control policies on the public S3 bucket to restrict unauthorized retrieval of user profile pictures. This can be achieved by:\n   - **Bucket Policies or IAM Permissions**: Set up permissions using AWS Identity and Access Management (IAM) that strictly limit read access to only necessary resources, such as a specific IAM user or group, rather than allowing open public access. \n   - **Amazon S3 Block Public Acls and Delete Bucket Notifications**: Ensure these services are disabled in the bucket's configuration to prevent accidental public access due to ACL changes or versioning policies.\n\nThese mitigations aim at reducing exposure of sensitive data by enhancing both pre-upload file validation and controlling access post-file upload within S3, thereby significantly increasing security against potential threats."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Malicious File Upload:** An attacker can upload a webshell disguised as an image. 2. **Information Disclosure:** The public S3 bucket can be enumerated, exposing all user images. 3. **Denial of Service:** Attackers could upload very large files to exhaust storage or processing resources.",
+          "keywords": [
+            "malicious file",
+            "webshell",
+            "extension validation",
+            "public bucket",
+            "enumeration",
+            "denial of service",
+            "resource exhaustion"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "1. **Content Validation:** The server must validate the file's content using 'magic numbers' or MIME type, not just the extension. 2. **Secure Storage:** Store files in a private S3 bucket and serve them to users via short-lived, pre-signed URLs.",
+          "keywords": [
+            "server-side validation",
+            "magic numbers",
+            "MIME type",
+            "private bucket",
+            "pre-signed URLs"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-002": {
+      "title": "Internal HR API Exposure",
+      "domain": "API Security",
+      "architecture_description": "An internal HR API, which provides access to employee data (salary, address), is being exposed to be consumed by a new third-party mobile app. Authentication uses a single, static API key hardcoded into the mobile app.",
+      "model_responses": {
+        "Q1_Identify": "1. **API Key Compromise**: The most critical threat in this context is the exposure of a static, hard-coded API key within the third-party mobile application. An attacker who gains access to this key could exploit it by calling the HR API on behalf of the app, impersonating it. This unauthorized access would allow them to view or modify sensitive employee data (such as salary and address), thereby compromising privacy, data integrity, and potentially leading to financial fraud or identity theft.\n\n   - Mitigation: The primary mitigation for this threat is to implement secure key management practices. API keys should be unique per application, stored in environment variables or secure key management systems rather than being hardcoded within source code. They should also have expiration dates and support multi-factor authentication for retrieval to prevent unauthorized use even if compromised.\n\n2. **Insecure Data Transmission**: Since the third-party app communicates directly with the HR API, data transmission between them is critical. If this communication isn't encrypted (HTTPS), it exposes all transmitted data\u2014including sensitive employee information like salary and address\u2014to interception by malicious actors on the network.\n\n   - Mitigation: To prevent this threat, ensure that all communications between the mobile app and HR API are secured using HTTPS. This encrypts the data in transit, protecting it from eavesdropping or tampering attempts. Regularly conduct security audits to verify that all traffic is indeed encrypted over secure channels.",
+        "Q2_Mitigate": "1. **API Key Compromise Mitigation**:\n\n   - **Unique API Keys per Application**: Implement a policy where each third-party application requires its own unique API key. This way, if one key is compromised, the attacker can only use it with that specific app, limiting potential damage.\n   \n   - **Secure Storage**: Utilize secure storage solutions for these keys such as environment variables or secure key management services (like AWS Secrets Manager, Azure Key Vault, or HashiCorp's Vault). These platforms are designed to protect sensitive data more robustly than traditional file-based storage and often support encryption at rest.\n\n   - **Expiration and Multi-Factor Authentication**: Implement an expiration mechanism for API keys after a predefined period. This reduces the window of opportunity for misuse if a key is compromised. Additionally, enforce multi-factor authentication (MFA) for any process that involves retrieving or regenerating these keys to prevent unauthorized use even if obtained by malicious actors.\n\n   - **Regular Rotation**: Regularly rotate API keys to enhance security. This practice reduces the risk of long-term exposure in case of a data breach or key compromise.\n\n2. **Insecure Data Transmission Mitigation**:\n\n   - **HTTPS Enforcement**: Ensure all communication between the third-party app and HR API is encrypted using HTTPS (Hypertext Transfer Protocol Secure). This encrypts data at rest and in transit, preventing interception by unauthorized parties.\n\n   - **SSL Certificates Management**: Implement a robust SSL certificate management system to maintain validity and regularly renew these certificates before they expire. This prevents a breach of trust from occurring due to expired or self-signed certificates.\n\n   - **Transport Layer Security (TLS) Configuration**: Verify that TLS 1.2 or later is used as the protocol for secure connections, since older versions like SSL v1.0 and SSL v2 are considered insecure due to known vulnerabilities.\n\n   - **Security Audits**: Regularly conduct security audits to verify that all communication between the app and HR API is indeed secured using HTTPS. This helps identify any potential misconfigurations or weaknesses in the system that could otherwise be exploited. Additionally, utilize automated tools like OWASP's ZAP (Zed Attack Proxy) for continuous monitoring of web application security.\n\n   - **Certificate Transparency (CT) Monitoring**: Consider integrating CT monitoring to track all issued SSL certificates and detect any misissuances or unauthorized certificates. This adds an extra layer of security by allowing real-time detection of potential certificate tampering attempts."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Broken Authentication:** The static, hardcoded API key can be easily extracted from the mobile app by reverse engineering, giving an attacker full access to the API. 2. **Excessive Data Exposure:** The API exposes sensitive data (salary, address) that the announcement app likely does not need.",
+          "keywords": [
+            "broken authentication",
+            "hardcoded key",
+            "reverse engineering",
+            "excessive data exposure",
+            "sensitive PII"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "1. **Authentication:** Implement a user-centric authentication flow like OAuth 2.0, where each user authenticates individually and receives a short-lived access token. 2. **Authorization:** The API should be refactored to only return the minimum data required for the app's function (e.g., just employee name and department), not sensitive PII.",
+          "keywords": [
+            "OAuth 2.0",
+            "per-user authentication",
+            "short-lived tokens",
+            "least privilege",
+            "minimize data"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-003": {
+      "title": "Smart Office Thermostat",
+      "domain": "IoT & Network Security",
+      "architecture_description": "A new smart thermostat is installed in the office. It connects to the company's internal Wi-Fi network to send data to a cloud service. The device uses the default factory password, and it has no mechanism for automatic firmware updates.",
+      "model_responses": {
+        "Q1_Identify": "1. **Unauthorized Access (Network Breach):** The smart thermostat is connected directly to the company's internal Wi-Fi network. If this device were compromised, an attacker could gain unauthorized access to the entire network by potentially exploiting weaknesses within the thermostat's firmware or using brute force techniques to guess its default factory password due to lack of stronger authentication methods. Once inside the network, they could access other sensitive data, control office devices, and move laterally to additional systems.\n\n2. **Lack of Automatic Firmware Updates:** The thermostat doesn't have a mechanism for automatic firmware updates, which means that even known vulnerabilities in its software are not immediately patched once discovered by developers. An attacker could exploit these known weaknesses in the device's code because patching is delayed until an IT team manually checks and applies updates - if they're done at all.\n\n3. **Potential Single Point of Failure (Device Compromise):** If an adversary successfully breaches this smart thermostat, it presents a significant single point of failure within the office's security perimeter. As such devices control temperature settings in the office, disruption could lead to uncomfortable working conditions and potential health impacts on employees, all while compromising the integrity of networked systems that might rely on stable temperature conditions for optimal performance or protection. Additionally, any misuse by an insider could cause operational issues without detection due to this being a hidden point of access rather than monitored devices.",
+        "Q2_Mitigate": "1. **Mitigating Unauthorized Access (Network Breach):**\n   - Implement strong network segmentation to isolate the smart thermostat from critical systems and other sensitive resources within the company's internal Wi-Fi network. This will limit an attacker's potential reach should the thermostat be compromised, as access to other parts of the network would also be restricted by this barrier. \n   - Utilize a Virtual Private Network (VPN) for all internet traffic originating from the office, including that of the smart thermostat. VPNs encrypt data and help protect against eavesdropping and man-in-the-middle attacks while traversing public networks like Wi-Fi.\n   - Enforce multi-factor authentication (MFA) for any system or service accessible by the smart thermostat. Even if an attacker gains access to the device, they wouldn't be able to authenticate further without this extra layer of security.\n\n2. **Mitigating Lack of Automatic Firmware Updates:**\n   - Establish a dedicated, automated process within your IT management system for monitoring and installing firmware updates on all devices, including smart thermostats. This can be achieved by integrating such functionality with existing configuration management tools (like Ansible, Puppet or Chef) to ensure timely patching of known vulnerabilities.\n   - Set up alerts in your IT systems that notify administrators when a device lacks recent firmware updates, enabling proactive maintenance and reducing human error associated with manual checks.\n\n3. **Mitigating Potential Single Point of Failure (Device Compromise):**\n   - Deploy intrusion detection/prevention systems (IDPS) that can monitor network traffic for signs of suspicious behavior or known attack patterns targeting the smart thermostat's interface. If malicious activity is detected, these systems could automatically respond by blocking further communication with the device, alerting IT personnel, and possibly triggering automated actions to mitigate potential harm (like resetting temperature settings back to normal).\n   - Regularly audit and monitor the functions of the smart thermostat, especially those controlling office environments. Any anomalous behavior detected could signal unauthorized access or tampering with device functionalities, allowing for immediate investigation and remediation."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Network Pivot Point:** An attacker can compromise the thermostat using the default password and use it as an entry point to pivot into the internal corporate network. 2. **Unpatched Vulnerabilities:** The lack of firmware updates means known vulnerabilities will never be fixed, making it an easy target. 3. **Data Interception:** If the data sent to the cloud is unencrypted, it can be intercepted on the Wi-Fi network.",
+          "keywords": [
+            "default password",
+            "pivot",
+            "internal network",
+            "unpatched",
+            "firmware update",
+            "unencrypted traffic",
+            "interception"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "1. **Access Control:** Change the default password immediately. 2. **Network Segmentation:** Place the thermostat and other IoT devices on a separate, isolated VLAN or guest network that cannot access the main corporate network. 3. **Secure Lifecycle:** Only purchase devices that support secure, automatic firmware updates.",
+          "keywords": [
+            "change default password",
+            "network segmentation",
+            "VLAN",
+            "isolated network",
+            "firmware updates"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-004": {
+      "title": "EC2 Instance with Admin Role",
+      "domain": "Cloud Security (IAM)",
+      "architecture_description": "A developer attaches an IAM role with the full 'AdministratorAccess' policy to an AWS EC2 instance. The script on the instance is exposed to the internet to receive commands.",
+      "model_responses": {
+        "Q1_Identify": "The primary threat in this system architecture, given the described setup, can be identified as Unauthorized Administrator Access. \n\nHere's why:\n\n1. An IAM role with 'AdministratorAccess' has been attached to an EC2 instance. This means that any person who gains access to this IAM role (whether maliciously or due to exploitation) would have near-total control over the AWS resources managed by it, including all accounts in the same AWS Organizational Unit as well as the ability to delete AWS services like Amazon S3 buckets and even AWS Control Tower.\n\n2. The script running on this EC2 instance is exposed to the internet. This means that an attacker can remotely send commands directly to the instance from the internet. If they gain control of this IAM role, these commands could include actions such as data manipulation or deletion without restriction, which constitutes unauthorized administrator-level access.\n\n3. As a result, this architecture represents a significant vulnerability because anyone exploiting this exposure can carry out high-impact actions on AWS resources with the same permissions as an AWS admin would have, leading to data loss, system disruption or other severe security breaches.",
+        "Q2_Mitigate": "To mitigate this significant risk and secure the architecture, several steps should be implemented:\n\n1. **Limit Exposure of Script**: The script running on the EC2 instance should not be exposed to the internet. Instead, it should only be accessible within the secure internal network or through a secure VPN connection. This prevents malicious actors from sending commands directly to the instance remotely via the public internet.\n\n2. **Remove Full Administrator Access**: The IAM role attached to the EC2 instance should not have 'AdministratorAccess'. Instead, it should have the least privilege necessary for the script's functionality. This means only those specific AWS actions required by the script should be granted. By doing so, even if an attacker gains access to this role, they'll still lack broader privileges that could cause significant harm.\n\n3. **Use Role-Based Access Management (RBAC)**: Implement a system where IAM roles are assigned only when necessary and for specific tasks or resources. This practice makes it harder for attackers if they do gain control of an IAM role, as their access would be limited to what was granted for that specific role.\n\n4. **Enable Multi-Factor Authentication (MFA)**: For the IAM root account, which typically grants permissions to create and attach roles, enable MFA to add an extra layer of security against unauthorized use or misuse.\n\n5. **Implement Security Policies and Consolidation**: Establish AWS Security Hub for unified security posture management across AWS accounts. This can help in detecting and responding to threats more effectively by consolidating security checks from multiple services into one console. \n\n6. **Regularly Review IAM Policies**: Regularly review, audit, and update the IAM policies to ensure they align with the current requirements of your system and to prevent any unnecessary privileges accumulation. This practice will help you keep track of who has access to what resources at all times.\n\nBy implementing these measures, the threat of unauthorized administrator-level access can be greatly reduced."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "The primary threat is **Privilege Escalation and Account Takeover**. If an attacker compromises the internet-exposed script on the EC2 instance, they will gain the full 'AdministratorAccess' permissions of the attached IAM role, allowing them to take over the entire AWS account.",
+          "keywords": [
+            "privilege escalation",
+            "account takeover",
+            "compromise",
+            "IAM role",
+            "AdministratorAccess"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "The principle of **Least Privilege** must be applied. Create a new, dedicated IAM policy that grants *only* the specific permissions the script needs to perform its task (e.g., `s3:GetObject`, `s3:PutObject` for a specific bucket) and attach this minimal policy to the role instead.",
+          "keywords": [
+            "least privilege",
+            "dedicated IAM policy",
+            "minimal permissions",
+            "specific actions"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-005": {
+      "title": "User Password Storage",
+      "domain": "Data Security & Cryptography",
+      "architecture_description": "A new login system is being designed to store user passwords in a database. The passwords will be hashed using the MD5 algorithm before storage.",
+      "model_responses": {
+        "Q1_Identify": "The primary critical vulnerability in this proposed architecture lies in the use of the MD5 hashing algorithm for password storage. \n\n1. **MD5 is No Longer Considered Secure**: The main concern with using MD5 for hashing passwords is that it's computationally feasible to reverse-engineer hashed values, especially given modern computational power and advances in hash cracking techniques. This means an attacker could potentially extract original passwords from the stored hashes, rendering the security of this system null.\n\n2. **Collision Risk**: MD5 does not provide sufficient entropy for password storage, meaning it's more susceptible to collision attacks where two different inputs produce the same hash value.\n\n3. **Lack of Collision Protection**: Unlike more secure algorithms such as bcrypt or Argon2, which add random \"salts\" to each password before hashing (thus protecting against pre-computed rainbow table attacks), MD5 does not inherently offer this protection. \n\n4. **Strength Comparison**: Modern standards advocate the use of slow hash functions with a sufficiently large, randomly generated salt appended for each password. These algorithms are designed to resist brute force and dictionary attacks over extended periods, which is crucial for robust security. MD5 lacks these properties.\n\nTherefore, this login system's vulnerability primarily stems from using an outdated hashing method that is easily susceptible to reverse engineering and does not provide adequate protection against potential attacks.",
+        "Q2_Mitigate": "The modern, correct way to store passwords is by using slow hash functions with added salt for each password input. This method enhances security in several ways:\n\n1. **Resistance to Pre-computed Attacks**: Salt values are unique and random for every user's password. When combined with a slow hash function (like bcrypt or Argon2), it thwarts pre-computed attacks, such as those using rainbow tables, because each hashed value is distinct even if the same plaintext password exists in different accounts.\n\n2. **Protection Against Brute Force and Dictionary Attacks**: These algorithms are designed to be slow, making the process of cracking passwords by brute force or dictionary attacks impractical given today's computing power.\n\n3. **Entropy Enhancement**: Salt adds entropy to each hash, increasing its length and complexity, which in turn makes it harder for attackers to reverse-engineer hashed passwords even if they manage to get their hands on the stored hashes.\n\n4. **No Reverse Engineering of Hashed Values**: Modern password storage methods ensure that even if an attacker obtains a set of hashed values (a potential result from a data breach), they cannot feasibly extract the original passwords because these functions are designed to be one-way.\n\n5. **Compliance with Security Standards**: Many current security guidelines recommend or mandate such approaches for password storage, underscoring their effectiveness and necessity in maintaining robust cybersecurity standards."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "The critical vulnerability is the use of **MD5**, which is an outdated and cryptographically broken hashing algorithm. It is extremely fast, making it susceptible to brute-force attacks, and vulnerable to collisions. Pre-computed tables (rainbow tables) exist for common MD5 hashes.",
+          "keywords": [
+            "MD5",
+            "broken",
+            "outdated",
+            "brute-force",
+            "rainbow tables",
+            "collisions"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "Passwords should be hashed using a modern, slow, memory-hard algorithm designed for password storage. The recommended standard is **Argon2**. Alternatively, **bcrypt** or **scrypt** are also acceptable. A unique, random **salt** must also be generated for each user and stored with the hash.",
+          "keywords": [
+            "Argon2",
+            "bcrypt",
+            "scrypt",
+            "slow hash",
+            "memory-hard",
+            "salt",
+            "unique salt"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-006": {
+      "title": "Jenkins Build Pipeline",
+      "domain": "CI/CD & DevOps Security",
+      "architecture_description": "A Jenkins server is publicly accessible on the internet. It uses a simple username/password for login, without MFA. Build scripts have access to production API keys stored as plain text environment variables.",
+      "model_responses": {
+        "Q1_Identify": "1. **Unauthorized Access:** Given that the Jenkins server is publicly accessible with a simple username and password authentication, it's highly vulnerable to brute force attacks, credential stuffing, or dictionary-based attacks by cybercriminals. Once an attacker gains access, they can potentially execute arbitrary code on the system due to the lack of Multi-Factor Authentication (MFA).\n\n2. **Exposure of Sensitive Data:** The build scripts have access to production API keys stored as plain text environment variables within the Jenkins server configuration. If compromised, this could lead to unauthorized usage of these credentials by unauthorized parties. An attacker could use them to interact with sensitive resources in the production environment directly from the Jenkins server, thereby exfiltrating data or executing commands on behalf of the system itself.\n\n3. **Lack of Secure Coding Practices:** The use of plain text API keys within build scripts indicates a lack of secure coding practices for key management and handling. This makes the system prone to 'keylogging' attacks, where an attacker could capture these keys as they're typed or retrieved from memory (if the script runs on a compromised server). Once obtained, attackers can use these keys for unauthorized access into the production environment.\n\n4. **Increased Attack Surface:** With public accessibility and insecure methods of handling sensitive information like API keys, the system significantly increases its attack surface \u2013 making it easier targets for cyber threats looking to breach a production-like infrastructure. Each component exposed publicly adds risk; even though individual exposures might not pose immediate danger, they collectively widen the potential vulnerabilities in defense against more sophisticated attacks.",
+        "Q2_Mitigate": "1. **Implement Multi-Factor Authentication (MFA):** To prevent unauthorized access via brute force or credential stuffing attempts, enforce MFA for all users accessing the Jenkins server. This adds an extra layer of security by requiring more than just a password to log in. Even if passwords are compromised, attackers would still need access to the user's second factor (like a physical token or biometric data) to gain entry.\n\n2. **Secure Sensitive Data Handling:** Store sensitive information such as API keys securely rather than within environment variables exposed on the Jenkins server. Implement a secrets management system like HashiCorp Vault, AWS Secrets Manager, or Azure Key Vault where these keys are stored encrypted and then fetched by build scripts as needed. This prevents key exposure to potential attackers accessing the server's environment.\n\n3. **Secure Coding Practices:** Adopt secure coding practices for managing sensitive data within build scripts. Never expose secrets as plain text. Use a secret management tool or a similar service that supports encrypted storage and retrieval of API keys, database credentials, etc., which are then integrated into your build process. Tools like AWS Secrets Manager or Azure Key Vault provide secure mechanisms to handle secrets without exposing them in the code or environment variables.\n\n4. **Least Privilege Principle:** Implement the principle of least privilege within the Jenkins server and its associated systems. This means users, processes, and programs should only have access to the resources necessary for their intended function. By doing so, even if a compromise occurs, the attacker's potential impact is limited, reducing damage to the overall system.\n\n5. **Regular Security Audits & Patch Management:** Regularly audit the Jenkins server and its dependencies for vulnerabilities. Keep all software (including Jenkins, plugins, build scripts, etc.) up-to-date with the latest security patches. This helps in mitigating known exploitation techniques that cybercriminals use.\n\n6. **Network Security:** If possible, isolate the Jenkins server from public networks and set up a firewall to restrict inbound traffic to only necessary ports (like HTTP/HTTPS for requests). \n\n7. **Use Secure Protocols & SSL/TLS Encryption:** Ensure all communication between Jenkins and other systems (including access via APIs) uses secure protocols like HTTPS with encryption (via SSL/TLS certificates). This prevents man-in-the-middle attacks that could potentially intercept sensitive data in transit."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Credential Stuffing/Brute-Force:** The public, non-MFA login page is a prime target for password guessing attacks. 2. **Secrets Exposure:** Storing production keys in plain text environment variables is insecure. 3. **Pipeline Poisoning:** If an attacker compromises Jenkins, they can inject malicious code into the build process, compromising the final application.",
+          "keywords": [
+            "credential stuffing",
+            "brute-force",
+            "MFA",
+            "secrets exposure",
+            "plain text",
+            "pipeline poisoning"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "1. Place Jenkins behind a VPN or firewall. 2. Enforce MFA for all users. 3. Store secrets in a dedicated secrets management tool (like HashiCorp Vault or AWS Secrets Manager) and have the build pipeline fetch them dynamically at runtime.",
+          "keywords": [
+            "VPN",
+            "firewall",
+            "MFA",
+            "secrets management",
+            "Vault",
+            "AWS Secrets Manager"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-007": {
+      "title": "User Session Token Handling",
+      "domain": "Authentication & Session Management",
+      "architecture_description": "After a user logs in, a session token (JWT) is generated and stored in the browser's `localStorage`. The token has an expiration time of 30 days.",
+      "model_responses": {
+        "Q1_Identify": "1. Unauthorized Access or Session Hijacking: \n   - Threat Description: This occurs when a malicious actor gains access to the user's session token, stored in `localStorage`. Since these tokens are valid for 30 days upon generation (unless explicitly logged out), an attacker who intercepts this could use it to impersonate the legitimate user. Techniques such as cross-site scripting (XSS) or cross-site request forgery (CSRF) attacks can be leveraged to steal these tokens from a victim's browser. Once in possession of the token, they could perform actions on behalf of the user until it expires.\n\n2. Token Expiration and Reuse:\n   - Threat Description: If an attacker obtains a valid session token before the current one expires (typically 30 days), they can reuse this token even if the original user has logged out or the system has detected the token as compromised. This could lead to continued access for the malicious actor under the guise of the legitimate user, until the stolen token's expiration time is reached or it gets invalidated by the server due to suspicious activity detection. This threat underscores the importance of robust session management and token validation on each request.",
+        "Q2_Mitigate": "To mitigate these primary threats effectively, a multi-layered defense strategy should be implemented within the system architecture:\n\n1. **Secure Token Storage**:\n   - Ensure that session tokens are encrypted and stored in `localStorage` with appropriate access controls to prevent unauthorized interception or tampering. This can be achieved by leveraging browser security features like the Web Cryptography API for token encryption, and restricting access through Origin Policy (CSP).\n\n2. **Use of HttpOnly and Secure Flags**:\n   - When generating session tokens as JSON Web Tokens (JWT), set both 'HttpOnly' and 'Secure' flags to prevent client-side script access to these tokens and ensure they are transmitted over secure connections only. This mitigates risks from XSS attacks that might otherwise steal cookies, including tokenized sessions.\n\n3. **Token Expiration Management**:\n   - Implement strict token expiration policies. After a user's session has ended (either due to inactivity or explicit logout), immediately invalidate all stored tokens within `localStorage`. This prevents attackers from using stolen tokens if they gain access to a victim's browser even after the user has logged out.\n\n4. **Token Validation on Every Request**:\n   - Require every incoming request to include a valid, authenticated token and verify this token\u2019s authenticity and freshness through the server-side. This prevents an attacker from reusing stolen tokens post expiration by checking each new access request against the server's active session database or token verification service.\n\n5. **Implement CSRF Protection**:\n   - Employ measures to prevent Cross-Site Request Forgery attacks, such as using anti-CSRF tokens (often included in forms and requests). This makes it harder for an attacker to trick users into making unauthorized actions with their browser session.\n\n6. **Regular Auditing and Monitoring**:\n   - Regularly audit and monitor token usage patterns, including frequency of logins, suspicious activity like simultaneous active sessions from different locations, or unusual times of access. Suspicious activities should trigger immediate token invalidation across all affected user devices to limit the potential damage from a breach.\n\nBy incorporating these recommendations into the system design and operation, you can significantly enhance the overall security posture against session hijacking, unauthorized access, and token reuse attempts."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Cross-Site Scripting (XSS) Vulnerability:** If the site has an XSS flaw, an attacker's script can access `localStorage` and steal the JWT, leading to session hijacking. 2. **Long Session Duration:** A 30-day token lifetime means that if a token is ever stolen, the attacker has a very long window to use it.",
+          "keywords": [
+            "XSS",
+            "cross-site scripting",
+            "localStorage",
+            "token theft",
+            "session hijacking",
+            "long expiration"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "The recommended approach is to store tokens in a secure, `HttpOnly` cookie. This prevents JavaScript from accessing it, mitigating XSS-based token theft. Additionally, use a short-lived access token (e.g., 15 minutes) and a long-lived refresh token to maintain the session securely.",
+          "keywords": [
+            "HttpOnly cookie",
+            "short-lived access token",
+            "refresh token"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-008": {
+      "title": "Use of Open Source Libraries",
+      "domain": "Software Supply Chain",
+      "architecture_description": "A Python application is built using a `requirements.txt` file that lists several libraries with versions from 3 years ago (e.g., `requests==2.18.4`). The development process includes no tools to scan for known vulnerabilities.",
+      "model_responses": {
+        "Q1_Identify": "The primary and most significant threat in this system architecture can be identified as \"Outdated Libraries with Unaddressed Vulnerabilities.\" \n\nMore specifically, these outdated libraries (e.g., `requests==2.18.4`) contain known vulnerabilities from three years ago. Given that the development process does not include tools for scanning for such known issues, this system is exposed to potential attacks exploiting these vulnerabilities. Such threats could include unauthorized access, data breaches, or even server compromises due to misuse of these libraries' functionalities. As a result, the Python application and the underlying infrastructure are at risk from well-known cybersecurity threats that have been patched in their newer versions but not in this outdated codebase.",
+        "Q2_Mitigate": "To mitigate the threat of using outdated libraries with known vulnerabilities in the described Python application and its architecture, several steps should be taken:\n\n1. **Vulnerability Scanning**: Implement tools that automatically scan the `requirements.txt` file for identified libraries to find versions with known security issues or patches from their official repositories or reputable sources like GitHub's Security Dashboard or Snyk's vulnerability database. Tools such as Bandit (Python's static code analysis tool) can be used for this purpose.\n\n2. **Dependency Management**: Utilize tools that manage the dependencies, ensuring they're up-to-date and free from vulnerabilities. pip-tools, Poetry, or Pipenv are examples of such tools that support dependency versioning and vulnerability scanning out-of-the-box. These tools can automatically update dependencies to their latest secure versions upon analysis.\n\n3. **Regular Audits**: Establish a regular security audit process where developers manually review the dependencies listed in `requirements.txt` and compare them with trusted security databases or official repositories. This human oversight can catch cases the automated tools might miss due to false positives or not having recently updated information about these specific libraries.\n\n4. **Security Training**: Educate the development team on best practices for managing dependencies, including recognizing outdated versions of common libraries and understanding how to interpret and act upon vulnerability alerts from security databases.\n\n5. **Automated Workflow Integration**: Integrate the chosen dependency scanning tool into the continuous integration (CI) pipeline so that it automatically scans code changes before they're deployed. This practice ensures that only secure dependencies are used in production, preventing the deployment of inherently flawed libraries.\n\n6. **Version Locking or PATCHing**: Where possible, use version locking or PATCHing to ensure that once a dependency is approved and added to `requirements.txt`, it won't automatically update unless an explicit patch is requested (which may trigger human review). This prevents accidental introduction of new vulnerabilities when updates are applied.\n\nBy implementing these strategies, the system can significantly reduce its exposure to known cybersecurity threats arising from outdated libraries."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "The main threat is **Using Components with Known Vulnerabilities**. The outdated libraries likely contain numerous publicly disclosed vulnerabilities (CVEs) that an attacker can easily exploit to compromise the application.",
+          "keywords": [
+            "known vulnerabilities",
+            "outdated dependencies",
+            "CVEs",
+            "supply chain"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "Implement a **Software Composition Analysis (SCA)** tool (like OWASP Dependency-Check, Snyk, or GitHub Dependabot) into the CI/CD pipeline. This will automatically scan dependencies for known vulnerabilities and alert developers or fail the build, forcing updates.",
+          "keywords": [
+            "Software Composition Analysis",
+            "SCA",
+            "Dependency-Check",
+            "Snyk",
+            "Dependabot"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-009": {
+      "title": "Docker Image for a Web Server",
+      "domain": "Container Security",
+      "architecture_description": "A Dockerfile starts with `FROM ubuntu:latest`. The final command is `CMD /usr/sbin/sshd -D && python /app/app.py`. The container is run as the `root` user.",
+      "model_responses": {
+        "Q1_Identify": "1. **Root User for Production Environment**: Running the Docker container with the root user (`user = \"root\"`) is a significant security risk in a production environment, especially if the application deployed in this container (i.e., `/app/app.py`) has any vulnerabilities that could be exploited by an attacker who gains access to the container's shell as root. In most cases, it's recommended to run containers as non-root users to limit potential damage.\n\n2. **Exposed SSH Service**: The command `CMD /usr/sbin/sshd -D && python /app/app.py` indicates that an OpenSSH daemon (sshd) is started in foreground mode (`-D`). This implies an unencrypted password authentication for SSH, which can be easily intercepted by attackers if the network traffic is not encrypted. It's essential to use secure protocols like SSH keys or HTTPS for passwordless and encrypted login whenever possible.\n\n3. **Lack of a Security Context**: The architecture does not explicitly set up security contexts that would limit processes' capabilities, such as AppArmor (Linux Security Modules) or SELinux (Security-Enhanced Linux). These security frameworks can help prevent unauthorized actions even by root users through mandatory access control policies, which is critical in production environments where code integrity and system stability are paramount. \n\nThese three points highlight significant potential risks without a comprehensive review of the `/app/app.py` code or other specifics of its functionality: lack of least privilege for processes (root user), unsecured SSH access, and missing security context enforcement which could otherwise mitigate these threats.",
+        "Q2_Mitigate": "1. **Change Root User to Non-Root**: Modify the Dockerfile so that the container runs with a non-root user, ideally `app` or any other limited user created specifically for this application. This can be done by adding `USER app` right after `FROM ubuntu:latest`. This limits what actions the container process could perform if compromised, reducing the attack surface significantly.\n\n   ```Dockerfile\n   FROM ubuntu:latest\n   USER app  # Run as a non-root user\n   CMD [\"/usr/sbin/sshd\", \"-D\"] && python /app/app.py\n   ```\n\n2. **Use SSH Key Authentication or HTTPS**: Ensure secure authentication for your SSH access by utilizing SSH keys for login rather than password authentication (`-o PubkeyAuthentication=yes -o PasswordAuthentication=no`). For HTTPS-based passwordless login, you might need to set up a reverse proxy (like Nginx) that proxies secure HTTP traffic to the application running in your container.\n\n   ```Dockerfile\n   FROM ubuntu:latest\n   USER app  # Run as a non-root user\n   CMD [\"/usr/sbin/sshd\", \"-D\"] -o PubkeyAuthentication=yes -o PasswordAuthentication=no && python /app/app.py\n   ```\n\n3. **Implement Security Contexts**: Enable and configure security frameworks like AppArmor (for Linux) or SELinux to enforce mandatory access controls over your application container. This involves creating a policy that defines what the application can do, preventing it from performing actions outside its specified permissions even if exploited via root user privileges.\n\n   ```Dockerfile\n   FROM ubuntu:latest\n   USER app  # Run as a non-root user\n   CMD [\"/usr/sbin/sshd\", \"-D\"] -o PubkeyAuthentication=yes -o PasswordAuthentication=no && \\\n       ulimit -u 1024  # Set a maximum of 1023 other processes to prevent context escalation\n       chcon -t httpd_sys_content_t /app/app.py  # Apply SELinux context to your application\n   ```\n\nThese changes should significantly mitigate the identified security risks, though a complete and thorough security assessment would require additional measures such as regular vulnerability scanning of the running application, input validation, secure coding practices, and other best practices for application-level security."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "1. **Large Base Image:** Using `ubuntu:latest` creates a large image with many unnecessary packages, increasing the attack surface. 2. **Running as Root:** Running the process as the `root` user inside the container violates the principle of least privilege. 3. **Unnecessary SSH:** Including an SSH server inside the container is an anti-pattern and adds an unnecessary attack vector.",
+          "keywords": [
+            "large base image",
+            "attack surface",
+            "root user",
+            "least privilege",
+            "unnecessary ssh"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "1. Use a minimal base image, like a 'distroless' image or `python:3.9-slim`. 2. Add a `USER` instruction in the Dockerfile to run the process as a non-privileged user. 3. Remove the SSH server entirely; use `docker exec` for debugging if needed.",
+          "keywords": [
+            "minimal base image",
+            "distroless",
+            "slim",
+            "USER instruction",
+            "non-root",
+            "remove ssh"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    },
+    "TM-010": {
+      "title": "Minimalist Logging Strategy",
+      "domain": "Incident Response & Logging",
+      "architecture_description": "A new critical payment processing service is deployed. To save on costs, the logging strategy is set to 'errors only'. Successful API requests, authentication attempts, and data access events are not logged.",
+      "model_responses": {
+        "Q1_Identify": "The main risk of employing a 'log errors only' strategy in this critical payment processing system architecture is that it significantly limits the ability to monitor and detect anomalies or malicious activities, as well as potential security breaches. \n\nHere's why: \n\n1. **Lack of Visibility**: With no logging for successful requests, authentication attempts, or data access events, incident responders would have limited visibility into what is occurring within the system. This makes it difficult to identify unauthorized activities, suspicious behavior patterns, or insider threats, which are critical in fraud detection and prevention within payment processing systems.\n\n2. **Reduced Incident Response**: Without comprehensive logs of all events (successful as well as errors), incident response capabilities will be severely hampered. This makes it harder to understand the scope of a security breach or an attack, which is key for effective mitigation and remediation.\n\n3. **Difficulty in Forensics**: If a security incident does occur, having only error logs would limit forensic analysis. In-depth analysis based on all types of system activities (including successful ones) could point to the root cause of an attack more effectively for post-incident review and future prevention measures.\n\n4. **Compliance Issues**: Depending on industry regulations like PCI DSS, this logging strategy might not comply with requirements related to monitoring and recording all access to systems and network resources \u2013 something that is crucial in payment processing services.\n\nIn essence, the 'log errors only' approach reduces the system's capability to detect and respond to a wide range of security incidents, including attacks that may go unnoticed due to the absence of information about successful transactions or attempts at unauthorized access. This could potentially expose the service to significant financial risk associated with fraudulent activities.",
+        "Q2_Mitigate": "In this critical payment processing system architecture, all events\u2014both successful and those indicating errors or potential threats\u2014should ideally be logged for comprehensive monitoring and security analysis. Here's a breakdown of what should be included:\n\n1. **Successful API Requests**: These are crucial as they represent the normal flow of transactions within the system. A lack of logging could mask attempts to exploit successful transaction patterns, which may indicate fraudulent activities or unauthorized access.\n\n2. **Authentication Attempts**: Every attempt to log into the system\u2014both legitimate and fraudulent\u2014should be recorded. This includes both human authentication attempts (like user logins) and automated attempts by bots or hacking tools. The absence of this data could make it challenging to detect unauthorized login attempts, including those where credentials have been stolen (a common tactic in phishing attacks).\n\n3. **Data Access Events**: Any instance when system components attempt to read or write sensitive data should be logged. This includes details like the type of data accessed, timestamps, and the identity of the user or process making these requests. The absence of such logs would make it difficult to identify if an insider has misused their access rights for personal gain or malicious activities.\n\n4. **Transaction Events**: All transaction details\u2014both successful and failed ones\u2014should be logged. This includes amounts, timestamps, parties involved (sender and receiver), and any other relevant information. It's key to ensure that all financial transactions are accounted for, as these could indicate fraudulent activities or anomalous behavior indicative of compromised accounts.\n\n5. **System Configuration Changes**: Any changes made to system settings, including network configurations, firewall rules, and security parameters, should be logged. These types of events can signal malicious activity (like an attacker attempting to bypass security measures) or legitimate operational activities like patches or updates.\n\nBy logging all these events, the system provides a more holistic view of its internal workings, which is critical for effective intrusion detection and forensic analysis in case of any suspected security breaches."
+      },
+      "evaluation_rubric": {
+        "Q1_Identify": {
+          "model_answer": "The main risk is **Insufficient Logging & Monitoring**. In the event of a security incident (like a data breach or an attempted attack), there will be no forensic trail to investigate what happened, which user accounts were compromised, what data was accessed, or how the attacker got in. This makes incident response nearly impossible.",
+          "keywords": [
+            "insufficient logging",
+            "monitoring",
+            "forensic trail",
+            "incident response",
+            "investigation"
+          ]
+        },
+        "Q2_Mitigate": {
+          "model_answer": "At a minimum, the service must log all authentication attempts (successful and failed), all privileged operations, all data access and modification events (who accessed what, when), and key transaction events. These logs should be sent to a centralized, tamper-resistant logging system.",
+          "keywords": [
+            "authentication attempts",
+            "privileged operations",
+            "data access",
+            "centralized logging",
+            "tamper-resistant"
+          ]
+        }
+      },
+      "manual_evaluation": {
+        "threat_identification_score_1_to_5": null,
+        "mitigation_quality_score_1_to_5": null,
+        "structured_reasoning_score_1_to_5": null,
+        "notes": ""
+      }
+    }
+  }
+}

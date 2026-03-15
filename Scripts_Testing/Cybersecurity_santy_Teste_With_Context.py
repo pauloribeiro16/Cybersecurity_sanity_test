@@ -21,7 +21,7 @@ OLLAMA_REQUEST_TIMEOUT_SECONDS = 700
 OLLAMA_KEEP_ALIVE_DURATION = "5m"
 
 LOG_DIR_NAME = "cybersecurity_test_logs"
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_JSON_FILENAME = "CyberMetric_Results.json"
 CYBERMETRIC_JSON_FILENAME = "CyberMetric-80-v1.json" # Nome do ficheiro com as perguntas
 

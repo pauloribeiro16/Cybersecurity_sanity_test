@@ -19,7 +19,7 @@ OLLAMA_REQUEST_TIMEOUT_SECONDS = 3000
 OLLAMA_KEEP_ALIVE_DURATION = "5m"
 
 LOG_DIR_NAME = "cybersecurity_inference_logs" # Pasta de logs separada
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # --- Modelos e Prompt para o Teste de Inferência ---
 

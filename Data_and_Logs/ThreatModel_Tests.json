@@ -1,0 +1,172 @@
+[
+{
+    "test_id": "TM-001",
+    "domain": "Web Application Security",
+    "title": "Profile Picture Upload Feature",
+    "architecture_description": "A web application allows authenticated users to upload a profile picture. The file is received by the web server, validated only by its file extension (.jpg, .png), and then stored in a public AWS S3 bucket. The file path is then saved in the user's profile database.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 3 critical security threats."}, {"q_id": "Q2_Mitigate", "prompt": "For the most critical threat, propose two specific mitigations."}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Malicious File Upload:** An attacker can upload a webshell disguised as an image. 2. **Information Disclosure:** The public S3 bucket can be enumerated, exposing all user images. 3. **Denial of Service:** Attackers could upload very large files to exhaust storage or processing resources.",
+        "keywords": ["malicious file", "webshell", "extension validation", "public bucket", "enumeration", "denial of service", "resource exhaustion"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "1. **Content Validation:** The server must validate the file's content using 'magic numbers' or MIME type, not just the extension. 2. **Secure Storage:** Store files in a private S3 bucket and serve them to users via short-lived, pre-signed URLs.",
+        "keywords": ["server-side validation", "magic numbers", "MIME type", "private bucket", "pre-signed URLs"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-002",
+    "domain": "API Security",
+    "title": "Internal HR API Exposure",
+    "architecture_description": "An internal HR API, which provides access to employee data (salary, address), is being exposed to be consumed by a new third-party mobile app. Authentication uses a single, static API key hardcoded into the mobile app.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 2 critical security threats."}, {"q_id": "Q2_Mitigate", "prompt": "Propose mitigations for both threats."}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Broken Authentication:** The static, hardcoded API key can be easily extracted from the mobile app by reverse engineering, giving an attacker full access to the API. 2. **Excessive Data Exposure:** The API exposes sensitive data (salary, address) that the announcement app likely does not need.",
+        "keywords": ["broken authentication", "hardcoded key", "reverse engineering", "excessive data exposure", "sensitive PII"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "1. **Authentication:** Implement a user-centric authentication flow like OAuth 2.0, where each user authenticates individually and receives a short-lived access token. 2. **Authorization:** The API should be refactored to only return the minimum data required for the app's function (e.g., just employee name and department), not sensitive PII.",
+        "keywords": ["OAuth 2.0", "per-user authentication", "short-lived tokens", "least privilege", "minimize data"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-003",
+    "domain": "IoT & Network Security",
+    "title": "Smart Office Thermostat",
+    "architecture_description": "A new smart thermostat is installed in the office. It connects to the company's internal Wi-Fi network to send data to a cloud service. The device uses the default factory password, and it has no mechanism for automatic firmware updates.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 3 critical security threats."}, {"q_id": "Q2_Mitigate", "prompt": "Propose a mitigation for each threat."}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Network Pivot Point:** An attacker can compromise the thermostat using the default password and use it as an entry point to pivot into the internal corporate network. 2. **Unpatched Vulnerabilities:** The lack of firmware updates means known vulnerabilities will never be fixed, making it an easy target. 3. **Data Interception:** If the data sent to the cloud is unencrypted, it can be intercepted on the Wi-Fi network.",
+        "keywords": ["default password", "pivot", "internal network", "unpatched", "firmware update", "unencrypted traffic", "interception"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "1. **Access Control:** Change the default password immediately. 2. **Network Segmentation:** Place the thermostat and other IoT devices on a separate, isolated VLAN or guest network that cannot access the main corporate network. 3. **Secure Lifecycle:** Only purchase devices that support secure, automatic firmware updates.",
+        "keywords": ["change default password", "network segmentation", "VLAN", "isolated network", "firmware updates"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-004",
+    "domain": "Cloud Security (IAM)",
+    "title": "EC2 Instance with Admin Role",
+    "architecture_description": "A developer attaches an IAM role with the full 'AdministratorAccess' policy to an AWS EC2 instance. The script on the instance is exposed to the internet to receive commands.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify the primary threat."}, {"q_id": "Q2_Mitigate", "prompt": "How should this be fixed?"}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "The primary threat is **Privilege Escalation and Account Takeover**. If an attacker compromises the internet-exposed script on the EC2 instance, they will gain the full 'AdministratorAccess' permissions of the attached IAM role, allowing them to take over the entire AWS account.",
+        "keywords": ["privilege escalation", "account takeover", "compromise", "IAM role", "AdministratorAccess"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "The principle of **Least Privilege** must be applied. Create a new, dedicated IAM policy that grants *only* the specific permissions the script needs to perform its task (e.g., `s3:GetObject`, `s3:PutObject` for a specific bucket) and attach this minimal policy to the role instead.",
+        "keywords": ["least privilege", "dedicated IAM policy", "minimal permissions", "specific actions"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-005",
+    "domain": "Data Security & Cryptography",
+    "title": "User Password Storage",
+    "architecture_description": "A new login system is being designed to store user passwords in a database. The passwords will be hashed using the MD5 algorithm before storage.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify the critical vulnerability."}, {"q_id": "Q2_Mitigate", "prompt": "What is the modern, correct way to store passwords?"}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "The critical vulnerability is the use of **MD5**, which is an outdated and cryptographically broken hashing algorithm. It is extremely fast, making it susceptible to brute-force attacks, and vulnerable to collisions. Pre-computed tables (rainbow tables) exist for common MD5 hashes.",
+        "keywords": ["MD5", "broken", "outdated", "brute-force", "rainbow tables", "collisions"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "Passwords should be hashed using a modern, slow, memory-hard algorithm designed for password storage. The recommended standard is **Argon2**. Alternatively, **bcrypt** or **scrypt** are also acceptable. A unique, random **salt** must also be generated for each user and stored with the hash.",
+        "keywords": ["Argon2", "bcrypt", "scrypt", "slow hash", "memory-hard", "salt", "unique salt"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-006",
+    "domain": "CI/CD & DevOps Security",
+    "title": "Jenkins Build Pipeline",
+    "architecture_description": "A Jenkins server is publicly accessible on the internet. It uses a simple username/password for login, without MFA. Build scripts have access to production API keys stored as plain text environment variables.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 3 security threats."}, {"q_id": "Q2_Mitigate", "prompt": "Propose mitigations."}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Credential Stuffing/Brute-Force:** The public, non-MFA login page is a prime target for password guessing attacks. 2. **Secrets Exposure:** Storing production keys in plain text environment variables is insecure. 3. **Pipeline Poisoning:** If an attacker compromises Jenkins, they can inject malicious code into the build process, compromising the final application.",
+        "keywords": ["credential stuffing", "brute-force", "MFA", "secrets exposure", "plain text", "pipeline poisoning"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "1. Place Jenkins behind a VPN or firewall. 2. Enforce MFA for all users. 3. Store secrets in a dedicated secrets management tool (like HashiCorp Vault or AWS Secrets Manager) and have the build pipeline fetch them dynamically at runtime.",
+        "keywords": ["VPN", "firewall", "MFA", "secrets management", "Vault", "AWS Secrets Manager"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-007",
+    "domain": "Authentication & Session Management",
+    "title": "User Session Token Handling",
+    "architecture_description": "After a user logs in, a session token (JWT) is generated and stored in the browser's `localStorage`. The token has an expiration time of 30 days.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 2 primary threats."}, {"q_id": "Q2_Mitigate", "prompt": "What is the recommended approach?"}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Cross-Site Scripting (XSS) Vulnerability:** If the site has an XSS flaw, an attacker's script can access `localStorage` and steal the JWT, leading to session hijacking. 2. **Long Session Duration:** A 30-day token lifetime means that if a token is ever stolen, the attacker has a very long window to use it.",
+        "keywords": ["XSS", "cross-site scripting", "localStorage", "token theft", "session hijacking", "long expiration"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "The recommended approach is to store tokens in a secure, `HttpOnly` cookie. This prevents JavaScript from accessing it, mitigating XSS-based token theft. Additionally, use a short-lived access token (e.g., 15 minutes) and a long-lived refresh token to maintain the session securely.",
+        "keywords": ["HttpOnly cookie", "short-lived access token", "refresh token"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-008",
+    "domain": "Software Supply Chain",
+    "title": "Use of Open Source Libraries",
+    "architecture_description": "A Python application is built using a `requirements.txt` file that lists several libraries with versions from 3 years ago (e.g., `requests==2.18.4`). The development process includes no tools to scan for known vulnerabilities.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "What is the main threat?"}, {"q_id": "Q2_Mitigate", "prompt": "How can this be mitigated?"}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "The main threat is **Using Components with Known Vulnerabilities**. The outdated libraries likely contain numerous publicly disclosed vulnerabilities (CVEs) that an attacker can easily exploit to compromise the application.",
+        "keywords": ["known vulnerabilities", "outdated dependencies", "CVEs", "supply chain"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "Implement a **Software Composition Analysis (SCA)** tool (like OWASP Dependency-Check, Snyk, or GitHub Dependabot) into the CI/CD pipeline. This will automatically scan dependencies for known vulnerabilities and alert developers or fail the build, forcing updates.",
+        "keywords": ["Software Composition Analysis", "SCA", "Dependency-Check", "Snyk", "Dependabot"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-009",
+    "domain": "Container Security",
+    "title": "Docker Image for a Web Server",
+    "architecture_description": "A Dockerfile starts with `FROM ubuntu:latest`. The final command is `CMD /usr/sbin/sshd -D && python /app/app.py`. The container is run as the `root` user.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "Identify 3 security misconfigurations."}, {"q_id": "Q2_Mitigate", "prompt": "Suggest fixes for them."}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "1. **Large Base Image:** Using `ubuntu:latest` creates a large image with many unnecessary packages, increasing the attack surface. 2. **Running as Root:** Running the process as the `root` user inside the container violates the principle of least privilege. 3. **Unnecessary SSH:** Including an SSH server inside the container is an anti-pattern and adds an unnecessary attack vector.",
+        "keywords": ["large base image", "attack surface", "root user", "least privilege", "unnecessary ssh"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "1. Use a minimal base image, like a 'distroless' image or `python:3.9-slim`. 2. Add a `USER` instruction in the Dockerfile to run the process as a non-privileged user. 3. Remove the SSH server entirely; use `docker exec` for debugging if needed.",
+        "keywords": ["minimal base image", "distroless", "slim", "USER instruction", "non-root", "remove ssh"]
+      }
+    }
+  },
+  {
+    "test_id": "TM-010",
+    "domain": "Incident Response & Logging",
+    "title": "Minimalist Logging Strategy",
+    "architecture_description": "A new critical payment processing service is deployed. To save on costs, the logging strategy is set to 'errors only'. Successful API requests, authentication attempts, and data access events are not logged.",
+    "questions": [{"q_id": "Q1_Identify", "prompt": "What is the main risk of this strategy?"}, {"q_id": "Q2_Mitigate", "prompt": "What events should be logged?"}],
+    "evaluation_rubric": {
+      "Q1_Identify": {
+        "model_answer": "The main risk is **Insufficient Logging & Monitoring**. In the event of a security incident (like a data breach or an attempted attack), there will be no forensic trail to investigate what happened, which user accounts were compromised, what data was accessed, or how the attacker got in. This makes incident response nearly impossible.",
+        "keywords": ["insufficient logging", "monitoring", "forensic trail", "incident response", "investigation"]
+      },
+      "Q2_Mitigate": {
+        "model_answer": "At a minimum, the service must log all authentication attempts (successful and failed), all privileged operations, all data access and modification events (who accessed what, when), and key transaction events. These logs should be sent to a centralized, tamper-resistant logging system.",
+        "keywords": ["authentication attempts", "privileged operations", "data access", "centralized logging", "tamper-resistant"]
+      }
+    }
+  }
+]

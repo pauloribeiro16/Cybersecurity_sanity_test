@@ -4,6 +4,7 @@ import re
 import time
 import json
 import beaupy
+import argparse
 import pandas as pd
 from typing import List, Dict, Optional, Any, Tuple
 
@@ -12,7 +13,7 @@ from typing import List, Dict, Optional, Any, Tuple
 import requests
 
 # --- CONFIGURAÇÕES ---
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_SOURCE_DIR = os.path.join(SCRIPT_DIR, "Json_CyberMetrics")
 RESULTS_ROOT_DIR = os.path.join(SCRIPT_DIR, "ResultsCyberMetrics")
 
@@ -50,7 +51,7 @@ def call_ollama(model_name: str, user_prompt: str, system_prompt: str) -> Tuple[
         duration = time.perf_counter() - start_time
         full_response = response_data.get("response", "Error: No 'response' key in Ollama's output.").strip()
         
-        strong_pattern_match = re.search(r'(?:answer is|answer:)\s*\**\s*\b([A-E])\b', full_response, re.IGNORECASE)
+        strong_pattern_match = re.search(r'(?:answer|option|choice|correct|best)(?: is|:)?\s*[\*\[\(]*\s*\b([A-E])\b[\*\]\)]*', full_response, re.IGNORECASE)
         if strong_pattern_match:
             extracted_answer = strong_pattern_match.group(1).upper()
         else:
@@ -116,7 +117,7 @@ def extract_probabilities(response_text: str, options: list) -> tuple:
     flags = {"parsing_failed": True, "summation_failed": False, "was_normalized": False}
     extracted = {}
 
-    main_line_match = re.search(r"My confidence levels are:.*", response_text, re.IGNORECASE)
+    main_line_match = re.search(r"(?:My probabilities are|My confidence levels are):.*", response_text, re.IGNORECASE)
     search_area = main_line_match.group(0) if main_line_match else response_text
     
     for option in options:
@@ -160,37 +161,61 @@ def save_results_to_json(results_data: Dict, output_filepath: str):
 def main():
     print("--- Cybersecurity Knowledge Tester (CyberMetric Edition) ---")
 
-    mode_options = ["Standard Multiple-Choice Test", "Two-Step Reasoning Test", "Probabilistic Confidence Test"]
-    selected_mode_str = beaupy.select(mode_options, cursor="> ", cursor_style="cyan")
-    if not selected_mode_str: print("No test mode selected. Exiting."); return
-    
-    test_mode = "Standard"
-    if "Two-Step" in selected_mode_str: test_mode = "Two-Step"
-    if "Probabilistic" in selected_mode_str: test_mode = "Probabilistic"
-    print(f"[INFO] Running in '{test_mode}' mode.")
+    parser = argparse.ArgumentParser(description="Cybersecurity Knowledge Tester")
+    parser.add_argument("--mode", type=str, choices=["Standard", "Two-Step", "Probabilistic"], help="Test mode")
+    parser.add_argument("--file", type=str, help="Specific JSON file to test (basename)")
+    parser.add_argument("--model", type=str, help="Specific model to test")
+    args = parser.parse_args()
+
+    if args.mode:
+        test_mode = args.mode
+        print(f"[INFO] Running in '{test_mode}' mode (via args).")
+    else:
+        mode_options = ["Standard Multiple-Choice Test", "Two-Step Reasoning Test", "Probabilistic Confidence Test"]
+        selected_mode_str = beaupy.select(mode_options, cursor="> ", cursor_style="cyan")
+        if not selected_mode_str: print("No test mode selected. Exiting."); return
+        
+        test_mode = "Standard"
+        if "Two-Step" in selected_mode_str: test_mode = "Two-Step"
+        if "Probabilistic" in selected_mode_str: test_mode = "Probabilistic"
+        print(f"[INFO] Running in '{test_mode}' mode.")
 
     all_json_files = find_json_files(JSON_SOURCE_DIR)
     if not all_json_files: print("\nNo CyberMetric JSON files found. Exiting."); return
     
     files_to_test = []
-    if beaupy.confirm(f"Found {len(all_json_files)} JSON files. Test all of them?", default_is_yes=False):
-        files_to_test = all_json_files
+    if args.file:
+        for f in all_json_files:
+            if os.path.basename(f) == args.file:
+                files_to_test.append(f)
+                break
+        if not files_to_test:
+            print(f"File {args.file} not found. Exiting.")
+            return
     else:
-        file_options = [os.path.basename(f) for f in all_json_files]
-        selected_filename = beaupy.select(file_options, cursor="> ", cursor_style="cyan")
-        if selected_filename: files_to_test.append(next(f for f in all_json_files if os.path.basename(f) == selected_filename))
-    
+        if beaupy.confirm(f"Found {len(all_json_files)} JSON files. Test all of them?", default_is_yes=False):
+            files_to_test = all_json_files
+        else:
+            file_options = [os.path.basename(f) for f in all_json_files]
+            selected_filename = beaupy.select(file_options, cursor="> ", cursor_style="cyan")
+            if selected_filename: files_to_test.append(next(f for f in all_json_files if os.path.basename(f) == selected_filename))
+        
     if not files_to_test: print("No JSON file selected. Exiting."); return
 
     available_models = list_ollama_models()
     if not available_models: return
     
     models_to_test = []
-    if beaupy.confirm("Test ALL available models?", default_is_yes=False):
-        models_to_test = available_models
+    if args.model:
+        if args.model not in available_models:
+            print(f"[WARNING] Model {args.model} not in available models list, but proceeding anyway.")
+        models_to_test.append(args.model)
     else:
-        selected_model = beaupy.select(available_models, cursor="> ", cursor_style="cyan")
-        if selected_model: models_to_test.append(selected_model)
+        if beaupy.confirm("Test ALL available models?", default_is_yes=False):
+            models_to_test = available_models
+        else:
+            selected_model = beaupy.select(available_models, cursor="> ", cursor_style="cyan")
+            if selected_model: models_to_test.append(selected_model)
     
     if not models_to_test: print("No model selected. Exiting."); return
 
@@ -210,7 +235,7 @@ def main():
             all_results_for_json["details"][model_name] = {}
             
             if test_mode == "Probabilistic":
-                system_prompt = """You are an expert AI answering a multiple-choice cybersecurity question. Your task is to provide a probabilistic  score for each option and the sum of all percentages must equal 100%.
+                system_prompt = """You are an expert AI answering a multiple-choice cybersecurity question. Your task is to provide a probabilistic score for each option and the sum of all percentages must equal 100%.
 
 IMPORTANT: You must respond ONLY with a single line in the following format, and nothing else. Do not add explanations or any other text.
 
@@ -221,9 +246,18 @@ My probabilities are: A: 10%, B: 5%, C: 80%, D: 5%"""
                 
                 results_list = []
                 summation_failures = 0
+                total_duration = 0.0
                 for i, test_case in enumerate(test_cases):
                     print(f"\n--- Running Test {i+1}/{len(test_cases)} ---")
-                    full_llm_response, _, duration = call_ollama(model_name, test_case['full_prompt'], system_prompt)
+                    # PRIMING: Forçar o modelo a começar com a frase esperada
+                    primed_prompt = f"{test_case['full_prompt']}\n\nMy probabilities are:"
+                    full_llm_response, _, duration = call_ollama(model_name, primed_prompt, system_prompt)
+                    total_duration += duration
+                    
+                    print(f"\n[DEBUG] --- SYSTEM PROMPT ---\n{system_prompt}")
+                    print(f"\n[DEBUG] --- USER PROMPT ---\n{primed_prompt}")
+                    print(f"\n[DEBUG] --- FULL RESPONSE ---\n{full_llm_response}\n-----------------------------")
+
                     probabilities, flags = extract_probabilities(full_llm_response, list(test_case["options_dict"].keys()))
                     if flags["summation_failed"]: summation_failures += 1
                     
@@ -260,52 +294,80 @@ My probabilities are: A: 10%, B: 5%, C: 80%, D: 5%"""
                     "median_confidence_on_correct_answer_percent": f"{median_conf:.2f}",
                     "variance_of_confidence_on_correct_answer": f"{variance_conf:.2f}", # <<< NOVA MÉTRICA AQUI
                     "std_dev_of_confidence_on_correct_answer": f"{std_conf:.2f}",
-                    "summation_failure_rate_percent": f"{sum_fail_rate:.2f}"
+                    "summation_failure_rate_percent": f"{sum_fail_rate:.2f}",
+                    "total_time_seconds": f"{total_duration:.2f}"
                 }
                 all_results_for_json["details"][model_name] = {f"Question_{i+1}": r for i, r in enumerate(results_list)}
                 
                 print(f"\n--- SUMMARY FOR MODEL: {model_name} ---")
                 print(f"  Accuracy (Top Choice): {accuracy:.2f}%")
                 print(f"  Avg. Confidence: {avg_conf:.2f}% | Median: {median_conf:.2f}% | Variance: {variance_conf:.2f} | Std Dev: {std_conf:.2f}")
+                print(f"  Total Execution Time: {total_duration:.2f}s")
 
                 print(f"  Summation Fail Rate: {sum_fail_rate:.2f}%")
 
             elif test_mode == "Standard":
-                system_prompt = "You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. Respond ONLY in this format (Answer: A, B, C, D, or E) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary."
+                system_prompt = (
+                    "You are a cybersecurity expert taking a multiple-choice quiz. Please review the question and the options. "
+                    "Respond ONLY in this format: 'Answer: [Letter]'.\n"
+                    "Example:\nAnswer: A\n\n"
+                    "You can provide a brief explanation before your final answer if necessary, but ensure the final line follows the format."
+                )
                 correct_count = 0
+                total_duration = 0.0
                 for i, test_case in enumerate(test_cases):
                     print(f"\n--- Running Test {i+1}/{len(test_cases)} ---")
-                    full_llm_response, extracted_answer, duration = call_ollama(model_name, test_case['full_prompt'], system_prompt)
+                    # PRIMING: Adicionar "Answer:" no final para forçar o modelo a completar
+                    primed_prompt = f"{test_case['full_prompt']}\n\nAnswer:"
+                    full_llm_response, extracted_answer, duration = call_ollama(model_name, primed_prompt, system_prompt)
+                    total_duration += duration
+                    
+                    print(f"\n[DEBUG] --- SYSTEM PROMPT ---\n{system_prompt}")
+                    print(f"\n[DEBUG] --- USER PROMPT ---\n{primed_prompt}")
+                    print(f"\n[DEBUG] --- FULL RESPONSE ---\n{full_llm_response}\n-----------------------------")
+
                     is_correct = (extracted_answer == test_case['expected_answer'])
                     if is_correct: correct_count += 1
                     print(f"Extracted Answer: '{extracted_answer}' | Expected: '{test_case['expected_answer']}' -> [ {'CORRECT' if is_correct else 'INCORRECT'} ] ({duration:.2f}s)")
                     all_results_for_json["details"][model_name][f"Question_{i+1}"] = {"question": test_case['question_only'], "full_llm_response": full_llm_response, "extracted_answer": extracted_answer, "expected_answer": test_case['expected_answer'], "is_correct": is_correct, "evaluation": "CORRECT" if is_correct else "INCORRECT", "response_time": f"{duration:.2f}"}
                 total_tests = len(test_cases)
                 accuracy = (correct_count / total_tests * 100) if total_tests > 0 else 0
-                all_results_for_json["summary"] = {"correct": correct_count, "incorrect": total_tests - correct_count, "total": total_tests, "accuracy": f"{accuracy:.2f}%"}
+                all_results_for_json["summary"] = {"correct": correct_count, "incorrect": total_tests - correct_count, "total": total_tests, "accuracy": f"{accuracy:.2f}%", "total_time_seconds": f"{total_duration:.2f}"}
                 print(f"\n--- SUMMARY FOR MODEL: {model_name} ---")
                 print(f"  Overall Accuracy: {accuracy:.2f}% ({correct_count} / {total_tests})")
+                print(f"  Total Execution Time: {total_duration:.2f}s")
 
             elif test_mode == "Two-Step":
                 system_prompt_step1 = "You are a cybersecurity expert. Answer the following question directly and concisely based on your knowledge. Do not mention or guess any multiple-choice options."
                 system_prompt_step2 = "Your task is to compare your previous answer with a list of options. Based *exclusively* on your previous answer provided in the context below, choose the option that best represents it."
                 option_correct_count = 0
+                total_duration = 0.0
                 for i, test_case in enumerate(test_cases):
                     print(f"\n--- Running Test {i+1}/{len(test_cases)} ---")
                     print("  Step 1: Generating free-text response...")
                     step1_response, _, duration1 = call_ollama(model_name, test_case['question_only'], system_prompt_step1)
+                    
+                    print(f"\n[DEBUG STEP 1] --- PROMPT ---\n{test_case['question_only']}")
+                    print(f"\n[DEBUG STEP 1] --- RESPONSE ---\n{step1_response}\n-----------------------------")
+
                     print("  Step 2: Mapping response to options...")
                     prompt_step2 = f"[START OF YOUR PREVIOUS RESPONSE]\n\n{step1_response}\n\n[END OF YOUR PREVIOUS RESPONSE]\n\nOriginal Question: {test_case['question_only']}\n\nBased only on your previous response provided above, which of the following options (A, B, C, D, E) is the closest match?\n\n{test_case['full_prompt'].replace(test_case['question_only'], '')}\n\nRespond ONLY in this format (Answer: A, B, C, D, or E) with the letter of the correct option. You can provide a brief explanation before your final answer if necessary."
-                    _, step2_selected_option, duration2 = call_ollama(model_name, prompt_step2, system_prompt_step2)
+                    step2_full_response, step2_selected_option, duration2 = call_ollama(model_name, prompt_step2, system_prompt_step2)
+                    total_duration += (duration1 + duration2)
+                    
+                    print(f"\n[DEBUG STEP 2] --- PROMPT ---\n{prompt_step2}")
+                    print(f"\n[DEBUG STEP 2] --- RESPONSE ---\n{step2_full_response}\n-----------------------------")
+
                     is_option_correct = (step2_selected_option == test_case['expected_answer'])
                     if is_option_correct: option_correct_count += 1
                     print(f"  -> Selected Option: '{step2_selected_option}' | Expected: '{test_case['expected_answer']}' -> [ {'OPTION CORRECT' if is_option_correct else 'OPTION INCORRECT'} ] (Total time: {duration1+duration2:.2f}s)")
                     all_results_for_json["details"][model_name][f"Question_{i+1}"] = {"question_text": test_case['question_only'], "expected_option": test_case['expected_answer'],"step1_free_response": step1_response, "step2_selected_option": step2_selected_option, "is_option_correct": is_option_correct, "manual_overall_evaluation": ""}
                 total_tests = len(test_cases)
                 option_accuracy = (option_correct_count / total_tests * 100) if total_tests > 0 else 0
-                all_results_for_json["summary"] = {"provisory_option_correct": option_correct_count, "provisory_option_incorrect": total_tests - option_correct_count, "total": total_tests, "option_mapping_accuracy": f"{option_accuracy:.2f}%"}
+                all_results_for_json["summary"] = {"provisory_option_correct": option_correct_count, "provisory_option_incorrect": total_tests - option_correct_count, "total": total_tests, "option_mapping_accuracy": f"{option_accuracy:.2f}%", "total_time_seconds": f"{total_duration:.2f}"}
                 print(f"\n--- PROVISORY SUMMARY FOR MODEL: {model_name} ---")
                 print(f"  Option Mapping Accuracy: {option_accuracy:.2f}% ({option_correct_count} / {total_tests} correct option choices)")
+                print(f"  Total Execution Time: {total_duration:.2f}s")
 
             # --- Guardar os Resultados ---
             output_filepath = generate_output_path(RESULTS_ROOT_DIR, model_name, json_filepath, test_mode)
